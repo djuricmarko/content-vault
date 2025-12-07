@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import { Sidebar } from "@/components/Sidebar";
 import { EntriesGrid } from "@/components/EntriesGrid";
+import { Header } from "@/components/Header";
 
 export default function Home() {
   const numberOfEntries = 10;
@@ -9,11 +10,7 @@ export default function Home() {
     <div className={styles.page}>
       <Sidebar />
       <main className={styles.main}>
-        <div className={styles.heading}>
-          <h2>Main content</h2>
-          <span>●</span>
-          <p>{numberOfEntries} items</p>
-        </div>
+        <Header numberOfEntries={numberOfEntries} />
         <div className={styles.content}>
           <EntriesGrid numberOfEntries={numberOfEntries} />
         </div>

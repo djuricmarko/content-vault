@@ -9,4 +9,23 @@
   height: 300px;
   border: 1px solid black;
   border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+    font-weight: 700;
+  }
+
+  .content {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .timestamp {
+    color: gray;
+  }
 }
