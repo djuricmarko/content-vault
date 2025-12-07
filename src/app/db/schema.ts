@@ -6,6 +6,8 @@ export const users = pgTable('users', {
   email: text('email').unique(),
   emailVerified: timestamp('email_verified', { withTimezone: true }),
   image: text('image'),
+  // For Credentials (email/password) sign-in
+  passwordHash: text('password_hash'),
 });
 
 export const accounts = pgTable('accounts', {
