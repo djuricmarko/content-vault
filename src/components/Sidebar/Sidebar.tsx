@@ -14,7 +14,6 @@ export function Sidebar() {
           <li>Category #2</li>
           <li>Category #3</li>
         </ul>
-        <button>Add category</button>
       </div>
       <div className={styles.footer}>
         <p>maredjuric@gmail.com</p>

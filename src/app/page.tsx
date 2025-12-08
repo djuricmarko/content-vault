@@ -10,7 +10,7 @@ export default function Home() {
     <div className={styles.page}>
       <Sidebar />
       <main className={styles.main}>
-        <Header numberOfEntries={numberOfEntries} />
+        <Header title="Entries" numberOfEntries={numberOfEntries} />
         <div className={styles.content}>
           <EntriesGrid numberOfEntries={numberOfEntries} />
         </div>
