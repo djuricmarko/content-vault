@@ -1,6 +1,6 @@
 import { pgTable, uuid, text, timestamp } from 'drizzle-orm/pg-core';
 
-export const categories = pgTable('categories', {
+const categories = pgTable('categories', {
   id: uuid('id').primaryKey().defaultRandom(),
   userId: uuid('user_id').notNull(),
   name: text('name').notNull(),
@@ -10,7 +10,7 @@ export const categories = pgTable('categories', {
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 });
 
-export const entries = pgTable('entries', {
+const entries = pgTable('entries', {
   id: uuid('id').primaryKey().defaultRandom(),
   userId: uuid('user_id').notNull(),
   categoryId: uuid('category_id').references(() => categories.id, { onDelete: 'set null' }),
@@ -20,7 +20,7 @@ export const entries = pgTable('entries', {
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 });
 
-export const collaborators = pgTable('collaborators', {
+const collaborators = pgTable('collaborators', {
   id: uuid('id').primaryKey().defaultRandom(),
   entryId: uuid('entry_id').notNull().references(() => entries.id, { onDelete: 'cascade' }),
   invitedBy: uuid('invited_by').notNull(),
@@ -31,11 +31,14 @@ export const collaborators = pgTable('collaborators', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
 
-export type Category = typeof categories.$inferSelect;
-export type NewCategory = typeof categories.$inferInsert;
+type Category = typeof categories.$inferSelect;
+type NewCategory = typeof categories.$inferInsert;
 
-export type Entry = typeof entries.$inferSelect;
-export type NewEntry = typeof entries.$inferInsert;
+type Entry = typeof entries.$inferSelect;
+type NewEntry = typeof entries.$inferInsert;
 
-export type Collaborator = typeof collaborators.$inferSelect;
-export type NewCollaborator = typeof collaborators.$inferInsert;
+type Collaborator = typeof collaborators.$inferSelect;
+type NewCollaborator = typeof collaborators.$inferInsert;
+
+export { categories, entries, collaborators };
+export type { Category, NewCategory, Entry, NewEntry, Collaborator, NewCollaborator };
