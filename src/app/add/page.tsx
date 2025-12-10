@@ -10,6 +10,7 @@ export default function AddNewEntry() {
       <main className={styles.main}>
         <Header title="New Entry" />
         <div className={styles.content}>
+          <p>Title</p>
           <EntryEditor />
         </div>
       </main>
