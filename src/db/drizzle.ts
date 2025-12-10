@@ -1,9 +1,7 @@
 import 'server-only';
 import { drizzle } from 'drizzle-orm/neon-http';
-import { neon } from '@neondatabase/serverless';
 import * as schema from './schema';
 
-const sql = neon(process.env.POSTGRES_URL!);
-const db = drizzle(sql, { schema });
+const db = drizzle(process.env.POSTGRES_URL!, { schema });
 
-export { db, sql };
+export { db };
