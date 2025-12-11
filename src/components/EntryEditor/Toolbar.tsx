@@ -1,4 +1,4 @@
-import { Bold, Code, Heading1, Heading2, Heading3, Italic, List, ListOrdered, Strikethrough } from "lucide-react";
+import { Bold, Code, Heading1, Heading2, Heading3, Italic, List, ListOrdered } from "lucide-react";
 import type { Editor } from "@tiptap/react";
 import styles from "./entry-editor.module.css";
 
