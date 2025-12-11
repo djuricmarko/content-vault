@@ -1,11 +1,18 @@
 'use client';
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { createCategory } from "./actions";
 import styles from './add-category.module.css';
 
 export function AddCategory() {
   const [state, formAction, isPending] = useActionState(createCategory, { error: '' });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (formRef.current && !state.error) {
+      formRef.current.reset();
+    }
+  }, [state.error]);
 
   return (
     <form action={formAction}>
@@ -16,7 +23,12 @@ export function AddCategory() {
           placeholder="Enter category name"
           required
         />
-        <button type="submit">{isPending ? 'Adding...' : 'Add category'}</button>
+        <button
+          type="submit"
+          disabled={isPending}
+        >
+          {isPending ? 'Adding...' : 'Add category'}
+        </button>
         {state?.error && <p>{state.error}</p>}
       </div>
     </form>
