@@ -1,7 +1,11 @@
+import { SignOutButton } from "@/components/SignOutButton";
+import { createClient } from "@/utils/supabase/server";
 import styles from './sidebar.module.css';
-import { LogOut } from "lucide-react";
 
-export function Sidebar() {
+export async function Sidebar() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.heading}>
@@ -13,11 +17,13 @@ export function Sidebar() {
           <li>Category #1</li>
           <li>Category #2</li>
           <li>Category #3</li>
+          <input type="text" />
+          <button>Add category</button>
         </ul>
       </div>
       <div className={styles.footer}>
-        <p>maredjuric@gmail.com</p>
-        <LogOut />
+        <p>{data?.claims.email}</p>
+        <SignOutButton />
       </div>
     </div>
   );

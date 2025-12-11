@@ -1,5 +1,5 @@
-import styles from "./header.module.css";
 import Link from "next/link";
+import styles from "./header.module.css";
 
 export function Header({ title, numberOfEntries }: { title: string, numberOfEntries?: number }) {
   return (
@@ -13,7 +13,7 @@ export function Header({ title, numberOfEntries }: { title: string, numberOfEntr
           </>
         )}
       </div>
-      <Link href="/add">
+      <Link href="/dashboard/add">
         <button>
           New Entry
         </button>

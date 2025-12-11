@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/LoginForm";
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/utils/supabase/server";
 import styles from "./page.module.css";
 
 export default async function Home() {

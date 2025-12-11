@@ -1,13 +1,11 @@
 'use client';
 
 import Image from "next/image";
-import type { FormEvent } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@/utils/supabase/client";
 import styles from './login-form.module.css';
 
 export function LoginForm() {
-  async function handleLogin(e: FormEvent) {
-    e.preventDefault();
+  async function handleLogin() {
     const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithOAuth({
