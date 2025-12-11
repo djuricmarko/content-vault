@@ -13,7 +13,12 @@ import Code from "@tiptap/extension-code";
 import { Toolbar } from "./Toolbar";
 import styles from './entry-editor.module.css';
 
-export function EntryEditor() {
+interface Props {
+  content: string;
+  onChange: (richText: string) => void;
+}
+
+export function EntryEditor({ content, onChange }: Props) {
   const editor = useEditor({
     extensions: [
       Document,
@@ -33,13 +38,14 @@ export function EntryEditor() {
     ],
     autofocus: true,
     immediatelyRender: false,
+    content: content,
     editorProps: {
       attributes: {
         class: styles.content,
       },
     },
     onUpdate: ({ editor }) => {
-      console.log(editor.getHTML());
+      onChange(editor.getHTML())
     },
   });
 

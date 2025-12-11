@@ -1,17 +1,16 @@
-import styles from './add.module.css';
 import { Sidebar } from "@/components/Sidebar";
 import { Header } from "@/components/Header";
-import { EntryEditor } from "@/components/EntryEditor";
+import { NewEntryForm } from "@/components/NewEntryForm";
+import styles from './add.module.css';
 
-export default function AddNewEntry() {
+export default async function AddNewEntry() {
   return (
     <div className={styles.page}>
       <Sidebar />
       <main className={styles.main}>
         <Header title="New Entry" />
         <div className={styles.content}>
-          <p>Title</p>
-          <EntryEditor />
+          <NewEntryForm />
         </div>
       </main>
     </div>
