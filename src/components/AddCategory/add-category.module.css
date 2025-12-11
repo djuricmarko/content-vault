@@ -1,0 +1,13 @@
+.categoryInput {
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 3px;
+
+  > input {
+    height: 100%;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+  }
+}
