@@ -48,12 +48,6 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           <Italic />
         </button>
         <button
-          onClick={() => editor.chain().focus().toggleStrike().run()}
-          className={getButtonClass(editor.isActive('strike'))}
-        >
-          <Strikethrough />
-        </button>
-        <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           className={getButtonClass(editor.isActive('code'))}
         >
