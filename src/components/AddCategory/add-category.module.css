@@ -1,13 +1,29 @@
 .categoryInput {
-  height: 30px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-end;
 
   > input {
-    height: 100%;
+    color: var(--foreground);
+    height: 40px;
+    width: 100%;
     outline: none;
     border: none;
-    border-radius: 3px;
-    padding-left: 10px;
+    padding-left: 15px;
+    border-radius: var(--radius);
+    background-color: var(--background);
+  }
+
+  .button {
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid var(--border);
+    background-color: var(--muted-foreground);
+    border-radius: var(--radius);
   }
 }

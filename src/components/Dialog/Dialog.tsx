@@ -9,12 +9,21 @@ interface Props {
   trigger: string,
   title: string,
   description: string,
+  open?: boolean,
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   children: ReactNode
 }
 
-export function Dialog({ trigger, title, description, children }: Props) {
+export function Dialog({
+  trigger,
+  title,
+  description,
+  open,
+  setOpen,
+  children
+}: Props) {
   return (
-    <RadixDialog.Root>
+    <RadixDialog.Root open={open} onOpenChange={setOpen}>
       <RadixDialog.Trigger className={styles.trigger}>
         <Plus size={16} />
         {trigger}

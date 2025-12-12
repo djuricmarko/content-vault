@@ -18,8 +18,8 @@ export function AddCategory() {
   return (
     <Dialog
       trigger="Create new category"
-      title="Add category"
-      description="Create"
+      title="Create new category"
+      description="Enter the name of the new category"
     >
       <form action={formAction}>
         <div className={styles.categoryInput}>
@@ -31,9 +31,10 @@ export function AddCategory() {
           />
           <button
             type="submit"
+            className={styles.button}
             disabled={isPending}
           >
-            {isPending ? 'Adding...' : 'Add category'}
+            {isPending ? 'Saving...' : 'Save'}
           </button>
           {state?.error && <p>{state.error}</p>}
         </div>
