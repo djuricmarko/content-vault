@@ -1,4 +1,9 @@
+import Link from "next/link";
+import Image from "next/image";
 import { eq } from "drizzle-orm";
+import type { User } from "@supabase/auth-js";
+import { Folder, LayoutDashboard, Settings, Vault } from "lucide-react";
+import { DropdownMenu } from "radix-ui";
 import { db } from "@/db/drizzle";
 import { categories } from "@/db/schema";
 import { SignOutButton } from "@/components/SignOutButton";
@@ -6,32 +11,88 @@ import { createClient } from "@/utils/supabase/server";
 import { AddCategory } from "@/components/AddCategory";
 import styles from './sidebar.module.css';
 
+function SidebarHeading() {
+  return (
+    <div className={styles.heading}>
+      <Link href="/dashboard">
+        <Vault size={25} />
+        <span>Content Vault</span>
+      </Link>
+    </div>
+  );
+}
+
+function SidebarItems({ items }: { items: { id: string, name: string }[] }) {
+  return (
+    <div className={styles.items}>
+      <div className={styles.allItems}>
+        <LayoutDashboard size={16} />
+        <span>All entries</span>
+      </div>
+      <div className={styles.subHeading}>
+        <p>Categories</p>
+      </div>
+      <ul>
+        {items.map(item => (
+          <li key={item.id}>
+            <Folder size={16} />
+            {item.name}
+          </li>
+        ))}
+        <AddCategory />
+      </ul>
+    </div>
+  );
+}
+
+function SidebarFooter({ userData, avatar }: { userData: User | null, avatar: string | null }) {
+  return (
+    <div className={styles.footer}>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger asChild>
+          <button className={styles.triggerButton} aria-label="User options">
+            <Image src={avatar || ''} width={32} height={32} alt="User avatar" />
+          </button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content className={styles.dropdownContent} sideOffset={5} align="start">
+            <div className={styles.dropdownHeader}>
+              <Image src={avatar || ''} width={32} height={32} alt="User avatar" />
+              <div className={styles.headerInfo}>
+                <span className={styles.userName}>Name</span>
+                <span className={styles.userEmail}>{userData?.email}</span>
+              </div>
+            </div>
+            <DropdownMenu.Separator className={styles.separator} />
+            <DropdownMenu.Item className={styles.dropdownItem}>
+              <Settings size={18} />
+              Settings
+            </DropdownMenu.Item>
+            <DropdownMenu.Item className={styles.dropdownItem}>
+              <SignOutButton />
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+    </div>
+  );
+}
+
 export async function Sidebar() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
+  const { data: sessionData } = await supabase.auth.getSession();
+
   const categoryList = await db
     .select()
     .from(categories)
     .where(eq(categories.userId, String(data?.user?.id)));
 
   return (
-    <div className={styles.sidebar}>
-      <div className={styles.heading}>
-        <h1>Content Vault</h1>
-      </div>
-      <div className={styles.items}>
-        <ul>
-          <li>All items</li>
-          {categoryList.map(category => (
-            <li key={category.id}>{category.name}</li>
-          ))}
-          <AddCategory />
-        </ul>
-      </div>
-      <div className={styles.footer}>
-        <p>{data?.user?.email}</p>
-        <SignOutButton />
-      </div>
-    </div>
+    <aside className={styles.sidebar}>
+      <SidebarHeading />
+      <SidebarItems items={categoryList} />
+      <SidebarFooter userData={data?.user} avatar={sessionData.session?.user.user_metadata.avatar_url} />
+    </aside>
   );
 }

@@ -1,0 +1,15 @@
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  gap: 12px;
+
+  &[data-highlighted] {
+    background-color: var(--muted-foreground);
+    color: var(--background);
+  }
+}
