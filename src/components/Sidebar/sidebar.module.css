@@ -1,11 +1,11 @@
 .sidebar {
-  background-color: var(--sidebar-backgorund);
-  width: var(--sidebar-width);
-  flex-shrink: 0;
-  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-shrink: 0;
+  width: var(--sidebar-width);
+  border-right: 1px solid var(--border);
+  background-color: var(--sidebar-backgorund);
 }
 
 .heading {
@@ -25,19 +25,19 @@
 }
 
 .subHeading {
-  font-size: 16px;
-  color: var(--muted-foreground);
   padding: 5px 10px;
+  color: var(--muted-foreground);
+  font-size: 16px;
 }
 
 .allItems {
   display: flex;
   align-items: center;
-  padding-left: 10px;
   gap: 6px;
-  cursor: pointer;
-  border-radius: var(--radius);
   height: 2rem;
+  padding-left: 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
 
   &:hover {
     background-color: var(--muted-foreground);
@@ -46,25 +46,25 @@
 }
 
 .items {
-  height: 100%;
-  padding: 10px;
-  justify-self: self-start;
   display: flex;
   flex-direction: column;
+  justify-self: self-start;
   gap: 10px;
+  height: 100%;
+  padding: 10px;
 
   > ul {
-    list-style: none;
     display: flex;
     flex-direction: column;
+    list-style: none;
 
     > li {
       display: flex;
       align-items: center;
       gap: 10px;
       height: 2rem;
-      border-radius: var(--radius);
       padding-left: 10px;
+      border-radius: var(--radius);
       cursor: pointer;
 
       &:hover {
@@ -81,24 +81,24 @@
 }
 
 .footer {
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .triggerButton {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  background-color: var(--sidebar-backgorund);
+  width: 48px;
+  height: 48px;
   border: none;
+  border-radius: var(--radius);
   outline: none;
+  background-color: var(--sidebar-backgorund);
+  transition: background-color 0.2s;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--background);
@@ -110,24 +110,24 @@
 }
 
 .avatar {
-  width: 36px;
-  height: 36px;
-  color: white;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .dropdownContent {
   min-width: 280px;
-  background-color: #1c1c1e;
-  border-radius: 12px;
   padding: 8px;
-  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: #1c1c1e;
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -135,9 +135,9 @@
 .dropdownHeader {
   display: flex;
   align-items: center;
-  padding: 12px 8px;
   gap: 12px;
   margin-bottom: 4px;
+  padding: 12px 8px;
 
   .headerInfo {
     display: flex;
@@ -151,29 +151,29 @@
     }
 
     .userEmail {
-      font-size: 12px;
-      color: var(--muted-foreground);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       max-width: 180px;
+      overflow: hidden;
+      color: var(--muted-foreground);
+      font-size: 12px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
 
 .dropdownItem {
-  font-size: 14px;
-  line-height: 1;
-  border-radius: 6px;
+  position: relative;
   display: flex;
   align-items: center;
+  gap: 12px;
   height: 30px;
   padding: 0 10px;
-  position: relative;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1;
   user-select: none;
   outline: none;
   cursor: pointer;
-  gap: 12px;
 
   &[data-highlighted] {
     background-color: var(--muted-foreground);
@@ -181,9 +181,8 @@
   }
 }
 
-
 .separator {
   height: 1px;
-  background-color: var(--border);
   margin: 6px -8px;
+  background-color: var(--border);
 }
