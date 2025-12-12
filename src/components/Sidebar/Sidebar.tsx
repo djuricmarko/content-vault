@@ -25,19 +25,23 @@ function SidebarHeading() {
 function SidebarItems({ items }: { items: { id: string, name: string }[] }) {
   return (
     <div className={styles.items}>
-      <div className={styles.allItems}>
-        <LayoutDashboard size={16} />
-        <span>All entries</span>
-      </div>
+      <Link href="/dashboard">
+        <div className={styles.allItems}>
+          <LayoutDashboard size={16} />
+          <span>All entries</span>
+        </div>
+      </Link>
       <div className={styles.subHeading}>
         <p>Categories</p>
       </div>
       <ul>
         {items.map(item => (
-          <li key={item.id}>
-            <Folder size={16} />
-            {item.name}
-          </li>
+          <Link href={`/dashboard/${item.id}`} key={item.id}>
+            <li>
+              <Folder size={16} />
+              {item.name}
+            </li>
+          </Link>
         ))}
         <AddCategory />
       </ul>

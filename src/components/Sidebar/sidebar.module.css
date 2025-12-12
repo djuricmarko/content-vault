@@ -59,7 +59,7 @@
     list-style: none;
     gap: 3px;
 
-    > li {
+    > a > li {
       display: flex;
       align-items: center;
       gap: 10px;
