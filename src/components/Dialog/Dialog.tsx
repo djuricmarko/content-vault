@@ -1,12 +1,14 @@
 'use client';
 
 import { Dialog as RadixDialog } from 'radix-ui';
-import { Plus, XIcon } from "lucide-react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
+import { XIcon } from "lucide-react";
 import styles from './dialog.module.css';
 import { ReactNode } from "react";
 
 interface Props {
   trigger: string,
+  icon: IconName,
   title: string,
   description: string,
   open?: boolean,
@@ -16,6 +18,7 @@ interface Props {
 
 export function Dialog({
   trigger,
+  icon,
   title,
   description,
   open,
@@ -25,7 +28,7 @@ export function Dialog({
   return (
     <RadixDialog.Root open={open} onOpenChange={setOpen}>
       <RadixDialog.Trigger className={styles.trigger}>
-        <Plus size={16} />
+        <DynamicIcon name={icon} size={16} />
         {trigger}
       </RadixDialog.Trigger>
       <RadixDialog.Portal>

@@ -18,6 +18,7 @@ export function AddCategory() {
   return (
     <Dialog
       trigger="Create new category"
+      icon="plus"
       title="Create new category"
       description="Enter the name of the new category"
     >
