@@ -63,7 +63,7 @@ function SidebarFooter({ userData, avatar }: { userData: User | null, avatar: st
             <div className={styles.dropdownHeader}>
               <Image src={avatar || ''} width={32} height={32} alt="User avatar" />
               <div className={styles.headerInfo}>
-                <span className={styles.userName}>Name</span>
+                <span className={styles.userName}>{userData?.user_metadata?.full_name}</span>
                 <span className={styles.userEmail}>{userData?.email}</span>
               </div>
             </div>
