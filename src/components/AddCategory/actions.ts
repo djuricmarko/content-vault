@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from 'zod';
-import { categories } from "@/db/schema";
+import { categories } from "@/lib/drizzle/schema";
 import { createClient } from "@/lib/supabase/server";
-import { db } from "@/db/drizzle";
+import { db } from "@/lib/drizzle/drizzle";
 
 interface FormState {
   error: string | undefined;

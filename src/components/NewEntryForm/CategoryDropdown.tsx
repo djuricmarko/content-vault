@@ -1,6 +1,6 @@
 'use client';
 
-import { Category } from "@/db/schema";
+import { Category } from "@/lib/drizzle/schema";
 
 interface Props {
   initialCategories: Category[];

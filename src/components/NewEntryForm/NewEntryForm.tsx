@@ -4,7 +4,7 @@ import { useActionState, useState } from "react";
 import { EntryEditor } from "@/components/EntryEditor";
 import { CategoryDropdown } from "./CategoryDropdown";
 import { createEntry } from "./actions";
-import { Category } from "@/db/schema";
+import { Category } from "@/lib/drizzle/schema";
 
 interface Props {
   initialCategories: Category[];
