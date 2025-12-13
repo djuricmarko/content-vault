@@ -32,16 +32,19 @@ export async function createEntry(
   const category = formData.get('category');
   const content = formData.get('content');
 
-  console.log(category, content);
-
   const validatedFields = entrySchema.safeParse({ title, category, content });
 
   if (!validatedFields.success) {
     const issues = validatedFields.error.issues;
-    const nameError = issues.find((issue) => issue.path[0] === 'title');
+
+    const errorMap = issues.reduce((acc, issue) => {
+      const fieldName = String(issue.path[0]);
+      acc[fieldName] = issue.message;
+      return acc;
+    }, {} as Record<string, string>);
 
     return {
-      error: nameError?.message
+      error: Object.values(errorMap).join(', ')
     };
   }
 

@@ -2,16 +2,28 @@ import { Header } from "@/components/Header";
 import { NewEntryForm } from "@/components/NewEntryForm";
 import { getUserCategories } from "@/components/NewEntryForm/actions";
 import styles from './add.module.css';
+import { Suspense } from "react";
 
-export default async function AddNewEntry() {
+async function CategoriesLoader() {
   const categories = await getUserCategories();
+  return <NewEntryForm initialCategories={categories} />;
+}
 
+function CategoriesLoading() {
+  return (
+    <div className={styles.content}>
+      <p>Loading...</p>
+    </div>
+  );
+}
+
+export default function AddNewEntry() {
   return (
     <>
       <Header title="New Entry" />
-      <div className={styles.content}>
-        <NewEntryForm initialCategories={categories} />
-      </div>
+      <Suspense fallback={<CategoriesLoading />}>
+        <CategoriesLoader />
+      </Suspense>
     </>
   );
 }
