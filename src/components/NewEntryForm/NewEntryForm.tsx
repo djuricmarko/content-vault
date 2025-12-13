@@ -4,8 +4,13 @@ import { useActionState, useState } from "react";
 import { EntryEditor } from "@/components/EntryEditor";
 import { CategoryDropdown } from "./CategoryDropdown";
 import { createEntry } from "./actions";
+import { Category } from "@/db/schema";
 
-export function NewEntryForm() {
+interface Props {
+  initialCategories: Category[];
+}
+
+export function NewEntryForm({ initialCategories }: Props) {
   const [state, formAction, isPending] = useActionState(createEntry, { error: '' });
   const [richText, setRichText] = useState<string>('');
 
@@ -17,7 +22,7 @@ export function NewEntryForm() {
     <div>
       <form action={formAction}>
         <input type="text" name="title" placeholder="Enter the entry title" />
-        <CategoryDropdown />
+        <CategoryDropdown initialCategories={initialCategories} />
         <EntryEditor
           content={richText}
           onChange={entryEditorHandler}
