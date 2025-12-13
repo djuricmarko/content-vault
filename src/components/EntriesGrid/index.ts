@@ -1,1 +1,0 @@
-export { EntriesGrid } from './EntriesGrid';

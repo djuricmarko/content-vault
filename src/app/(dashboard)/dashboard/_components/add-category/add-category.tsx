@@ -1,0 +1,45 @@
+'use client';
+
+import { useActionState, useEffect, useRef } from "react";
+import { createCategory } from "../../_actions/categories";
+import styles from './add-category.module.css';
+import { Dialog } from "@/components/dialog";
+
+export function AddCategory() {
+  const [state, formAction, isPending] = useActionState(createCategory, { error: '' });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (formRef.current && !state.error) {
+      formRef.current.reset();
+    }
+  }, [state.error]);
+
+  return (
+    <Dialog
+      trigger="Create new category"
+      icon="plus"
+      title="Create new category"
+      description="Enter the name of the new category"
+    >
+      <form action={formAction}>
+        <div className={styles.categoryInput}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter category name"
+            required
+          />
+          <button
+            type="submit"
+            className={styles.button}
+            disabled={isPending}
+          >
+            {isPending ? 'Saving...' : 'Save'}
+          </button>
+          {state?.error && <p>{state.error}</p>}
+        </div>
+      </form>
+    </Dialog>
+  );
+}
