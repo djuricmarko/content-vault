@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from 'zod';
 import { categories } from "@/db/schema";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import { db } from "@/db/drizzle";
 
 interface FormState {

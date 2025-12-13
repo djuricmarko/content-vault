@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { eq } from "drizzle-orm";
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { categories, entries } from "@/db/schema";
 import { db } from "@/db/drizzle";
 import { revalidatePath } from "next/cache";

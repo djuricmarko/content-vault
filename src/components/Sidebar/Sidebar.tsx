@@ -7,7 +7,7 @@ import { DropdownMenu } from "radix-ui";
 import { db } from "@/db/drizzle";
 import { categories } from "@/db/schema";
 import { SignOutButton } from "@/components/SignOutButton";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import { AddCategory } from "@/components/AddCategory";
 import styles from './sidebar.module.css';
 
