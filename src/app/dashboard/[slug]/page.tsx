@@ -1,7 +1,7 @@
 import { Header } from "@/components/header";
 import { EntriesGrid } from "@/components/entries-grid";
 import { getCategoryName, getEntry } from "@/app/dashboard/[slug]/getEntry";
-import styles from "@/app/dashboard/page.module.css";
+import styles from "../page.module.css";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
