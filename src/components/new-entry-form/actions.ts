@@ -8,7 +8,8 @@ import { db } from "@/lib/drizzle/drizzle";
 import { revalidatePath } from "next/cache";
 
 interface FormState {
-  error: string | undefined;
+  success: boolean,
+  error?: string;
 }
 
 const entrySchema = z.object({
@@ -25,7 +26,7 @@ export async function createEntry(
   const { data: { user }, error: authError } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    return { error: 'You must be logged in to create a entry.' };
+    return { success: false, error: 'Unauthorized' };
   }
 
   const title = formData.get('title');
@@ -35,16 +36,9 @@ export async function createEntry(
   const validatedFields = entrySchema.safeParse({ title, category, content });
 
   if (!validatedFields.success) {
-    const issues = validatedFields.error.issues;
-
-    const errorMap = issues.reduce((acc, issue) => {
-      const fieldName = String(issue.path[0]);
-      acc[fieldName] = issue.message;
-      return acc;
-    }, {} as Record<string, string>);
-
     return {
-      error: Object.values(errorMap).join(', ')
+      success: false,
+      error: validatedFields.error.issues.map(issue => issue.message).join(', ')
     };
   }
 
@@ -57,14 +51,11 @@ export async function createEntry(
     });
 
     revalidatePath('/dashboard');
+    return { success: true };
   } catch (error) {
     console.error('Database Error:', error);
-    return { error: 'Failed to create entry. Please try again.' };
+    return { success: false, error: 'Failed to create entry. Please try again.' };
   }
-
-  return {
-    error: undefined
-  };
 }
 
 export async function getUserCategories() {

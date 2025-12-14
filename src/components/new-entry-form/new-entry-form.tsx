@@ -3,15 +3,15 @@
 import { useActionState, useState } from "react";
 import { EntryEditor } from "@/components/entry-editor";
 import { CategoryDropdown } from "./category-dropdown";
-import { createEntry } from "./actions";
 import { Category } from "@/lib/drizzle/schema";
+import { createEntry } from "./actions";
 
 interface Props {
   initialCategories: Category[];
 }
 
 export function NewEntryForm({ initialCategories }: Props) {
-  const [state, formAction, isPending] = useActionState(createEntry, { error: '' });
+  const [state, formAction, isPending] = useActionState(createEntry, { success: false, error: '' });
   const [richText, setRichText] = useState<string>('');
 
   function entryEditorHandler(newContent: string) {

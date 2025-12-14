@@ -8,7 +8,7 @@ import { db } from "@/lib/drizzle/drizzle";
 
 interface FormState {
   success: boolean,
-  error?: string | undefined;
+  error?: string;
 }
 
 const categorySchema = z.object({
@@ -24,7 +24,7 @@ export async function createCategory(
   const { data: { user }, error: authError } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    return { success: false, error: 'You must be logged in to create a category.' };
+    return { success: false, error: 'Unauthorized' };
   }
 
   const name = formData.get('name');
