@@ -1,5 +1,5 @@
-import { EntriesGrid } from "@/components/EntriesGrid";
-import { Header } from "@/components/Header";
+import { EntriesGrid } from "@/components/entries-grid";
+import { Header } from "@/components/header";
 import styles from "./page.module.css";
 
 export default function Home() {

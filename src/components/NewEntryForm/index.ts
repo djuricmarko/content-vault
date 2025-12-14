@@ -1,1 +1,0 @@
-export { NewEntryForm } from './NewEntryForm';

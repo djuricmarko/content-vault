@@ -1,5 +1,5 @@
 import { ReactNode, Suspense } from "react";
-import { Sidebar, SidebarSkeleton } from "@/components/Sidebar";
+import { Sidebar, SidebarSkeleton } from "@/components/sidebar";
 import styles from "./page.module.css";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {

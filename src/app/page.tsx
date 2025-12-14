@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { LoginForm } from "@/components/LoginForm";
+import { LoginForm } from "@/components/login-form";
 import { createClient } from "@/lib/supabase/server";
 import styles from "./page.module.css";
 

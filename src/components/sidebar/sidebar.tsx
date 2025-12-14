@@ -6,9 +6,9 @@ import { Folder, LayoutDashboard, Settings, Vault } from "lucide-react";
 import { DropdownMenu } from "radix-ui";
 import { db } from "@/lib/drizzle/drizzle";
 import { categories } from "@/lib/drizzle/schema";
-import { SignOutButton } from "@/components/SignOutButton";
+import { SignOutButton } from "@/components/sign-out-button";
 import { createClient } from "@/lib/supabase/server";
-import { AddCategory } from "@/components/AddCategory";
+import { AddCategory } from "@/components/add-category";
 import styles from './sidebar.module.css';
 
 function SidebarHeading() {

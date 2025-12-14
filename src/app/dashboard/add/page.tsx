@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { Header } from "@/components/Header";
-import { NewEntryForm } from "@/components/NewEntryForm";
-import { getUserCategories } from "@/components/NewEntryForm/actions";
+import { Header } from "@/components/header";
+import { NewEntryForm } from "@/components/new-entry-form";
+import { getUserCategories } from "@/components/new-entry-form/actions";
 import styles from './add.module.css';
 
 async function CategoriesLoader() {

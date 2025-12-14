@@ -1,8 +1,8 @@
 'use client';
 
 import { useActionState, useState } from "react";
-import { EntryEditor } from "@/components/EntryEditor";
-import { CategoryDropdown } from "./CategoryDropdown";
+import { EntryEditor } from "@/components/entry-editor";
+import { CategoryDropdown } from "./category-dropdown";
 import { createEntry } from "./actions";
 import { Category } from "@/lib/drizzle/schema";
 

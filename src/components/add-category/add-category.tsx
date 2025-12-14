@@ -3,7 +3,7 @@
 import { useActionState, useEffect, useRef } from "react";
 import { createCategory } from "./actions";
 import styles from './add-category.module.css';
-import { Dialog } from "@/components/Dialog";
+import { Dialog } from "@/components/dialog";
 
 export function AddCategory() {
   const [state, formAction, isPending] = useActionState(createCategory, { error: '' });
