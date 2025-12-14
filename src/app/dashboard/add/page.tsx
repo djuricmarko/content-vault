@@ -10,7 +10,7 @@ export default async function AddNewEntry() {
     <>
       <Header title="New Entry" />
       <Suspense fallback={<p>Loading...</p>}>
-        <NewEntryForm initialCategories={categories} />;
+        <NewEntryForm initialCategories={categories} />
       </Suspense>
     </>
   );
