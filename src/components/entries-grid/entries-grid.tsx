@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
+import { Entry } from "@/lib/drizzle/schema";
 import styles from './entries-grid.module.css';
 
-export function EntriesGrid({ numberOfEntries }: { numberOfEntries: number }) {
+export function EntriesGrid({ items }: { items: Entry[] }) {
   return (
     <div className={styles.container}>
       <Link href="/dashboard/add">
@@ -11,18 +12,11 @@ export function EntriesGrid({ numberOfEntries }: { numberOfEntries: number }) {
           <p>Create new entry</p>
         </div>
       </Link>
-      {Array.from({ length: numberOfEntries }).map((_, index) => (
-        <div className={styles.entry} key={index}>
-          <p className={styles.title}>Title</p>
-          <p className={styles.content}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            enetreset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
-          <p className={styles.category}>Category</p>
+      {items.map((item) => (
+        <div className={styles.entry} key={item.id}>
+          <p className={styles.title}>{item.title}</p>
+          <p className={styles.content}>{item.content}</p>
+          <p className={styles.category}>{item.categoryId}</p>
           <span className={styles.timestamp}>about 2 hours ago</span>
         </div>
       ))}
