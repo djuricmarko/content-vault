@@ -1,8 +1,16 @@
+import Link from "next/link";
+import { Plus } from "lucide-react";
 import styles from './entries-grid.module.css';
 
 export function EntriesGrid({ numberOfEntries }: { numberOfEntries: number }) {
   return (
     <div className={styles.container}>
+      <Link href="/dashboard/add">
+        <div className={styles.new}>
+          <Plus size={25} />
+          <p>Create new entry</p>
+        </div>
+      </Link>
       {Array.from({ length: numberOfEntries }).map((_, index) => (
         <div className={styles.entry} key={index}>
           <p className={styles.title}>Title</p>

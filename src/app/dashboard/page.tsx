@@ -3,13 +3,11 @@ import { Header } from "@/components/header";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const numberOfEntries = 10;
-
   return (
     <>
-      <Header title="Entries" numberOfEntries={numberOfEntries} />
+      <Header title="All entries" />
       <div className={styles.content}>
-        <EntriesGrid numberOfEntries={numberOfEntries} />
+        <EntriesGrid numberOfEntries={10} />
       </div>
     </>
   );
