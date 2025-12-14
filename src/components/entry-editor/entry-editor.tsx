@@ -10,7 +10,7 @@ import Heading from "@tiptap/extension-heading";
 import Bold from "@tiptap/extension-bold";
 import Italic from "@tiptap/extension-italic";
 import Code from "@tiptap/extension-code";
-import { Toolbar } from "./Toolbar";
+import { Toolbar } from "./toolbar";
 import styles from './entry-editor.module.css';
 
 interface Props {
