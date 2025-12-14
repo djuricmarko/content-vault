@@ -7,7 +7,8 @@ import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/drizzle/drizzle";
 
 interface FormState {
-  error: string | undefined;
+  success: boolean,
+  error?: string | undefined;
 }
 
 const categorySchema = z.object({
@@ -23,18 +24,16 @@ export async function createCategory(
   const { data: { user }, error: authError } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    return { error: 'You must be logged in to create a category.' };
+    return { success: false, error: 'You must be logged in to create a category.' };
   }
 
   const name = formData.get('name');
   const validatedFields = categorySchema.safeParse({ name });
 
   if (!validatedFields.success) {
-    const issues = validatedFields.error.issues;
-    const nameError = issues.find((issue) => issue.path[0] === 'name');
-
     return {
-      error: nameError?.message
+      success: false,
+      error: validatedFields.error.issues[0].message
     };
   }
 
@@ -45,12 +44,9 @@ export async function createCategory(
     });
 
     revalidatePath('/dashboard');
+    return { success: true };
   } catch (error) {
     console.error('Database Error:', error);
-    return { error: 'Failed to create category. Please try again.' };
-  }
-
-  return {
-    error: undefined
+    return { success: false, error: 'Failed to create category. Please try again.' };
   }
 }
