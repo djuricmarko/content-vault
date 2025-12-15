@@ -1,5 +1,6 @@
 import { ReactNode, Suspense } from "react";
 import { Sidebar, SidebarSkeleton } from "@/components/sidebar";
+import Loading from "./loading";
 import styles from "./page.module.css";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -9,7 +10,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <Sidebar />
       </Suspense>
       <main className={styles.main}>
-        {children}
+        <Suspense fallback={<Loading />}>
+          {children}
+        </Suspense>
       </main>
     </div>
   );

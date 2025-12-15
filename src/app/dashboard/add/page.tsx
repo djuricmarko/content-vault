@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { Header } from "@/components/header";
 import { NewEntryForm } from "@/components/new-entry-form";
 import { getUserCategories } from "@/components/new-entry-form/actions";
@@ -9,9 +8,7 @@ export default async function AddNewEntry() {
   return (
     <>
       <Header title="New Entry" />
-      <Suspense fallback={<p>Loading...</p>}>
-        <NewEntryForm initialCategories={categories} />
-      </Suspense>
+      <NewEntryForm initialCategories={categories} />
     </>
   );
 }
