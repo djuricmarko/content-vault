@@ -30,15 +30,13 @@ export function LoginForm() {
       onClick={handleLogin}
       className={styles.googleBtn}
     >
-      <div className={styles.iconWrapper}>
-        <Image
-          src="https://authjs.dev/img/providers/google.svg"
-          alt="Google logo"
-          width={20}
-          height={20}
-        />
-      </div>
-      <span className={styles.btnText}>Continue with Google</span>
+      <Image
+        src="https://authjs.dev/img/providers/google.svg"
+        alt="Google logo"
+        width={20}
+        height={20}
+      />
+      Continue with Google
     </button>
   );
 }

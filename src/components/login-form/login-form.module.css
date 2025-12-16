@@ -1,26 +1,20 @@
 .googleBtn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 6px;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  padding: 0;
+  gap: 0.5rem;
   cursor: pointer;
-  width: 100%;
-  max-width: 400px;
-  height: 48px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
+  font-weight: 500;
+  transition: background-color 0.2s;
 
-.googleBtn:hover {
-  background-color: #f8faff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border-color: #d2e3fc;
-}
-
-.googleBtn:active {
-  background-color: #f1f3f4;
+  &:hover {
+    background-color: var(--bg-hover);
+  }
 }
 
 .iconWrapper {
