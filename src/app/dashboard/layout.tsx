@@ -1,5 +1,6 @@
 import { ReactNode, Suspense } from "react";
 import { Sidebar, SidebarSkeleton } from "@/components/sidebar";
+import { GridSkeleton } from "@/components/grid-skeleton";
 import styles from "./page.module.css";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -8,9 +9,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <Suspense fallback={<SidebarSkeleton />}>
         <Sidebar />
       </Suspense>
-      <main className={styles.main}>
-        {children}
-      </main>
+      <Suspense fallback={<GridSkeleton />}>
+        <main className={styles.main}>
+          {children}
+        </main>
+      </Suspense>
     </div>
   );
 }

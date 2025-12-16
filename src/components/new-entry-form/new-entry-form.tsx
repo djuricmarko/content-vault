@@ -1,10 +1,15 @@
 'use client';
 
 import { useActionState, useState } from "react";
-import { EntryEditor } from "@/components/entry-editor";
+import dynamic from "next/dynamic";
 import { CategoryDropdown } from "./category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "./actions";
+
+const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
+  ssr: false,
+  loading: () => <div>Loading editor...</div>
+})
 
 interface Props {
   initialCategories: Category[];
