@@ -1,1 +1,2 @@
-export { LoginForm } from './login-form';
+export { GoogleLogin } from './google-login';
+export { MagicLinkForm } from './magic-link-form';

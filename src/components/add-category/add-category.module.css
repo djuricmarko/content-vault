@@ -13,19 +13,19 @@
   gap: 10px;
 
   > input {
-    color: var(--foreground);
+    color: var(--text-primary);
     height: 40px;
     width: 100%;
     outline: none;
     border: none;
     padding-left: 15px;
     border-radius: var(--radius);
-    background-color: var(--background);
+    background-color: var(--input-background);
   }
 
   .error {
     font-size: 13px;
-    color: red;
+    color: var(--destructive);
   }
 }
 
@@ -34,7 +34,7 @@
   width: fit-content;
   padding: 10px 20px;
   outline: none;
-  border: 1px solid var(--border);
-  background-color: var(--muted-foreground);
+  border: 1px solid var(--border-secondary);
+  background-color: var(--brand-primary);
   border-radius: var(--radius);
 }

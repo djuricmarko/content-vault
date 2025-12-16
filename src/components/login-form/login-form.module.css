@@ -1,26 +1,20 @@
 .googleBtn {
+  background-color: transparent;
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  padding: 0;
+  gap: 0.5rem;
   cursor: pointer;
-  width: 100%;
-  max-width: 400px;
-  height: 48px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
+  font-weight: 500;
+  transition: background-color 0.2s;
 
-.googleBtn:hover {
-  background-color: #f8faff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border-color: #d2e3fc;
-}
-
-.googleBtn:active {
-  background-color: #f1f3f4;
+  &:hover {
+    background-color: var(--hover-background);
+  }
 }
 
 .iconWrapper {
@@ -36,6 +30,65 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  color: #3c4043;
+  color: var(--text-primary);
   padding-right: 48px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .primaryButton {
+    background-color: var(--brand-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--brand-hover);
+    }
+  }
+
+  .input {
+    background-color: var(--input-background);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+    }
+  }
+
+  .success {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    line-height: 1.6rem;
+
+    > p:last-child {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  }
+
+  .error {
+    color: var(--destructive);
+  }
 }

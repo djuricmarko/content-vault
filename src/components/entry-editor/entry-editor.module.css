@@ -1,5 +1,5 @@
 .editorContainer {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-primary);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -12,8 +12,8 @@
   align-items: center;
   gap: 8px;
   padding: 12px;
-  background-color: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--panel-background);
+  border-bottom: 1px solid var(--border-primary);
 }
 
 .buttonGroup {
@@ -25,7 +25,7 @@
 .divider {
   width: 1px;
   height: 20px;
-  background-color: #d1d5db;
+  background-color: var(--border-primary);
   margin: 0 8px;
 }
 
@@ -33,41 +33,42 @@
   display: flex;
   align-items: center;
   padding: 6px 10px;
-  background: white;
-  border: 1px solid #d1d5db;
+  background: var(--background);
+  border: 1px solid var(--border-primary);
   border-radius: 6px;
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-primary);
   transition: all 0.2s ease;
 }
 
 .button:hover:not(:disabled) {
-  background-color: #f3f4f6;
-  border-color: #9ca3af;
+  background-color: var(--hover-background);
+  border-color: var(--border-primary);
 }
 
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background-color: #f9fafb;
+  background-color: var(--panel-background);
 }
 
 .isActive {
-  background-color: #111827;
-  color: white;
-  border-color: #111827;
+  background-color: var(--brand-primary);
+  color: var(--text-primary);
+  border-color: var(--brand-primary);
 }
 
 .isActive:hover {
-  background-color: #000;
+  background-color: var(--brand-hover);
 }
 
 .content {
   padding: 24px;
   min-height: 250px;
-  background-color: #fff;
+  background-color: var(--background);
+  color: var(--text-primary);
   outline: none;
   font-size: 16px;
   line-height: 1.6;
@@ -88,7 +89,7 @@
 }
 
 .content blockquote {
-  border-left: 3px solid #d1d5db;
+  border-left: 3px solid var(--border-primary);
   padding-left: 1rem;
   margin-left: 0;
   font-style: italic;

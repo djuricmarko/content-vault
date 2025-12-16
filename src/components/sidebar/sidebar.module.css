@@ -4,8 +4,8 @@
   justify-content: space-between;
   flex-shrink: 0;
   width: var(--sidebar-width);
-  border-right: 1px solid var(--border);
-  background-color: var(--sidebar-backgorund);
+  border-right: 1px solid var(--border-secondary);
+  background-color: var(--sidebar-background);
 }
 
 .heading {
@@ -26,7 +26,7 @@
 
 .subHeading {
   padding: 5px 10px;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
   font-size: 16px;
 }
 
@@ -40,8 +40,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--muted-foreground);
-    color: var(--background);
+    background-color: var(--hover-background);
+    color: var(--text-primary);
   }
 }
 
@@ -69,8 +69,8 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--muted-foreground);
-        color: var(--background);
+        background-color: var(--hover-background);
+        color: var(--text-primary);
       }
     }
   }
@@ -97,7 +97,7 @@
   border: none;
   border-radius: var(--radius);
   outline: none;
-  background-color: var(--sidebar-backgorund);
+  background-color: var(--sidebar-background);
   transition: background-color 0.2s;
   cursor: pointer;
 
@@ -117,7 +117,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: white;
+  color: var(--text-primary);
   font-size: 16px;
   font-weight: 600;
 }
@@ -125,9 +125,9 @@
 .dropdownContent {
   min-width: 280px;
   padding: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-secondary);
   border-radius: 12px;
-  background-color: #1c1c1e;
+  background-color: var(--input-background);
   box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -154,7 +154,7 @@
     .userEmail {
       max-width: 180px;
       overflow: hidden;
-      color: var(--muted-foreground);
+      color: var(--text-muted);
       font-size: 12px;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -177,13 +177,13 @@
   cursor: pointer;
 
   &[data-highlighted] {
-    background-color: var(--muted-foreground);
-    color: var(--background);
+    background-color: var(--hover-background);
+    color: var(--text-primary);
   }
 }
 
 .separator {
   height: 1px;
   margin: 6px -8px;
-  background-color: var(--border);
+  background-color: var(--border-secondary);
 }

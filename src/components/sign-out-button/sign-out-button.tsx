@@ -1,12 +1,12 @@
 'use client';
 
 import { LogOut } from "lucide-react";
-import { signOutAction } from "./actions";
+import { signOutAction } from "./signOutAction";
 import styles from './sign-out-button.module.css';
 
 export function SignOutButton() {
   return (
-    <form action={signOutAction}>
+    <form action={signOutAction} className={styles.form}>
       <button
         type="submit"
         onClick={(e) => e.stopPropagation()}
