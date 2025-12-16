@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { Check, Vault } from 'lucide-react';
 import { createClient } from "@/lib/supabase/server";
-import { LoginForm } from "@/components/login-form";
+import { GoogleLogin, MagicLinkForm } from "@/components/login-form";
 import styles from './page.module.css';
 
 export default async function Home() {
@@ -20,23 +20,9 @@ export default async function Home() {
             <Vault size={48} strokeWidth={1.5} color="#fff" />
           </div>
           <h1 className={styles.title}>Create your Content Vault account</h1>
-          <div className={styles.inputGroup}>
-            <label htmlFor="email" className={styles.label}>Email</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="name@example.com"
-              className={styles.input}
-            />
-          </div>
-          <button className={styles.primaryButton}>
-            Continue
-          </button>
+          <MagicLinkForm />
           <div className={styles.divider}>OR</div>
-          <LoginForm />
-          <p className={styles.footerText}>
-            Already have an account? <a href="#" className={styles.link}>Sign in</a>
-          </p>
+          <GoogleLogin />
         </div>
         <p className={styles.legalText}>
           By creating an account, you agree to the Terms of Service and Privacy Policy

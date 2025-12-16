@@ -4,7 +4,7 @@ import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
 import styles from './login-form.module.css';
 
-export function LoginForm() {
+export function GoogleLogin() {
   async function handleLogin() {
     const supabase = createClient();
 
