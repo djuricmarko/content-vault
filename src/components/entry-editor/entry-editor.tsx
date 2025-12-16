@@ -18,7 +18,7 @@ interface Props {
   onChange: (richText: string) => void;
 }
 
-export function EntryEditor({ content, onChange }: Props) {
+export default function EntryEditor({ content, onChange }: Props) {
   const editor = useEditor({
     extensions: [
       Document,
