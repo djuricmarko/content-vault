@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from "react";
+import { z } from "zod";
 import { createClient } from "@/lib/supabase/client";
 import styles from "./login-form.module.css";
-import { z } from "zod";
 
 const emailSchema = z.email("Invalid email address.");
 
