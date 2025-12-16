@@ -6,7 +6,7 @@ import styles from './sign-out-button.module.css';
 
 export function SignOutButton() {
   return (
-    <form action={signOutAction}>
+    <form action={signOutAction} className={styles.form}>
       <button
         type="submit"
         onClick={(e) => e.stopPropagation()}

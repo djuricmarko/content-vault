@@ -1,7 +1,7 @@
 .googleBtn {
   background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
   border-radius: 6px;
   padding: 0.75rem;
   display: flex;
@@ -13,7 +13,7 @@
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: var(--bg-hover);
+    background-color: var(--hover-background);
   }
 }
 
@@ -30,7 +30,7 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  color: #3c4043;
+  color: var(--text-primary);
   padding-right: 48px;
 }
 
@@ -42,12 +42,12 @@
   .label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-label);
+    color: var(--text-secondary);
   }
 
   .primaryButton {
     background-color: var(--brand-primary);
-    color: var(--text-main);
+    color: var(--text-primary);
     border: none;
     border-radius: 6px;
     padding: 0.75rem;
@@ -61,11 +61,11 @@
   }
 
   .input {
-    background-color: var(--bg-input);
-    border: 1px solid var(--border-color);
+    background-color: var(--input-background);
+    border: 1px solid var(--border-primary);
     border-radius: 6px;
     padding: 0.75rem 1rem;
-    color: var(--text-main);
+    color: var(--text-primary);
     font-size: 0.9rem;
     transition: border-color 0.2s;
 
@@ -89,6 +89,6 @@
   }
 
   .error {
-    color: red;
+    color: var(--destructive);
   }
 }

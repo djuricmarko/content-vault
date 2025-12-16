@@ -6,9 +6,9 @@
 }
 
 .content {
-  background-color: var(--sidebar-backgorund);
+  background-color: var(--sidebar-background);
   border-radius: 6px;
-  box-shadow: var(--sidebar-backgorund);
+  box-shadow: var(--sidebar-background);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -33,7 +33,7 @@
 .description {
   margin: 10px 0 20px;
   font-size: 13px;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
@@ -51,8 +51,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--muted-foreground);
-    color: var(--background);
+    background-color: var(--hover-background);
+    color: var(--text-primary);
   }
 }
 
