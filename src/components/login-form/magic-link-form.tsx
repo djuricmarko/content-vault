@@ -3,9 +3,13 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import styles from "./login-form.module.css";
+import { z } from "zod";
+
+const emailSchema = z.email("Invalid email address.");
 
 export function MagicLinkForm() {
-  const [loading, setLoading] = useState(false);
+  const supabase = createClient();
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
@@ -15,29 +19,35 @@ export function MagicLinkForm() {
   }
 
   async function handleLogin() {
-    setLoading(true);
-    const supabase = createClient();
-    const { data, error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        shouldCreateUser: true,
-        emailRedirectTo: `${location.origin}/dashboard`,
-      },
-    });
+    setIsLoading(true);
+    setErrorMessage("");
 
-    if (data) {
-      setLoading(false);
-      setSuccess(true);
+    const parsedEmail = emailSchema.safeParse(email);
+
+    if (!parsedEmail.success) {
+      setErrorMessage(parsedEmail.error.issues[0].message);
+      setIsLoading(false);
+      return;
     }
 
-    if (error) {
-      setLoading(false);
-      setErrorMessage(`Error logging in: ${error.message}`);
+    try {
+      await supabase.auth.signInWithOtp({
+        email: parsedEmail.data,
+        options: {
+          shouldCreateUser: true,
+          emailRedirectTo: `${location.origin}/dashboard`,
+        },
+      });
+      setSuccess(true);
+    } catch (error: unknown) {
+      setErrorMessage(error instanceof Error ? error.message : 'An error occurred');
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
-    <div className={styles.inputGroup}>
+    <form action={handleLogin} className={styles.inputGroup}>
       <label htmlFor="email" className={styles.label}>Email</label>
       <input
         id="email"
@@ -47,11 +57,10 @@ export function MagicLinkForm() {
         className={styles.input}
       />
       <button
-        type="button"
-        onClick={handleLogin}
+        type="submit"
         className={styles.primaryButton}
       >
-        {loading ? 'Signing in...' : 'Continue'}
+        {isLoading ? 'Signing in...' : 'Continue'}
       </button>
       {success && (
         <div className={styles.success}>
@@ -65,6 +74,6 @@ export function MagicLinkForm() {
       {errorMessage && (
         <p className={styles.error}>{errorMessage}</p>
       )}
-    </div>
+    </form>
   );
 }
