@@ -6,9 +6,9 @@ import styles from './page.module.css';
 
 export default async function Home() {
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.getClaims();
+  const { data, error } = await supabase.auth.getUser();
 
-  if (!error && data?.claims) {
+  if (!error && data?.user) {
     redirect("/dashboard");
   }
 

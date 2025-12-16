@@ -35,7 +35,7 @@ export function MagicLinkForm() {
         email: parsedEmail.data,
         options: {
           shouldCreateUser: true,
-          emailRedirectTo: `${location.origin}/dashboard`,
+          emailRedirectTo: `${location.origin}/auth/callback`,
         },
       });
       setSuccess(true);
