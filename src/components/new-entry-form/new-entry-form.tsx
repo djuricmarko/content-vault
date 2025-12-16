@@ -6,7 +6,10 @@ import { CategoryDropdown } from "./category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "./actions";
 
-const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), { ssr: false })
+const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
+  ssr: false,
+  loading: () => <div>Loading editor...</div>
+})
 
 interface Props {
   initialCategories: Category[];
