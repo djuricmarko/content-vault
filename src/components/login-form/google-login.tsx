@@ -6,11 +6,11 @@ import { createClient } from "@/lib/supabase/client";
 import styles from './login-form.module.css';
 
 export function GoogleLogin() {
-  const supabase = createClient();
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   async function handleLogin() {
+    const supabase = createClient();
     setIsLoading(true);
     setErrorMessage('');
 
