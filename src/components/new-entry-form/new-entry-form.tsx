@@ -5,29 +5,43 @@ import dynamic from "next/dynamic";
 import { CategoryDropdown } from "./category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "./actions";
+import styles from './new-entry-form.module.css';
 
 const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
   ssr: false,
   loading: () => <div>Loading editor...</div>
-})
+});
 
 interface Props {
   initialCategories: Category[];
+  selectedCategory?: string
 }
 
-export function NewEntryForm({ initialCategories }: Props) {
+export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
   const [state, formAction, isPending] = useActionState(createEntry, { success: false, error: '' });
   const [richText, setRichText] = useState<string>('');
 
+  console.log(selectedCategory);
   function entryEditorHandler(newContent: string) {
     setRichText(newContent);
   }
 
   return (
-    <div>
+    <div className={styles.formContainer}>
       <form action={formAction}>
-        <input type="text" name="title" placeholder="Enter the entry title" />
-        <CategoryDropdown initialCategories={initialCategories} />
+        <div className={styles.top}>
+          <div className={styles.left}>
+            <input type="text" name="title" placeholder="Enter the entry title" />
+            <CategoryDropdown initialCategories={initialCategories} defaultValue={selectedCategory} />
+          </div>
+          <button
+            type="submit"
+            className={styles.button}
+            disabled={isPending}
+          >
+            {isPending ? 'Saving...' : 'Save'}
+          </button>
+        </div>
         <EntryEditor
           content={richText}
           onChange={entryEditorHandler}
@@ -37,14 +51,8 @@ export function NewEntryForm({ initialCategories }: Props) {
           name="content"
           value={richText}
         />
-        <button
-          type="submit"
-          disabled={isPending}
-        >
-          {isPending ? 'Adding...' : 'Add entry'}
-        </button>
       </form>
-      {state?.error && <p>{state.error}</p>}
+      {state?.error && <p className={styles.error}>{state.error}</p>}
     </div>
   );
 }
