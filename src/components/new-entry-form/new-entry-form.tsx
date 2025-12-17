@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { CategoryDropdown } from "./category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "./actions";
+import { Button } from "@/components/button";
 import styles from './new-entry-form.module.css';
 
 const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
@@ -14,7 +15,7 @@ const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
 
 interface Props {
   initialCategories: Category[];
-  selectedCategory?: string
+  selectedCategory?: string;
 }
 
 export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
@@ -22,6 +23,7 @@ export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
   const [richText, setRichText] = useState<string>('');
 
   console.log(selectedCategory);
+
   function entryEditorHandler(newContent: string) {
     setRichText(newContent);
   }
@@ -34,13 +36,12 @@ export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
             <input type="text" name="title" placeholder="Enter the entry title" />
             <CategoryDropdown initialCategories={initialCategories} defaultValue={selectedCategory} />
           </div>
-          <button
+          <Button
             type="submit"
-            className={styles.button}
             disabled={isPending}
           >
             {isPending ? 'Saving...' : 'Save'}
-          </button>
+          </Button>
         </div>
         <EntryEditor
           content={richText}

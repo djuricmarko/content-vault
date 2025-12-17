@@ -6,7 +6,7 @@ import styles from './entries-grid.module.css';
 export function EntriesGrid({ items, slug }: { items: Entry[], slug?: string }) {
   return (
     <div className={styles.container}>
-      <Link href={slug ? `/dashboard/${slug}/new` : "/dashboard/add"}>
+      <Link href={slug ? `/dashboard/${slug}/add` : "/dashboard/add"}>
         <div className={styles.new}>
           <Plus size={25} />
           <p>Create new entry</p>
