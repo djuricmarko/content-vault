@@ -15,7 +15,6 @@
 .item {
   height: 300px;
   min-width: 200px;
-  background: var(--skeleton-background);
   background: linear-gradient(
     90deg,
     var(--skeleton-background) 25%,

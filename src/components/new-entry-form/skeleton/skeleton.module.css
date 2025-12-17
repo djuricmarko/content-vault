@@ -6,7 +6,6 @@
 }
 
 .skeleton {
-  background: var(--skeleton-background);
   background: linear-gradient(
     90deg,
     var(--skeleton-background) 25%,
