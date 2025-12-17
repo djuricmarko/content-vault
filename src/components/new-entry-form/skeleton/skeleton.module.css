@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeleton {
+  background: var(--skeleton-background);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-background) 25%,
+    var(--skeleton-background-light) 50%,
+    var(--skeleton-background) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.pageTitle {
+  height: 32px;
+  width: 150px;
+}
+
+.controlsRow {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.input {
+  height: 40px;
+  width: 250px;
+}
+
+.dropdown {
+  height: 40px;
+  width: 180px;
+}
+
+.saveBtn {
+  height: 40px;
+  width: 80px;
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+.editorContainer {
+  flex: 1;
+  border: 1px solid #333;
+  border-radius: 8px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.toolbar {
+  height: 48px;
+  width: 100%;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+  opacity: 0.6;
+}
+
+.textArea {
+  flex: 1;
+  width: 100%;
+  opacity: 0.3;
+  border-radius: 0;
+}

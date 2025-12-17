@@ -22,8 +22,6 @@ export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
   const [state, formAction, isPending] = useActionState(createEntry, { success: false, error: '' });
   const [richText, setRichText] = useState<string>('');
 
-  console.log(selectedCategory);
-
   function entryEditorHandler(newContent: string) {
     setRichText(newContent);
   }

@@ -9,6 +9,8 @@
   --panel-background: rgb(5, 5, 5);
   --input-background: rgb(17, 17, 17);
   --hover-background: rgb(46, 46, 46);
+  --skeleton-background: rgb(28, 28, 28);
+  --skeleton-background-light:rgb(32, 32, 32);
 
   /* Text */
   --text-primary: rgb(255, 255, 255);

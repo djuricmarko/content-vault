@@ -1,3 +1,5 @@
+import { NewEntrySkeleton } from "@/components/new-entry-form";
+
 export default function Loading() {
-  return <p>Loading...</p>;
+  return <NewEntrySkeleton />;
 }
