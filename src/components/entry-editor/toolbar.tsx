@@ -1,76 +1,79 @@
-import { Bold, Code, Heading1, Heading2, Heading3, Italic, List, ListOrdered } from "lucide-react";
 import type { Editor } from "@tiptap/react";
+import { Toolbar as RadixToolbar } from "radix-ui";
+import { Bold, Code, Heading1, Heading2, Heading3, Italic, List, ListOrdered } from "lucide-react";
 import styles from "./entry-editor.module.css";
-
-function getButtonClass(isActive: boolean) {
-  return isActive ? `${styles.button} ${styles.isActive}` : styles.button;
-}
 
 export function Toolbar({ editor }: { editor: Editor | null }) {
   if (!editor) return null;
 
   return (
-    <div className={styles.toolbar}>
-      <div className={styles.buttonGroup}>
-        <button
+    <RadixToolbar.Root className={styles.toolbar} aria-label="Formatting options">
+      <RadixToolbar.ToggleGroup type="multiple" className={styles.buttonGroup}>
+        <RadixToolbar.ToggleItem
+          value="heading1"
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-          className={getButtonClass(editor.isActive('heading', { level: 1 }))}
+          className={styles.button}
         >
-          <Heading1 />
-        </button>
-        <button
+          <Heading1 size={15} />
+        </RadixToolbar.ToggleItem>
+        <RadixToolbar.ToggleItem
+          value="heading2"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-          className={getButtonClass(editor.isActive('heading', { level: 2 }))}
+          className={styles.button}
         >
-          <Heading2 />
-        </button>
-        <button
+          <Heading2 size={15} />
+        </RadixToolbar.ToggleItem>
+        <RadixToolbar.ToggleItem
+          value="heading3"
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-          className={getButtonClass(editor.isActive('heading', { level: 3 }))}
+          className={styles.button}
         >
-          <Heading3 />
-        </button>
-      </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.buttonGroup}>
-        <button
+          <Heading3 size={15} />
+        </RadixToolbar.ToggleItem>
+      </RadixToolbar.ToggleGroup>
+      <RadixToolbar.Separator className={styles.divider} />
+      <RadixToolbar.ToggleGroup type="multiple" className={styles.buttonGroup}>
+        <RadixToolbar.ToggleItem
+          value="bold"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={getButtonClass(editor.isActive('bold'))}
+          className={styles.button}
         >
-          <Bold />
-        </button>
-        <button
+          <Bold size={15} />
+        </RadixToolbar.ToggleItem>
+        <RadixToolbar.ToggleItem
+          value="italic"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={getButtonClass(editor.isActive('italic'))}
+          className={styles.button}
         >
-          <Italic />
-        </button>
-        <button
+          <Italic size={15} />
+        </RadixToolbar.ToggleItem>
+        <RadixToolbar.ToggleItem
+          value="code"
           onClick={() => editor.chain().focus().toggleCode().run()}
-          className={getButtonClass(editor.isActive('code'))}
+          className={styles.button}
         >
-          <Code />
-        </button>
-      </div>
+          <Code size={15} />
+        </RadixToolbar.ToggleItem>
+      </RadixToolbar.ToggleGroup>
 
-      <div className={styles.divider} />
+      <RadixToolbar.Separator className={styles.divider} />
 
-      <div className={styles.buttonGroup}>
-        <button
+      <RadixToolbar.ToggleGroup type="single" className={styles.buttonGroup}>
+        <RadixToolbar.ToggleItem
+          value="bulletList"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={getButtonClass(editor.isActive('bulletList'))}
+          className={styles.button}
         >
-          <List />
-        </button>
-        <button
+          <List size={15} />
+        </RadixToolbar.ToggleItem>
+        <RadixToolbar.ToggleItem
+          value="orderedList"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={getButtonClass(editor.isActive('orderedList'))}
+          className={styles.button}
         >
-          <ListOrdered />
-        </button>
-      </div>
-    </div>
+          <ListOrdered size={15} />
+        </RadixToolbar.ToggleItem>
+      </RadixToolbar.ToggleGroup>
+    </RadixToolbar.Root>
   );
 }

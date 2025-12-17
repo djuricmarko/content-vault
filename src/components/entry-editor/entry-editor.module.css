@@ -54,15 +54,15 @@
   background-color: var(--panel-background);
 }
 
-.isActive {
-  background-color: var(--brand-primary);
-  color: var(--text-primary);
-  border-color: var(--brand-primary);
-}
+/*.button[data-state="on"] {*/
+/*  background-color: var(--brand-primary);*/
+/*  color: var(--text-primary);*/
+/*  border-color: var(--brand-primary);*/
+/*}*/
 
-.isActive:hover {
-  background-color: var(--brand-hover);
-}
+/*.button[data-state="on"]:hover {*/
+/*  background-color: var(--brand-hover);*/
+/*}*/
 
 .content {
   padding: 24px;

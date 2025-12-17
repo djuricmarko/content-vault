@@ -3,10 +3,10 @@ import { Plus } from "lucide-react";
 import { Entry } from "@/lib/drizzle/schema";
 import styles from './entries-grid.module.css';
 
-export function EntriesGrid({ items }: { items: Entry[] }) {
+export function EntriesGrid({ items, slug }: { items: Entry[], slug?: string }) {
   return (
     <div className={styles.container}>
-      <Link href="/dashboard/add">
+      <Link href={slug ? `/dashboard/${slug}/add` : "/dashboard/add"}>
         <div className={styles.new}>
           <Plus size={25} />
           <p>Create new entry</p>

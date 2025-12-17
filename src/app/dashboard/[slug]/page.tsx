@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <>
       <Header title={category[0].name || ''} />
       <div className={styles.content}>
-        <EntriesGrid items={items} />
+        <EntriesGrid items={items} slug={slug} />
       </div>
     </>
   );
