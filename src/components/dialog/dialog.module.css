@@ -58,7 +58,6 @@
 
 .close {
   all: unset;
-  font-family: inherit;
   border-radius: var(--border-radius-full);
   display: inline-flex;
   align-items: center;

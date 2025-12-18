@@ -102,7 +102,7 @@
     --color-brand-glow: oklch(55% 0.15 260 / 0.15);
     --color-accent-purple: oklch(70% 0.15 290);
     --color-accent-pink: oklch(70% 0.15 340);
-      --color-destructive: oklch(60% 0.15 20);
+    --color-destructive: oklch(60% 0.15 20);
 
     --color-blue: oklch(69% 0.05 264);
     --color-gray-50: oklch(17% 0.0025 264);
