@@ -14,15 +14,9 @@
   --spacing-5xl: 5rem; /* 80px */
   --spacing-6xl: 6.25rem; /* 100px */
   --spacing-7xl: 7rem; /* 112px */
-  --spacing-8xl: 8rem; /* 128px */
   --spacing-9xl: 9.375rem; /* 150px */
-  --spacing-10xl: 10rem; /* 160px */
   --spacing-11xl: 11.25rem; /* 180px */
-  --spacing-12xl: 12rem; /* 192px */
-  --spacing-13xl: 13rem; /* 208px */
-  --spacing-14xl: 14rem; /* 224px */
   --spacing-15xl: 15.625rem; /* 250px */
-  --spacing-16xl: 16rem; /* 256px */
   --spacing-17xl: 17.5rem; /* 280px */
 
   /* Font Sizes */
@@ -33,11 +27,8 @@
   --font-size-xl: 1.25rem; /* 20px */
   --font-size-2xl: 1.5rem; /* 24px */
   --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem; /* 36px */
 
   /* Font Weights */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
@@ -71,19 +62,11 @@
   --color-brand-glow: oklch(55% 0.15 260 / 0.15);
   --color-accent-purple: oklch(70% 0.15 290);
   --color-accent-pink: oklch(70% 0.15 340);
-  --color-brand-gradient: linear-gradient(135deg, oklch(55% 0.15 260) 0%, oklch(70% 0.15 290) 100%);
   --color-destructive: oklch(60% 0.15 20);
 
   --color-blue: oklch(45% 0.05 264);
   --color-gray-50: oklch(98% 0.0025 264);
-  --color-gray-100: oklch(95% 0.005 264);
   --color-gray-200: oklch(90% 0.0075 264);
-  --color-gray-300: oklch(85% 0.01 264);
-  --color-gray-400: oklch(75% 0.0125 264);
-  --color-gray-500: oklch(65% 0.015 264);
-  --color-gray-600: oklch(55% 0.0175 264);
-  --color-gray-700: oklch(45% 0.02 264);
-  --color-gray-800: oklch(35% 0.0225 264);
   --color-gray-900: oklch(25% 0.025 264);
 
   /* General */
@@ -119,19 +102,11 @@
     --color-brand-glow: oklch(55% 0.15 260 / 0.15);
     --color-accent-purple: oklch(70% 0.15 290);
     --color-accent-pink: oklch(70% 0.15 340);
-    --color-brand-gradient: linear-gradient(135deg, oklch(55% 0.15 260) 0%, oklch(70% 0.15 290) 100%);
-    --color-destructive: oklch(60% 0.15 20);
+      --color-destructive: oklch(60% 0.15 20);
 
     --color-blue: oklch(69% 0.05 264);
     --color-gray-50: oklch(17% 0.0025 264);
-    --color-gray-100: oklch(28% 0.0075 264);
     --color-gray-200: oklch(29% 0.0075 264);
-    --color-gray-300: oklch(35% 0.0075 264);
-    --color-gray-400: oklch(47% 0.00875 264);
-    --color-gray-500: oklch(64% 0.01 264);
-    --color-gray-600: oklch(82% 0.01 264);
-    --color-gray-700: oklch(92% 0.01125 264);
-    --color-gray-800: oklch(93% 0.00875 264);
     --color-gray-900: oklch(95% 0.005 264);
   }
 }
