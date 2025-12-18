@@ -6,8 +6,8 @@ import { DropdownMenu } from "radix-ui";
 import { SignOutButton } from "@/components/sign-out-button";
 import { createClient } from "@/lib/supabase/server";
 import { AddCategory } from "@/components/add-category";
-import styles from './sidebar.module.css';
 import { getUserCategories } from "@/components/new-entry-form/actions";
+import styles from './sidebar.module.css';
 
 function SidebarHeading() {
   return (
