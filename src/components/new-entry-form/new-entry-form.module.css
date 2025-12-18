@@ -75,5 +75,5 @@
 .error {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-tight);
-  color: var(--color-red-800);
+  color: var(--color-destructive);
 }

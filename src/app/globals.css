@@ -75,8 +75,6 @@
   --color-destructive: oklch(60% 0.15 20);
 
   --color-blue: oklch(45% 0.05 264);
-  --color-red-800: oklch(50% 0.05 31); /* Used in new-entry-form.module.css */
-
   --color-gray-50: oklch(98% 0.0025 264);
   --color-gray-100: oklch(95% 0.005 264);
   --color-gray-200: oklch(90% 0.0075 264);
@@ -97,45 +95,45 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  --color-background: oklch(0% 0 0);
-  --color-sidebar-background: oklch(2% 0 0);
-  --color-overlay-background: oklch(10% 0 0 / 0.09);
-  --color-panel-background: oklch(2% 0 0);
-  --color-input-background: oklch(5% 0 0);
-  --color-hover-background: oklch(18% 0 0);
-  --color-skeleton-background: oklch(11% 0 0);
-  --color-skeleton-background-light: oklch(13% 0 0);
+  :root {
+    --color-background: oklch(0% 0 0);
+    --color-sidebar-background: oklch(2% 0 0);
+    --color-overlay-background: oklch(10% 0 0 / 0.09);
+    --color-panel-background: oklch(2% 0 0);
+    --color-input-background: oklch(5% 0 0);
+    --color-hover-background: oklch(18% 0 0);
+    --color-skeleton-background: oklch(11% 0 0);
+    --color-skeleton-background-light: oklch(13% 0 0);
 
-  --color-text-primary: oklch(100% 0 0);
-  --color-text-secondary: oklch(60% 0 0);
-  --color-text-muted: oklch(40% 0 0);
-  --color-text-dim: oklch(30% 0 0);
-  --color-text-list: oklch(80% 0 0);
+    --color-text-primary: oklch(100% 0 0);
+    --color-text-secondary: oklch(60% 0 0);
+    --color-text-muted: oklch(40% 0 0);
+    --color-text-dim: oklch(30% 0 0);
+    --color-text-list: oklch(80% 0 0);
 
-  --color-border-primary: oklch(20% 0 0);
-  --color-border-secondary: oklch(100% 0 0 / 0.1);
+    --color-border-primary: oklch(20% 0 0);
+    --color-border-secondary: oklch(100% 0 0 / 0.1);
 
-  --color-brand-primary: oklch(55% 0.15 260);
-  --color-brand-hover: oklch(50% 0.15 260);
-  --color-brand-glow: oklch(55% 0.15 260 / 0.15);
-  --color-accent-purple: oklch(70% 0.15 290);
-  --color-accent-pink: oklch(70% 0.15 340);
-  --color-brand-gradient: linear-gradient(135deg, oklch(55% 0.15 260) 0%, oklch(70% 0.15 290) 100%);
-  --color-destructive: oklch(60% 0.15 20);
+    --color-brand-primary: oklch(55% 0.15 260);
+    --color-brand-hover: oklch(50% 0.15 260);
+    --color-brand-glow: oklch(55% 0.15 260 / 0.15);
+    --color-accent-purple: oklch(70% 0.15 290);
+    --color-accent-pink: oklch(70% 0.15 340);
+    --color-brand-gradient: linear-gradient(135deg, oklch(55% 0.15 260) 0%, oklch(70% 0.15 290) 100%);
+    --color-destructive: oklch(60% 0.15 20);
 
-  --color-blue: oklch(69% 0.05 264);
-  --color-red-800: oklch(80% 0.05 31);
-
-  --color-gray-50: oklch(17% 0.0025 264);
-  --color-gray-100: oklch(28% 0.0075 264);
-  --color-gray-200: oklch(29% 0.0075 264);
-  --color-gray-300: oklch(35% 0.0075 264);
-  --color-gray-400: oklch(47% 0.00875 264);
-  --color-gray-500: oklch(64% 0.01 264);
-  --color-gray-600: oklch(82% 0.01 264);
-  --color-gray-700: oklch(92% 0.01125 264);
-  --color-gray-800: oklch(93% 0.00875 264);
-  --color-gray-900: oklch(95% 0.005 264);
+    --color-blue: oklch(69% 0.05 264);
+    --color-gray-50: oklch(17% 0.0025 264);
+    --color-gray-100: oklch(28% 0.0075 264);
+    --color-gray-200: oklch(29% 0.0075 264);
+    --color-gray-300: oklch(35% 0.0075 264);
+    --color-gray-400: oklch(47% 0.00875 264);
+    --color-gray-500: oklch(64% 0.01 264);
+    --color-gray-600: oklch(82% 0.01 264);
+    --color-gray-700: oklch(92% 0.01125 264);
+    --color-gray-800: oklch(93% 0.00875 264);
+    --color-gray-900: oklch(95% 0.005 264);
+  }
 }
 
 body {
