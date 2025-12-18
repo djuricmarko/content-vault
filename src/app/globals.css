@@ -3,35 +3,35 @@
   --sidebar-width: 250px;
 
   /* Spacing */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;    /* 8px */
-  --spacing-md: 1rem;      /* 16px */
-  --spacing-lg: 1.5rem;    /* 24px */
-  --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 2.5rem;   /* 40px */
-  --spacing-3xl: 3rem;     /* 48px */
-  --spacing-4xl: 4rem;     /* 64px */
-  --spacing-5xl: 5rem;     /* 80px */
-  --spacing-6xl: 6.25rem;  /* 100px */
-  --spacing-7xl: 7rem;     /* 112px */
-  --spacing-8xl: 8rem;     /* 128px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+  --spacing-3xl: 3rem; /* 48px */
+  --spacing-4xl: 4rem; /* 64px */
+  --spacing-5xl: 5rem; /* 80px */
+  --spacing-6xl: 6.25rem; /* 100px */
+  --spacing-7xl: 7rem; /* 112px */
+  --spacing-8xl: 8rem; /* 128px */
   --spacing-9xl: 9.375rem; /* 150px */
-  --spacing-10xl: 10rem;   /* 160px */
+  --spacing-10xl: 10rem; /* 160px */
   --spacing-11xl: 11.25rem; /* 180px */
-  --spacing-12xl: 12rem;   /* 192px */
-  --spacing-13xl: 13rem;   /* 208px */
-  --spacing-14xl: 14rem;   /* 224px */
+  --spacing-12xl: 12rem; /* 192px */
+  --spacing-13xl: 13rem; /* 208px */
+  --spacing-14xl: 14rem; /* 224px */
   --spacing-15xl: 15.625rem; /* 250px */
-  --spacing-16xl: 16rem;    /* 256px */
-  --spacing-17xl: 17.5rem;   /* 280px */
+  --spacing-16xl: 16rem; /* 256px */
+  --spacing-17xl: 17.5rem; /* 280px */
 
   /* Font Sizes */
   --font-size-xs: 0.75rem; /* 12px */
   --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem;   /* 16px */
+  --font-size-base: 1rem; /* 16px */
   --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem;  /* 20px */
-  --font-size-2xl: 1.5rem;  /* 24px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
   --font-size-3xl: 1.875rem; /* 30px */
   --font-size-4xl: 2.25rem; /* 36px */
 
@@ -90,7 +90,7 @@
 
   /* General */
   --border-radius-sm: 0.25rem; /* 4px */
-  --border-radius-md: 0.5rem;  /* 8px */
+  --border-radius-md: 0.5rem; /* 8px */
   --border-radius-lg: 0.75rem; /* 12px */
   --border-radius-full: 9999px;
   --border-radius: var(--border-radius-md); /* Default radius */
@@ -146,7 +146,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* A more robust reset will be implemented later, or components will explicitly handle their own margins/paddings. */
 * {
   box-sizing: border-box;
   padding: 0;
