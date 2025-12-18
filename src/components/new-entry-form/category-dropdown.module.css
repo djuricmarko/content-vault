@@ -142,7 +142,7 @@
   &[data-highlighted] {
     z-index: 0;
     position: relative;
-    color: var(--color-text-primary);
+    color: var(--color-gray-50);
   }
 
   &[data-highlighted]::before {
@@ -152,7 +152,7 @@
     inset-block: 0;
     inset-inline: var(--spacing-xs);
     border-radius: var(--border-radius-sm);
-    background-color: var(--color-text-primary);
+    background-color: var(--color-gray-900);
   }
 }
 
