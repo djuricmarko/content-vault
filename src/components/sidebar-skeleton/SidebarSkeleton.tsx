@@ -1,5 +1,5 @@
 import styles from './sidebar-skeleton.module.css';
-import sidebarStyles from '../sidebar.module.css';
+import sidebarStyles from '../sidebar/sidebar.module.css';
 
 export function SidebarSkeleton() {
   return (

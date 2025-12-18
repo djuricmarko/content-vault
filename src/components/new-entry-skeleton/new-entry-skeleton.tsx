@@ -1,4 +1,4 @@
-import styles from './skeleton.module.css';
+import styles from './new-entry-skeleton.module.css';
 
 export function NewEntrySkeleton() {
   return (

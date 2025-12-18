@@ -1,5 +1,6 @@
 import { ReactNode, Suspense } from "react";
-import { Sidebar, SidebarSkeleton } from "@/components/sidebar";
+import { Sidebar } from "@/components/sidebar";
+import { SidebarSkeleton } from "@/components/sidebar-skeleton";
 import { GridSkeleton } from "@/components/grid-skeleton";
 import styles from "./page.module.css";
 
