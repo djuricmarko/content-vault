@@ -24,16 +24,17 @@
     justify-content: center;
     margin-bottom: var(--spacing-xl);
 
-          .icon {
-            width: var(--spacing-4xl);
-            height: var(--spacing-4xl);
-            background: var(--color-brand-gradient);
-            border-radius: var(--border-radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3); /* Keeping hardcoded for now */
-          }  }
+    .icon {
+      width: var(--spacing-4xl);
+      height: var(--spacing-4xl);
+      background: var(--color-brand-gradient);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3); /* Keeping hardcoded for now */
+    }
+  }
 
   .title {
     color: var(--color-text-primary);
