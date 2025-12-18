@@ -2,43 +2,119 @@
   /* Layout */
   --sidebar-width: 250px;
 
-  /* Theme: Dark */
-  --background: rgb(0, 0, 0);
-  --sidebar-background: rgb(5, 5, 5);
-  --overlay-background: rgba(40, 40, 40, 0.09);
-  --panel-background: rgb(5, 5, 5);
-  --input-background: rgb(17, 17, 17);
-  --hover-background: rgb(46, 46, 46);
-  --skeleton-background: rgb(28, 28, 28);
-  --skeleton-background-light:rgb(32, 32, 32);
+  /* Spacing */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+  --spacing-3xl: 3rem; /* 48px */
+  --spacing-4xl: 4rem; /* 64px */
+  --spacing-5xl: 5rem; /* 80px */
+  --spacing-6xl: 6.25rem; /* 100px */
+  --spacing-7xl: 7rem; /* 112px */
+  --spacing-9xl: 9.375rem; /* 150px */
+  --spacing-11xl: 11.25rem; /* 180px */
+  --spacing-15xl: 15.625rem; /* 250px */
+  --spacing-17xl: 17.5rem; /* 280px */
 
-  /* Text */
-  --text-primary: rgb(255, 255, 255);
-  --text-secondary: rgb(161, 161, 170);
-  --text-muted: rgb(102, 102, 102);
-  --text-dim: rgb(68, 68, 68);
-  --text-list: rgb(204, 204, 204);
+  /* Font Sizes */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
 
-  /* Borders */
-  --border-primary: rgb(51, 51, 51);
-  --border-secondary: rgba(255, 255, 255, 0.1);
+  /* Font Weights */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  /* Brand & Accents */
-  --brand-primary: rgb(99, 102, 241);
-  --brand-hover: rgb(85, 88, 221);
-  --brand-glow: rgba(99, 102, 241, 0.15);
-  --accent-purple: rgb(167, 139, 250);
-  --accent-pink: rgb(244, 114, 182);
-  --destructive: rgb(239, 68, 68);
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Colors (Light Theme) */
+  --color-background: oklch(100% 0 0);
+  --color-sidebar-background: oklch(98% 0 0);
+  --color-overlay-background: oklch(0% 0 0 / 0.09);
+  --color-panel-background: oklch(98% 0 0);
+  --color-input-background: oklch(95% 0 0);
+  --color-hover-background: oklch(90% 0 0);
+  --color-skeleton-background: oklch(92% 0 0);
+  --color-skeleton-background-light: oklch(88% 0 0);
+
+  --color-text-primary: oklch(10% 0 0);
+  --color-text-secondary: oklch(40% 0 0);
+  --color-text-muted: oklch(50% 0 0);
+  --color-text-dim: oklch(60% 0 0);
+  --color-text-list: oklch(20% 0 0);
+
+  --color-border-primary: oklch(80% 0 0);
+  --color-border-secondary: oklch(0% 0 0 / 0.1);
+
+  --color-brand-primary: oklch(55% 0.15 260);
+  --color-brand-hover: oklch(50% 0.15 260);
+  --color-brand-glow: oklch(55% 0.15 260 / 0.15);
+  --color-accent-purple: oklch(70% 0.15 290);
+  --color-accent-pink: oklch(70% 0.15 340);
+  --color-destructive: oklch(60% 0.15 20);
+
+  --color-blue: oklch(45% 0.05 264);
+  --color-gray-50: oklch(98% 0.0025 264);
+  --color-gray-200: oklch(90% 0.0075 264);
+  --color-gray-900: oklch(25% 0.025 264);
 
   /* General */
-  --radius: 0.5rem;
+  --border-radius-sm: 0.25rem; /* 4px */
+  --border-radius-md: 0.5rem; /* 8px */
+  --border-radius-lg: 0.75rem; /* 12px */
+  --border-radius-full: 9999px;
+  --border-radius: var(--border-radius-md); /* Default radius */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: oklch(0% 0 0);
+    --color-sidebar-background: oklch(2% 0 0);
+    --color-overlay-background: oklch(10% 0 0 / 0.09);
+    --color-panel-background: oklch(2% 0 0);
+    --color-input-background: oklch(5% 0 0);
+    --color-hover-background: oklch(18% 0 0);
+    --color-skeleton-background: oklch(11% 0 0);
+    --color-skeleton-background-light: oklch(13% 0 0);
+
+    --color-text-primary: oklch(100% 0 0);
+    --color-text-secondary: oklch(60% 0 0);
+    --color-text-muted: oklch(40% 0 0);
+    --color-text-dim: oklch(30% 0 0);
+    --color-text-list: oklch(80% 0 0);
+
+    --color-border-primary: oklch(20% 0 0);
+    --color-border-secondary: oklch(100% 0 0 / 0.1);
+
+    --color-brand-primary: oklch(55% 0.15 260);
+    --color-brand-hover: oklch(50% 0.15 260);
+    --color-brand-glow: oklch(55% 0.15 260 / 0.15);
+    --color-accent-purple: oklch(70% 0.15 290);
+    --color-accent-pink: oklch(70% 0.15 340);
+    --color-destructive: oklch(60% 0.15 20);
+
+    --color-blue: oklch(69% 0.05 264);
+    --color-gray-50: oklch(17% 0.0025 264);
+    --color-gray-200: oklch(29% 0.0075 264);
+    --color-gray-900: oklch(95% 0.005 264);
+  }
 }
 
 body {
-  color: var(--text-primary);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

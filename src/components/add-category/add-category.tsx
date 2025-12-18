@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef } from "react";
 import { createCategory } from "./createCategory";
 import { Dialog } from "@/components/dialog";
+import { Button } from "@/components/button";
 import styles from './add-category.module.css';
 
 export function AddCategory() {
@@ -31,13 +32,12 @@ export function AddCategory() {
           />
           {state?.error && <p className={styles.error}>{state.error}</p>}
         </div>
-        <button
+        <Button
           type="submit"
-          className={styles.button}
           disabled={isPending}
         >
           {isPending ? 'Saving...' : 'Save'}
-        </button>
+        </Button>
       </form>
     </Dialog>
   );

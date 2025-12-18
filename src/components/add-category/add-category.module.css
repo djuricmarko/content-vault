@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 20px;
+  gap: var(--spacing-xl);
 }
 
 .categoryInput {
@@ -10,31 +10,27 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing-sm);
 
   > input {
-    color: var(--text-primary);
-    height: 40px;
+    padding-left: var(--spacing-sm);
+    margin: 0;
+    border: 1px solid var(--color-border-primary);
     width: 100%;
-    outline: none;
-    border: none;
-    padding-left: 15px;
-    border-radius: var(--radius);
-    background-color: var(--input-background);
+    height: var(--spacing-2xl);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    background-color: transparent;
+    color: var(--color-text-primary);
+
+    &:focus {
+      outline: 2px solid var(--color-brand-primary);
+      outline-offset: -1px;
+    }
   }
 
   .error {
-    font-size: 13px;
-    color: var(--destructive);
+    font-size: var(--font-size-sm);
+    color: var(--color-destructive);
   }
-}
-
-.button {
-  cursor: pointer;
-  width: fit-content;
-  padding: 10px 20px;
-  outline: none;
-  border: 1px solid var(--border-secondary);
-  background-color: var(--brand-primary);
-  border-radius: var(--radius);
 }
