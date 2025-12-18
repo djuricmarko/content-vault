@@ -33,6 +33,7 @@ export async function createEntry(
   const category = formData.get('category');
   const content = formData.get('content');
 
+  console.log(category);
   const validatedFields = entrySchema.safeParse({ title, category, content });
 
   if (!validatedFields.success) {

@@ -1,34 +1,33 @@
 .skeleton {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 20px;
+  gap: var(--spacing-xl);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  gap: var(--spacing-md);
   width: 100%;
 }
 
 .item {
-  height: 300px;
-  min-width: 200px;
+  height: 300px; /* Keeping hardcoded for now */
+  min-width: 200px; /* Keeping hardcoded for now */
   background: linear-gradient(
     90deg,
-    var(--skeleton-background) 25%,
-    var(--skeleton-background-light) 50%,
-    var(--skeleton-background) 75%
+    var(--color-skeleton-background) 25%,
+    var(--color-skeleton-background-light) 50%,
+    var(--color-skeleton-background) 75%
   );
   background-size: 200% 100%;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
   animation: shimmer 1.5s infinite linear;
 }
 
 .title {
-  width: 100px;
-  height: 30px;
+  width: var(--spacing-6xl);
+  height: var(--spacing-2xl);
 }
 
 @keyframes shimmer {

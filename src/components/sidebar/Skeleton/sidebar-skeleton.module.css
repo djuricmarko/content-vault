@@ -8,91 +8,91 @@
 }
 
 .headingIcon {
-  width: 25px;
-  height: 25px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .headingText {
-  width: 120px;
-  height: 20px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-7xl);
+  height: var(--spacing-xl);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .headingContainer {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--spacing-xs);
   width: fit-content;
 }
 
 .allItemsIcon {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .allItemsLabel {
-  width: 80px;
-  height: 16px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-5xl);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .allItemsRow {
   display: flex;
   align-items: center;
-  gap: 6px;
-  height: 2rem;
-  padding-left: 10px;
-  border-radius: var(--radius);
+  gap: var(--spacing-xs);
+  height: var(--spacing-xl);
+  padding-left: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
 }
 
 .categoryLabel {
-  width: 80px;
-  height: 16px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-5xl);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .categoryIcon {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   flex-shrink: 0;
 }
 
 .categoryName {
   flex: 1;
-  height: 16px;
-  border-radius: 4px;
-  background-color: var(--text-muted);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .categoryItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 2rem;
-  padding-left: 10px;
-  border-radius: var(--radius);
+  gap: var(--spacing-sm);
+  height: var(--spacing-xl);
+  padding-left: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
 }
 
 .footerAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius);
-  background-color: var(--text-muted);
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

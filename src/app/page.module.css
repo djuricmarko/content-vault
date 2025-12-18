@@ -1,9 +1,9 @@
 .container {
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  background-color: var(--background);
-  color: var(--text-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
 
   .leftPanel {
     flex: 1;
@@ -11,66 +11,66 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    border-right: 1px solid var(--border-primary);
+    padding: var(--spacing-xl);
+    border-right: 1px solid var(--color-border-primary);
 
     .formContainer {
       width: 100%;
       max-width: 400px;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: var(--spacing-lg);
 
       .logoIcon {
-        color: var(--text-primary);
+        color: var(--color-text-primary);
       }
 
       .title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-sm);
         text-align: center;
       }
 
       .divider {
         display: flex;
         align-items: center;
-        color: var(--border-primary);
-        font-size: 0.75rem;
+        color: var(--color-border-primary);
+        font-size: var(--font-size-xs);
 
         &::before,
         &::after {
           content: "";
           flex: 1;
-          border-bottom: 1px solid var(--border-primary);
+          border-bottom: 1px solid var(--color-border-primary);
         }
 
         &::before {
-          margin-right: 1rem;
+          margin-right: var(--spacing-md);
         }
 
         &::after {
-          margin-left: 1rem;
+          margin-left: var(--spacing-md);
         }
       }
     }
 
     .legalText {
       position: absolute;
-      bottom: 2rem;
-      font-size: 0.75rem;
-      color: var(--text-dim);
+      bottom: var(--spacing-xl);
+      font-size: var(--font-size-xs);
+      color: var(--color-text-dim);
       text-align: center;
       max-width: 300px;
-      line-height: 1.4;
+      line-height: var(--line-height-tight);
     }
   }
 
   .rightPanel {
     flex: 1;
     display: none;
-    background-color: var(--panel-background);
-    padding: 4rem;
+    background-color: var(--color-panel-background);
+    padding: var(--spacing-4xl);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -85,9 +85,9 @@
       position: absolute;
       bottom: -10%;
       right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--brand-glow) 0%, rgba(0, 0, 0, 0) 70%);
+      width: 600px; /* Keeping hardcoded for now */
+      height: 600px; /* Keeping hardcoded for now */
+      background: radial-gradient(circle, var(--color-brand-glow) 0%, rgba(0, 0, 0, 0) 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -97,13 +97,13 @@
       max-width: 500px;
 
       .headingLarge {
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 2rem;
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--line-height-tight);
+        margin-bottom: var(--spacing-xl);
 
         .gradientText {
-          background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+          background: linear-gradient(to right, var(--color-accent-purple), var(--color-accent-pink));
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
@@ -113,23 +113,23 @@
       .featureList {
         list-style: none;
         padding: 0;
-        margin: 0 0 4rem 0;
+        margin: 0 0 var(--spacing-4xl) 0;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: var(--spacing-lg);
 
         .featureItem {
           display: flex;
           align-items: flex-start;
-          gap: 1rem;
-          font-size: 1rem;
-          color: var(--text-list);
-          line-height: 1.5;
+          gap: var(--spacing-md);
+          font-size: var(--font-size-base);
+          color: var(--color-text-list);
+          line-height: var(--line-height-normal);
 
           .checkIcon {
-            color: var(--accent-purple);
+            color: var(--color-accent-purple);
             flex-shrink: 0;
-            margin-top: 0.2rem;
+            margin-top: var(--spacing-xs);
           }
         }
       }
@@ -138,25 +138,25 @@
         margin-top: auto;
 
         .trustedLabel {
-          font-size: 0.875rem;
-          color: var(--text-muted);
-          margin-bottom: 1rem;
+          font-size: var(--font-size-sm);
+          color: var(--color-text-muted);
+          margin-bottom: var(--spacing-md);
           display: block;
         }
 
         .logos {
           display: flex;
-          gap: 2rem;
+          gap: var(--spacing-xl);
           align-items: center;
           opacity: 0.7;
 
           .logoPlaceholder {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--text-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+            color: var(--color-text-primary);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--spacing-sm);
           }
         }
       }

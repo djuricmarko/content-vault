@@ -1,43 +1,46 @@
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  gap: var(--spacing-md);
   width: 100%;
 }
 
 .new {
-  height: 300px;
+  height: 300px; /* Consider a variable for height later */
   min-width: 200px;
-  border-radius: var(--radius);
-  border: 2px dashed var(--border-secondary);
+  border-radius: var(--border-radius-md);
+  border: var(--color-border-secondary) 2px dashed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .entry {
-  height: 300px;
-  border: 1px solid var(--border-secondary);
-  border-radius: 5px;
-  padding: 30px;
+  height: 300px; /* Consider a variable for height later */
+  border: var(--color-border-secondary) 1px solid;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-3xl);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: var(--spacing-md);
+  justify-content: flex-start;
 
-  .title {
-    font-weight: 700;
+  & .title {
+    font-weight: var(--font-weight-bold);
   }
 
-  .content {
+  & .content {
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    height: 100%;
+    color: var(--color-text-muted);
   }
 
-  .timestamp {
-    color: var(--text-muted);
+  & .timestamp {
+    color: var(--color-text-muted);
   }
 }

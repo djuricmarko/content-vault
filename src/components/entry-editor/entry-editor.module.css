@@ -1,6 +1,6 @@
 .editorContainer {
-  border: 1px solid var(--border-primary);
-  border-radius: 8px;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -10,87 +10,77 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  padding: 12px;
-  background-color: var(--panel-background);
-  border-bottom: 1px solid var(--border-primary);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--color-panel-background);
+  border-bottom: 1px solid var(--color-border-primary);
 }
 
 .buttonGroup {
   display: flex;
-  gap: 4px;
+  gap: var(--spacing-xs);
   align-items: center;
 }
 
 .divider {
   width: 1px;
   height: 20px;
-  background-color: var(--border-primary);
-  margin: 0 8px;
+  background-color: var(--color-border-primary);
+  margin: 0 var(--spacing-sm);
 }
 
 .button {
   display: flex;
   align-items: center;
-  padding: 6px 10px;
-  background: var(--background);
-  border: 1px solid var(--border-primary);
-  border-radius: 6px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-background);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-md);
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
   transition: all 0.2s ease;
 }
 
 .button:hover:not(:disabled) {
-  background-color: var(--hover-background);
-  border-color: var(--border-primary);
+  background-color: var(--color-hover-background);
+  border-color: var(--color-border-primary);
 }
 
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background-color: var(--panel-background);
+  background-color: var(--color-panel-background);
 }
 
-/*.button[data-state="on"] {*/
-/*  background-color: var(--brand-primary);*/
-/*  color: var(--text-primary);*/
-/*  border-color: var(--brand-primary);*/
-/*}*/
-
-/*.button[data-state="on"]:hover {*/
-/*  background-color: var(--brand-hover);*/
-/*}*/
-
 .content {
-  padding: 24px;
+  padding: var(--spacing-xl);
   min-height: 250px;
-  background-color: var(--background);
-  color: var(--text-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
   outline: none;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
 }
 
 .content ul,
 .content ol {
-  padding: 0 1rem;
-  margin: 1rem 1rem 1rem 0.4rem;
+  padding: 0 var(--spacing-md);
+  margin: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-xs);
 }
 
 .content h1,
 .content h2,
 .content h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-bold);
 }
 
 .content blockquote {
-  border-left: 3px solid var(--border-primary);
-  padding-left: 1rem;
+  border-left: 3px solid var(--color-border-primary);
+  padding-left: var(--spacing-md);
   margin-left: 0;
   font-style: italic;
 }

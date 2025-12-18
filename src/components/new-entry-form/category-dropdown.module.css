@@ -1,0 +1,211 @@
+.Select {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  height: var(--spacing-2xl);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin: 0;
+  outline: 0;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-background);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  -webkit-user-select: none;
+  user-select: none;
+  min-width: 20rem;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-hover-background);
+    }
+  }
+
+  &[data-popup-open] {
+    background-color: var(--color-hover-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: -1px;
+  }
+}
+
+.SelectIcon {
+  display: flex;
+}
+
+.Positioner {
+  outline: none;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.Popup {
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-background);
+  background-clip: padding-box;
+  color: var(--color-text-primary);
+  transition: transform 150ms,
+  opacity 150ms;
+  outline: 1px solid var(--color-border-primary);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &[data-side='none'] {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--color-border-primary);
+    box-shadow: 0 10px 15px -3px var(--color-gray-200),
+    0 4px 6px -4px var(--color-gray-200);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--color-border-primary);
+  }
+}
+
+.List {
+  position: relative;
+  padding-block: var(--spacing-xs);
+  overflow-y: auto;
+  scroll-padding-block: var(--spacing-lg);
+}
+
+.Arrow {
+  display: flex;
+
+  &[data-side='top'] {
+    bottom: -8px;
+    rotate: 180deg;
+  }
+
+  &[data-side='bottom'] {
+    top: -8px;
+    rotate: 0deg;
+  }
+
+  &[data-side='left'] {
+    right: -13px;
+    rotate: 90deg;
+  }
+
+  &[data-side='right'] {
+    left: -13px;
+    rotate: -90deg;
+  }
+}
+
+.ArrowFill {
+  fill: canvas;
+}
+
+.Item {
+  outline: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  padding-block: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-md);
+  display: grid;
+  gap: var(--spacing-sm);
+  align-items: center;
+  grid-template-columns: var(--font-size-xs) 1fr;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    padding-block: var(--spacing-sm);
+    font-size: var(--font-size-base);
+  }
+
+  &[data-side='none'] {
+    font-size: var(--font-size-base);
+    padding-right: var(--spacing-3xl);
+  }
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--color-text-primary);
+  }
+
+  &[data-highlighted]::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-text-primary);
+  }
+}
+
+.ItemIndicator {
+  grid-column-start: 1;
+}
+
+.ItemIndicatorIcon {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.ItemText {
+  grid-column-start: 2;
+}
+
+.ScrollArrow {
+  width: 100%;
+  background: var(--color-skeleton-background);
+  z-index: 1;
+  text-align: center;
+  cursor: default;
+  border-radius: var(--border-radius-sm);
+  height: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+
+  &[data-direction='up'] {
+    &[data-side='none'] {
+      &::before {
+        top: -100%;
+      }
+    }
+  }
+
+  &[data-direction='down'] {
+    bottom: 0;
+
+    &[data-side='none'] {
+      &::before {
+        bottom: -100%;
+      }
+    }
+  }
+}
