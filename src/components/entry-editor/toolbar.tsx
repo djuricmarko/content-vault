@@ -14,21 +14,21 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           className={styles.button}
         >
-          <Heading1 size={15} />
+          <Heading1 size={20} />
         </RadixToolbar.ToggleItem>
         <RadixToolbar.ToggleItem
           value="heading2"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           className={styles.button}
         >
-          <Heading2 size={15} />
+          <Heading2 size={20} />
         </RadixToolbar.ToggleItem>
         <RadixToolbar.ToggleItem
           value="heading3"
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={styles.button}
         >
-          <Heading3 size={15} />
+          <Heading3 size={20} />
         </RadixToolbar.ToggleItem>
       </RadixToolbar.ToggleGroup>
       <RadixToolbar.Separator className={styles.divider} />
@@ -38,21 +38,21 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={styles.button}
         >
-          <Bold size={15} />
+          <Bold size={20} />
         </RadixToolbar.ToggleItem>
         <RadixToolbar.ToggleItem
           value="italic"
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={styles.button}
         >
-          <Italic size={15} />
+          <Italic size={20} />
         </RadixToolbar.ToggleItem>
         <RadixToolbar.ToggleItem
           value="code"
           onClick={() => editor.chain().focus().toggleCode().run()}
           className={styles.button}
         >
-          <Code size={15} />
+          <Code size={20} />
         </RadixToolbar.ToggleItem>
       </RadixToolbar.ToggleGroup>
 
@@ -64,14 +64,14 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={styles.button}
         >
-          <List size={15} />
+          <List size={20} />
         </RadixToolbar.ToggleItem>
         <RadixToolbar.ToggleItem
           value="orderedList"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={styles.button}
         >
-          <ListOrdered size={15} />
+          <ListOrdered size={20} />
         </RadixToolbar.ToggleItem>
       </RadixToolbar.ToggleGroup>
     </RadixToolbar.Root>
