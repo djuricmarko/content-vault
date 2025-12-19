@@ -2,6 +2,7 @@
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import { TextStyleKit } from '@tiptap/extension-text-style';
+import TextAlign from '@tiptap/extension-text-align';
 import StarterKit from '@tiptap/starter-kit';
 import { Toolbar } from "./toolbar";
 import styles from './entry-editor.module.css';
@@ -13,7 +14,13 @@ interface Props {
 
 export default function EntryEditor({ content, onChange }: Props) {
   const editor = useEditor({
-    extensions: [TextStyleKit, StarterKit],
+    extensions: [
+      TextStyleKit,
+      StarterKit,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
+    ],
     autofocus: true,
     immediatelyRender: false,
     content: content,

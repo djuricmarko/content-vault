@@ -15,7 +15,10 @@ import {
   Strikethrough,
   MessageSquareQuote,
   Undo,
-  Redo
+  Redo,
+  TextAlignStart,
+  TextAlignCenter,
+  TextAlignEnd
 } from "lucide-react";
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
 import styles from "./entry-editor.module.css";
@@ -45,6 +48,9 @@ export function Toolbar({ editor }: { editor: Editor }) {
         isOrderedList: ctx.editor.isActive('orderedList') ?? false,
         isCodeBlock: ctx.editor.isActive('codeBlock') ?? false,
         isBlockquote: ctx.editor.isActive('blockquote') ?? false,
+        isLeft: ctx.editor.isActive({ textAlign: 'left' }) ?? false,
+        isCenter: ctx.editor.isActive({ textAlign: 'center' }) ?? false,
+        isRight: ctx.editor.isActive({ textAlign: 'right' }) ?? false,
         canUndo: ctx.editor.can().chain().undo().run() ?? false,
         canRedo: ctx.editor.can().chain().redo().run() ?? false,
       };
@@ -168,6 +174,27 @@ export function Toolbar({ editor }: { editor: Editor }) {
         <BaseToolbar.Separator className={styles.divider} />
 
         <BaseToolbar.Button
+          onClick={() => editor.chain().focus().setTextAlign('left').run()}
+          className={editorState.isLeft ? styles.isActive : ''}
+        >
+          <TextAlignStart size={18} />
+        </BaseToolbar.Button>
+        <BaseToolbar.Button
+          onClick={() => editor.chain().focus().setTextAlign('center').run()}
+          className={editorState.isCenter ? styles.isActive : ''}
+        >
+          <TextAlignCenter size={18} />
+        </BaseToolbar.Button>
+        <BaseToolbar.Button
+          onClick={() => editor.chain().focus().setTextAlign('right').run()}
+          className={editorState.isRight ? styles.isActive : ''}
+        >
+          <TextAlignEnd size={18} />
+        </BaseToolbar.Button>
+
+        <BaseToolbar.Separator className={styles.divider} />
+
+        <BaseToolbar.Button
           value="clearMarks"
           onClick={() => editor.chain().focus().unsetAllMarks().run()}
         >
@@ -184,12 +211,6 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
         >
           Horizontal rule
-        </BaseToolbar.Button>
-        <BaseToolbar.Button
-          value="hardBreak"
-          onClick={() => editor.chain().focus().setHardBreak().run()}
-        >
-          Hard break
         </BaseToolbar.Button>
 
         <BaseToolbar.Separator className={styles.divider} />
