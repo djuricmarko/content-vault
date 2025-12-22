@@ -1,10 +1,10 @@
 'use client';
 
-import { Dialog as RadixDialog } from 'radix-ui';
+import { ReactNode } from "react";
+import { Dialog as BaseDialog } from '@base-ui/react/dialog';
 import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import { XIcon } from "lucide-react";
 import styles from './dialog.module.css';
-import { ReactNode } from "react";
 
 interface Props {
   trigger: string,
@@ -26,28 +26,26 @@ export function Dialog({
   children
 }: Props) {
   return (
-    <RadixDialog.Root open={open} onOpenChange={setOpen}>
-      <RadixDialog.Trigger className={styles.trigger}>
+    <BaseDialog.Root open={open} onOpenChange={setOpen}>
+      <BaseDialog.Trigger className={styles.trigger}>
         <DynamicIcon name={icon} size={16} />
         {trigger}
-      </RadixDialog.Trigger>
-      <RadixDialog.Portal>
-        <RadixDialog.Overlay className={styles.overlay} />
-        <RadixDialog.Content className={styles.content}>
-          <RadixDialog.Title className={styles.title}>
+      </BaseDialog.Trigger>
+      <BaseDialog.Portal>
+        <BaseDialog.Backdrop className={styles.overlay} />
+        <BaseDialog.Popup className={styles.content}>
+          <BaseDialog.Title className={styles.title}>
             {title}
-          </RadixDialog.Title>
-          <RadixDialog.Description className={styles.description}>
+          </BaseDialog.Title>
+          <BaseDialog.Description className={styles.description}>
             {description}
-          </RadixDialog.Description>
+          </BaseDialog.Description>
           {children}
-          <RadixDialog.Close asChild>
-            <button className={styles.close} aria-label="Close">
-              <XIcon size={25} />
-            </button>
-          </RadixDialog.Close>
-        </RadixDialog.Content>
-      </RadixDialog.Portal>
-    </RadixDialog.Root>
+          <BaseDialog.Close className={styles.close}>
+            <XIcon size={25} />
+          </BaseDialog.Close>
+        </BaseDialog.Popup>
+      </BaseDialog.Portal>
+    </BaseDialog.Root>
   );
 }
