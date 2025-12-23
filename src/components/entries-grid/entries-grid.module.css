@@ -1,13 +1,14 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--spacing-md);
+  counter-reset: grid-items;
   width: 100%;
 }
 
 .new {
   height: 300px;
-  min-width: 200px;
   border-radius: var(--border-radius-md);
   border: var(--color-border-secondary) 2px dotted;
   display: flex;
