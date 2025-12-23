@@ -1,4 +1,5 @@
 .sidebar {
+  position: relative;
   padding: var(--spacing-md);
   padding-right: 0;
   display: flex;
@@ -7,7 +8,26 @@
   flex-shrink: 0;
   width: var(--sidebar-width);
   background-color: var(--color-sidebar-background);
+
+  .expandIcon {
+    display: none;
+  }
+
+  &:hover {
+    .expandIcon {
+      cursor: pointer;
+      display: block;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: var(--color-text-primary);
+      position: absolute;
+      right: 0;
+      top: 16px;
+    }
+  }
 }
+
 
 .heading {
   min-height: var(--spacing-3xl);
@@ -15,7 +35,7 @@
   > a {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
     width: fit-content;
 
     > span {

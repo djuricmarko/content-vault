@@ -1,3 +1,4 @@
+import { ChevronsLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getUserCategories } from "@/components/new-entry-form/actions";
 import { SidebarHeading } from "./sidebar-heading";
@@ -14,6 +15,9 @@ export async function Sidebar() {
 
   return (
     <aside className={styles.sidebar}>
+      <button className={styles.expandIcon}>
+        <ChevronsLeft size={18} />
+      </button>
       <SidebarHeading />
       <SidebarItems items={categoryList} />
       <SidebarFooter
