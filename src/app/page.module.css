@@ -59,7 +59,7 @@
       position: absolute;
       bottom: var(--spacing-xl);
       font-size: var(--font-size-xs);
-      color: var(--color-text-dim);
+      color: var(--color-text-muted);
       text-align: center;
       max-width: 300px;
       line-height: var(--line-height-tight);

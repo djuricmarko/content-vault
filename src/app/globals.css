@@ -40,11 +40,11 @@
 
   /* Colors (Light Theme) */
   --color-background: oklch(100% 0 0);
-  --color-sidebar-background: oklch(98% 0 0);
+  --color-sidebar-background: oklch(0.957 0 0);
   --color-overlay-background: oklch(0% 0 0 / 0.09);
   --color-panel-background: oklch(98% 0 0);
   --color-input-background: oklch(95% 0 0);
-  --color-hover-background: oklch(90% 0 0);
+  --color-hover-background: oklch(0.927 0 0);
   --color-skeleton-background: oklch(92% 0 0);
   --color-skeleton-background-light: oklch(88% 0 0);
 
@@ -54,7 +54,7 @@
   --color-text-dim: oklch(60% 0 0);
   --color-text-list: oklch(20% 0 0);
 
-  --color-border-primary: oklch(80% 0 0);
+  --color-border-primary: oklch(0.885 0 89.876);
   --color-border-secondary: oklch(0% 0 0 / 0.1);
 
   --color-brand-primary: oklch(55% 0.15 260);
@@ -79,8 +79,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: oklch(0% 0 0);
-    --color-sidebar-background: oklch(2% 0 0);
+    --color-background: oklch(0.289 0 0);
+    --color-sidebar-background: oklch(0.201 0 0);
     --color-overlay-background: oklch(10% 0 0 / 0.09);
     --color-panel-background: oklch(2% 0 0);
     --color-input-background: oklch(5% 0 0);
@@ -89,12 +89,10 @@
     --color-skeleton-background-light: oklch(13% 0 0);
 
     --color-text-primary: oklch(100% 0 0);
-    --color-text-secondary: oklch(60% 0 0);
-    --color-text-muted: oklch(40% 0 0);
-    --color-text-dim: oklch(30% 0 0);
+    --color-text-muted: oklch(0.603 0 89.876);
     --color-text-list: oklch(80% 0 0);
 
-    --color-border-primary: oklch(20% 0 0);
+    --color-border-primary: oklch(0.409 0 0);
     --color-border-secondary: oklch(100% 0 0 / 0.1);
 
     --color-brand-primary: oklch(55% 0.15 260);

@@ -14,7 +14,7 @@ export function SidebarItems({ items }: { items: Category[] }) {
   return (
     <div className={styles.items}>
       <Link href="/dashboard">
-        <div className={styles.allItems}>
+        <div className={`${styles.allItems} ${pathname === '/dashboard' ? styles.activeItem : ''}`}>
           <LayoutDashboard size={16} />
           <span>All entries</span>
         </div>

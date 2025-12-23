@@ -16,6 +16,10 @@ export function SidebarFooter({ userData, avatar, }: Props) {
       <Menu.Root>
         <Menu.Trigger className={styles.triggerButton}>
           {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
+          <div className={styles.triggerInfo}>
+            <p>{userData?.user_metadata?.full_name}</p>
+            <p>{userData?.email}</p>
+          </div>
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner>

@@ -12,7 +12,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       </Suspense>
       <Suspense fallback={<GridSkeleton />}>
         <main className={styles.main}>
-          {children}
+          <div className={styles.wrapper}>
+            {children}
+          </div>
         </main>
       </Suspense>
     </div>
