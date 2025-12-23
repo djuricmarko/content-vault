@@ -22,7 +22,7 @@ export function SidebarFooter({ userData, avatar, }: Props) {
           </div>
         </Menu.Trigger>
         <Menu.Portal>
-          <Menu.Positioner>
+          <Menu.Positioner sideOffset={10}>
             <Menu.Popup className={styles.dropdownContent}>
               <div className={styles.dropdownHeader}>
                 {avatar && (
@@ -37,7 +37,7 @@ export function SidebarFooter({ userData, avatar, }: Props) {
               </div>
               <Menu.Separator className={styles.separator} />
               <Menu.Item className={styles.dropdownItem}>
-                <Settings size={18} />
+                <Settings size={16} />
                 Settings
               </Menu.Item>
               <Menu.Item className={styles.dropdownItem}>

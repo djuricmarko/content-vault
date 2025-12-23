@@ -12,7 +12,7 @@ export function SignOutButton() {
         onClick={(e) => e.stopPropagation()}
         className={styles.dropdownItem}
       >
-        <LogOut size={18} />
+        <LogOut size={16} />
         Sign out
       </button>
     </form>
