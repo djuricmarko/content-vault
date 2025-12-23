@@ -20,7 +20,7 @@
     height: var(--spacing-2xl);
     border-radius: var(--border-radius-sm);
     font-size: var(--font-size-base);
-    background-color: transparent;
+    background-color: var(--color-background);
     color: var(--color-text-primary);
 
     &:focus {
