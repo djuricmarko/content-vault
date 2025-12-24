@@ -24,7 +24,7 @@ export function SidebarItems({ items }: { items: Category[] }) {
       </div>
       <ul>
         {items.map((item) => (
-          <Link href={`/dashboard/${item.id}`} key={item.id}>
+          <Link href={`/dashboard/category/${item.id}`} key={item.id}>
             <li className={id === item.id ? styles.activeItem : ''}>
               <Folder size={16} />
               {item.name}

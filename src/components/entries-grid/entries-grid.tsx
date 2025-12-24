@@ -5,10 +5,10 @@ import { Entry } from "@/lib/drizzle/schema";
 import { RenderHtml } from "./render-html";
 import styles from './entries-grid.module.css';
 
-export function EntriesGrid({ items, slug }: { items: Entry[], slug?: string }) {
+export function EntriesGrid({ items, id }: { items: Entry[], id?: string }) {
   return (
     <div className={styles.container}>
-      <Link href={slug ? `/dashboard/${slug}/add` : "/dashboard/add"}>
+      <Link href={id ? `/dashboard/category/${id}/add` : "/dashboard/add"}>
         <div className={styles.new}>
           <Plus size={25} />
           <p>Create new entry</p>
