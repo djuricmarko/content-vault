@@ -29,7 +29,7 @@
         font-size: var(--font-size-2xl);
         font-weight: var(--font-weight-semibold);
         margin-bottom: var(--spacing-sm);
-        text-align: center;
+        text-align: start;
       }
 
       .divider {

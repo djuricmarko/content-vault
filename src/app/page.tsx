@@ -17,7 +17,7 @@ export default async function Home() {
       <div className={styles.leftPanel}>
         <div className={styles.formContainer}>
           <div className={styles.logoIcon}>
-            <Vault size={48} strokeWidth={1.5} color="#fff" />
+            <Vault size={48} strokeWidth={1.5} />
           </div>
           <h1 className={styles.title}>Create your Content Vault account</h1>
           <MagicLinkForm />
