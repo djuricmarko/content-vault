@@ -7,8 +7,9 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'A platform to create, store, and share various types of content.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#ffffff',
+    background_color: 'oklch(100% 0 0)',
+    theme_color: 'oklch(100% 0 0)',
+    orientation: "portrait-primary",
     icons: [
       {
         src: '/favicon.ico',
