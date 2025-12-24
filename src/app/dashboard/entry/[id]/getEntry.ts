@@ -1,22 +1,18 @@
 'use server';
 
 import { eq } from "drizzle-orm";
-import { categories, entries } from '@/lib/drizzle/schema';
 import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/drizzle/drizzle";
+import { entries } from "@/lib/drizzle/schema";
 
 export async function getEntry(id: string) {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
-  const entriesList = db.select().from(entries).where(eq(entries.categoryId, id));
+  const entry= db.select().from(entries).where(eq(entries.id, id));
 
   if (!data.user?.id || error) {
     return [];
   }
 
-  return entriesList;
-}
-
-export async function getCategoryName(id: string) {
-  return db.select({ name: categories.name }).from(categories).where(eq(categories.id, id));
+  return entry;
 }

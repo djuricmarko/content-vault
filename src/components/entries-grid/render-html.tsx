@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import DOMPurify from 'isomorphic-dompurify';
 
-export function RenderHtml({ className, html }: { className: string, html: string }) {
+export function RenderHtml({ className, html }: { className?: string, html: string }) {
   const [isClient, setIsClient] = useState(false);
   const cleanHtml = DOMPurify.sanitize(html);
 
