@@ -1,6 +1,6 @@
 import { Header } from "@/components/header";
-import { RenderHtml } from "@/components/entries-grid/render-html";
 import { getEntry } from "./getEntry";
+import EntryEditor from "@/components/entry-editor/entry-editor";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -9,7 +9,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   return (
     <>
       <Header title={entry[0]?.title || ''} />
-      <RenderHtml html={entry[0]?.content || ''} />
+      <EntryEditor content={entry[0]?.content ?? ''} />
     </>
   );
 }

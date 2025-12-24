@@ -9,10 +9,11 @@ import styles from './entry-editor.module.css';
 
 interface Props {
   content: string;
-  onChange: (richText: string) => void;
+  onChange?: (richText: string) => void;
+  toolbar?: boolean;
 }
 
-export default function EntryEditor({ content, onChange }: Props) {
+export default function EntryEditor({ content, onChange, toolbar = false }: Props) {
   const editor = useEditor({
     extensions: [
       TextStyleKit,
@@ -24,13 +25,16 @@ export default function EntryEditor({ content, onChange }: Props) {
     autofocus: true,
     immediatelyRender: false,
     content: content,
+    editable: toolbar,
     editorProps: {
       attributes: {
         class: styles.content,
       },
     },
-    onUpdate: ({ editor }) => {
-      onChange(editor.getHTML());
+    ...onChange && {
+      onUpdate: ({ editor }) => {
+        onChange(editor.getHTML());
+      }
     },
   });
 
@@ -38,7 +42,7 @@ export default function EntryEditor({ content, onChange }: Props) {
 
   return (
     <div className={styles.editorContainer}>
-      <Toolbar editor={editor} />
+      {toolbar && <Toolbar editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );

@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import dynamic from "next/dynamic";
 import { Field } from '@base-ui/react/field';
-import { CategoryDropdown } from "../category-dropdown/category-dropdown";
+import { CategoryDropdown } from "@/components/category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "./actions";
 import { Button } from "@/components/button";
@@ -47,6 +47,7 @@ export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
         <EntryEditor
           content={richText}
           onChange={entryEditorHandler}
+          toolbar
         />
         <input
           type="hidden"
