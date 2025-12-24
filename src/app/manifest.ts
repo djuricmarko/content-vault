@@ -4,11 +4,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Content Vault',
     short_name: 'Content Vault',
-    description: 'Content Vault',
+    description: 'A platform to create, store, and share various types of content.',
     start_url: '/',
     display: 'standalone',
-    background_color: 'oklch(100% 0 0)',
-    theme_color: 'oklch(100% 0 0)',
+    background_color: '#ffffff',
+    theme_color: '#ffffff',
     icons: [
       {
         src: '/favicon.ico',
