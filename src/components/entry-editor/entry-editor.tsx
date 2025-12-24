@@ -1,6 +1,6 @@
 'use client';
 
-import { useEditor, EditorContent } from '@tiptap/react';
+import { useEditor, EditorContent, type Editor } from '@tiptap/react';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import TextAlign from '@tiptap/extension-text-align';
 import StarterKit from '@tiptap/starter-kit';
@@ -42,7 +42,7 @@ export default function EntryEditor({ content, onChange, toolbar = false }: Prop
 
   return (
     <div className={styles.editorContainer}>
-      {toolbar && <Toolbar editor={editor} />}
+      {toolbar && <Toolbar editor={editor as Editor} />}
       <EditorContent editor={editor} />
     </div>
   );

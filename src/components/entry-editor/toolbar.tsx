@@ -57,8 +57,6 @@ export function Toolbar({ editor }: { editor: Editor }) {
     },
   });
 
-  if (!editor) return null;
-
   return (
     <BaseToolbar.Root className={styles.toolbar} aria-label="Formatting options">
       <BaseToolbar.Group className={styles.buttonGroup}>
