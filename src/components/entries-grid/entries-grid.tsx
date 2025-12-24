@@ -15,13 +15,15 @@ export function EntriesGrid({ items, slug }: { items: Entry[], slug?: string }) 
         </div>
       </Link>
       {items.map((item) => (
-        <div className={styles.entry} key={item.id}>
-          <p className={styles.title}>{item.title}</p>
-          <RenderHtml className={styles.content} html={item.content || ''} />
-          <span suppressHydrationWarning className={styles.timestamp}>
+        <Link href={`/dashboard/entry/${item.id}`} key={item.id}>
+          <div className={styles.entry}>
+            <p className={styles.title}>{item.title}</p>
+            <RenderHtml className={styles.content} html={item.content || ''} />
+            <span suppressHydrationWarning className={styles.timestamp}>
             {formatDistanceToNow(item.updatedAt as Date)}
           </span>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );

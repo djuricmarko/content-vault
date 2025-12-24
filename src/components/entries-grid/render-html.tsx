@@ -1,15 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Interweave } from 'interweave';
+import { useEffect, useState } from "react";
+import DOMPurify from 'isomorphic-dompurify';
 
 export function RenderHtml({ className, html }: { className: string, html: string }) {
   const [isClient, setIsClient] = useState(false);
+  const cleanHtml = DOMPurify.sanitize(html);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
   }, []);
 
-  return isClient ? <Interweave suppressHydrationWarning content={html} className={className} /> : <span>Content</span>;
+  return <div className={className} dangerouslySetInnerHTML={{ __html: isClient ? cleanHtml : '' }} />;
 }
