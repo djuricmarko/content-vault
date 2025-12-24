@@ -2,7 +2,7 @@
   display: flex;
   min-height: 100dvh;
   width: 100%;
-  background-color: var(--color-background);
+  background-color: var(--color-sidebar-background);
   color: var(--color-text-primary);
 
   .leftPanel {
