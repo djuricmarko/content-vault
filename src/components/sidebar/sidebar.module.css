@@ -8,37 +8,67 @@
   flex-shrink: 0;
   width: var(--sidebar-width);
   background-color: var(--color-sidebar-background);
+  transition: width 0.25s ease-in-out;
+  overflow: hidden;
 
-  .expandIcon {
-    display: none;
-  }
-
-  &:hover {
-    .expandIcon {
-      cursor: pointer;
-      display: block;
-      background-color: transparent;
-      outline: none;
-      border: none;
-      color: var(--color-text-primary);
-      position: absolute;
-      right: 0;
-      top: 16px;
-    }
+  &.collapsed {
+    width: var(--sidebar-width-collapsed);
   }
 }
 
 .heading {
   min-height: var(--spacing-3xl);
+}
+
+.headingContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  justify-content: space-between;
 
   > a {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    width: fit-content;
 
     > span {
       font-size: var(--font-size-base);
+      white-space: nowrap;
+    }
+  }
+
+  .collapseButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--color-text-primary);
+  }
+
+  &:hover .collapseButton {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.collapsed .headingContent .collapseButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapsed {
+  li, .headingContent, .allItems {
+    justify-content: center;
+  }
+  &:hover {
+    .collapseButton {
+      display: flex;
+    }
+    .headingContent > a {
+      display: none;
     }
   }
 }
@@ -54,8 +84,10 @@
   gap: var(--spacing-sm);
   height: var(--spacing-xl);
   padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
   border-radius: var(--border-radius-md);
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     background-color: var(--color-hover-background);
@@ -87,8 +119,10 @@
       gap: var(--spacing-sm);
       height: var(--spacing-xl);
       padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
       border-radius: var(--border-radius-md);
       cursor: pointer;
+      white-space: nowrap;
 
       &:hover {
         background-color: var(--color-hover-background);
@@ -126,7 +160,7 @@
   height: var(--spacing-3xl);
   border-radius: var(--border-radius-md);
   outline: none;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, width 0.25s ease-in-out;
   cursor: pointer;
   color: var(--color-text-primary);
 
@@ -136,6 +170,7 @@
 
   > img {
     border-radius: var(--border-radius-full);
+    flex-shrink: 0;
   }
 
   .triggerInfo {
@@ -150,6 +185,11 @@
       max-width: var(--spacing-11xl);
     }
   }
+}
+
+.triggerButtonCollapsed {
+  width: var(--spacing-3xl);
+  padding: 0;
 }
 
 .avatar {

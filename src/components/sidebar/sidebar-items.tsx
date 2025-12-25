@@ -5,33 +5,37 @@ import Link from "next/link";
 import { Folder, LayoutDashboard } from "lucide-react";
 import { Category } from "@/lib/drizzle/schema";
 import { AddCategory } from "@/components/add-category";
+import { useSidebar } from "./sidebar-context";
 import styles from "./sidebar.module.css";
 
 export function SidebarItems({ items }: { items: Category[] }) {
+  const { isCollapsed } = useSidebar();
   const pathname = usePathname();
-  const id = pathname.split('/')[2];
+  const id = pathname.split('/')[3];
 
   return (
     <div className={styles.items}>
       <Link href="/dashboard">
         <div className={`${styles.allItems} ${pathname === '/dashboard' ? styles.activeItem : ''}`}>
           <LayoutDashboard size={16} />
-          <span>All entries</span>
+          {!isCollapsed && <span>All entries</span>}
         </div>
       </Link>
-      <div className={styles.subHeading}>
-        <p>Categories</p>
-      </div>
+      {!isCollapsed && (
+        <div className={styles.subHeading}>
+          <p>Categories</p>
+        </div>
+      )}
       <ul>
         {items.map((item) => (
           <Link href={`/dashboard/category/${item.id}`} key={item.id}>
             <li className={id === item.id ? styles.activeItem : ''}>
               <Folder size={16} />
-              {item.name}
+              {!isCollapsed && item.name}
             </li>
           </Link>
         ))}
-        <AddCategory />
+        {!isCollapsed && <AddCategory />}
       </ul>
     </div>
   );

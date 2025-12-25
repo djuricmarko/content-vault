@@ -1,8 +1,11 @@
+'use client';
+
 import Image from "next/image";
 import type { User } from "@supabase/auth-js";
 import { Settings } from "lucide-react";
 import { Menu } from '@base-ui/react/menu';
 import { SignOutButton } from "@/components/sign-out-button";
+import { useSidebar } from "./sidebar-context";
 import styles from "./sidebar.module.css";
 
 interface Props {
@@ -10,16 +13,20 @@ interface Props {
   avatar: string | null;
 }
 
-export function SidebarFooter({ userData, avatar, }: Props) {
+export function SidebarFooter({ userData, avatar }: Props) {
+  const { isCollapsed } = useSidebar();
+
   return (
     <div className={styles.footer}>
       <Menu.Root>
-        <Menu.Trigger className={styles.triggerButton}>
+        <Menu.Trigger className={`${styles.triggerButton} ${isCollapsed ? styles.triggerButtonCollapsed : ''}`}>
           {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
-          <div className={styles.triggerInfo}>
-            <p>{userData?.user_metadata?.full_name}</p>
-            <p>{userData?.email}</p>
-          </div>
+          {!isCollapsed && (
+            <div className={styles.triggerInfo}>
+              <p>{userData?.user_metadata?.full_name}</p>
+              <p>{userData?.email}</p>
+            </div>
+          )}
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner sideOffset={10}>
