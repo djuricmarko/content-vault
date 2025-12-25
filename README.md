@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Content Vault
+
+A modern content management application for creating, organizing, and storing rich text entries. Built with Next.js 16 and React 19.
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 16 |
+| UI | React 19 + React Compiler |
+| Database | PostgreSQL via Drizzle ORM |
+| Authentication | Supabase (Magic Link + Google OAuth) |
+| Rich Text Editor | Tiptap |
+| UI Components | @base-ui/react (headless) |
+| Icons | lucide-react |
+| Validation | Zod |
+| Styling | CSS Modules with OKLch color system |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database (or Supabase project)
+- Supabase project for authentication
+
+### Environment Variables
+
+Create a `.env.local` file:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+DATABASE_URL=your_postgres_connection_string
+DATABASE_URL_MIGRATION=your_postgres_connection_string_for_migrations
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Push database schema (development)
+npm run db:push
 
-## Learn More
+# Or run migrations (production)
+npm run db:migrate
 
-To learn more about Next.js, take a look at the following resources:
+# Start development server
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Available Scripts
 
-## Deploy on Vercel
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run db:generate` | Generate migration from schema changes |
+| `npm run db:migrate` | Apply pending migrations |
+| `npm run db:push` | Push schema directly to database |
+| `npm run db:studio` | Open Drizzle Studio |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/                          # Next.js App Router
+│   ├── auth/
+│   │   └── callback/             # OAuth callback handler
+│   ├── dashboard/
+│   │   ├── add/                  # Create new entry
+│   │   ├── category/
+│   │   │   └── [id]/             # Category view & add entry
+│   │   ├── entry/
+│   │   │   └── [id]/             # View entry
+│   │   ├── layout.tsx            # Dashboard layout with sidebar
+│   │   └── page.tsx              # All entries view
+│   ├── globals.css               # Global styles & CSS variables
+│   ├── layout.tsx                # Root layout
+│   ├── manifest.ts               # PWA manifest
+│   └── page.tsx                  # Login page
+├── components/
+│   ├── add-category/             # Category creation modal
+│   ├── button/                   # Reusable button component
+│   ├── category-dropdown/        # Category selector
+│   ├── dialog/                   # Modal dialog component
+│   ├── entries-grid/             # Entry cards grid display
+│   ├── entry-editor/             # Tiptap rich text editor
+│   ├── grid-skeleton/            # Loading skeleton for grid
+│   ├── header/                   # Page header with actions
+│   ├── login-form/               # Magic link & Google OAuth
+│   ├── new-entry-form/           # Entry creation form
+│   ├── new-entry-skeleton/       # Loading skeleton for form
+│   ├── sidebar/                  # Navigation sidebar
+│   ├── sidebar-skeleton/         # Loading skeleton for sidebar
+│   └── sign-out-button/          # Sign out action
+├── lib/
+│   ├── drizzle/
+│   │   ├── drizzle.ts            # Database client
+│   │   ├── migrations/           # Database migrations
+│   │   └── schema.ts             # Database schema
+│   └── supabase/
+│       ├── client.ts             # Browser Supabase client
+│       ├── proxy.ts              # Middleware for auth
+│       └── server.ts             # Server Supabase client
+├── utils/
+│   └── time.ts                   # Time formatting utilities
+└── proxy.ts                      # Middleware configuration
+```
+
+## Database Schema
+
+```
+categories              entries                     collaborators
+├── id (uuid, PK)       ├── id (uuid, PK)          ├── id (uuid, PK)
+├── userId (uuid)       ├── userId (uuid)          ├── entryId (uuid, FK)
+├── name (text)         ├── categoryId (uuid, FK)  ├── invitedBy (uuid)
+├── createdAt           ├── title (text)           ├── collaboratorEmail
+└── updatedAt           ├── content (text/HTML)    ├── collaboratorId
+                        ├── createdAt              ├── inviteToken (unique)
+                        └── updatedAt              ├── status
+                                                   └── createdAt
+```
+
+## Features
+
+- Magic link and Google OAuth authentication
+- Rich text editor with formatting toolbar
+- Organize entries into categories
+- Responsive design with dark mode support
+- Server-side rendering with Suspense boundaries
+- PWA support
+
+## Missing Features / Roadmap
+
+- [ ] **Delete entries** - UI exists but not wired to server action
+- [ ] **Edit entries** - Entries are read-only after creation
+- [ ] **Collaboration** - Database schema exists but not implemented
+- [ ] **Search/filter** - No search functionality for entries
+- [ ] **Export/backup** - No data export options
+- [ ] **Entry sharing** - Collaborator invite system not built
+
+## Security Notes
+
+- HTML content is sanitized with DOMPurify before rendering
+- Routes are protected via Supabase middleware
+- Server actions validate input with Zod schemas
+- **Known issue:** `getEntry()` and `getEntries()` queries should verify user ownership
+
+## License
+
+Private
