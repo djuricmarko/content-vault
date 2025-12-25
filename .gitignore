@@ -25,6 +25,7 @@
 *.pem
 .idea
 .gemini
+CLAUDE.md
 
 # debug
 npm-debug.log*
