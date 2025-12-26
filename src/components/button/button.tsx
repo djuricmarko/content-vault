@@ -1,10 +1,15 @@
 import { Button as BaseButton } from '@base-ui/react/button';
 import styles from './button.module.css';
 
-type ButtonProps = React.ComponentPropsWithoutRef<'button'>;
+type ButtonVariant = 'primary' | 'secondary';
 
-export function Button({ className, children, ...props }: ButtonProps) {
-  const buttonClassName = `${styles.button} ${className || ''}`;
+type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
+  variant?: ButtonVariant;
+};
+
+export function Button({ className, children, variant = 'primary', ...props }: ButtonProps) {
+  const variantClass = variant === 'primary' ? styles.primary : styles.secondary;
+  const buttonClassName = `${styles.button} ${variantClass} ${className || ''}`;
 
   return (
     <BaseButton className={buttonClassName.trim()} {...props}>

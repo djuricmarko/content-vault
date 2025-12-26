@@ -59,7 +59,9 @@
 
   --color-brand-primary: oklch(55% 0.15 260);
   --color-brand-hover: oklch(50% 0.15 260);
+  --color-brand-active: oklch(45% 0.15 260);
   --color-brand-glow: oklch(55% 0.15 260 / 0.15);
+  --color-text-on-brand: oklch(100% 0 0);
   --color-accent-purple: oklch(70% 0.15 290);
   --color-accent-pink: oklch(70% 0.15 340);
   --color-destructive: oklch(60% 0.15 20);
@@ -96,7 +98,9 @@
 
     --color-brand-primary: oklch(55% 0.15 260);
     --color-brand-hover: oklch(50% 0.15 260);
+    --color-brand-active: oklch(45% 0.15 260);
     --color-brand-glow: oklch(55% 0.15 260 / 0.15);
+    --color-text-on-brand: oklch(100% 0 0);
     --color-accent-purple: oklch(70% 0.15 290);
     --color-accent-pink: oklch(70% 0.15 340);
     --color-destructive: oklch(60% 0.15 20);
