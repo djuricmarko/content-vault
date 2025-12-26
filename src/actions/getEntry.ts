@@ -1,18 +1,19 @@
 'use server';
 
-import { eq } from "drizzle-orm";
-import { createClient } from "@/lib/supabase/server";
+import { and, eq } from "drizzle-orm";
+import { getAuthenticatedUser } from "@/lib/auth";
 import { db } from "@/lib/drizzle/drizzle";
-import { entries } from "@/lib/drizzle/schema";
+import { entries, type Entry } from "@/lib/drizzle/schema";
 
-export async function getEntry(id: string) {
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.getUser();
-  const entry = db.select().from(entries).where(eq(entries.id, id));
+export async function getEntry(id: string): Promise<Entry[]> {
+  const { user, error } = await getAuthenticatedUser();
 
-  if (!data.user?.id || error) {
+  if (!user || error) {
     return [];
   }
 
-  return entry;
+  return db
+    .select()
+    .from(entries)
+    .where(and(eq(entries.id, id), eq(entries.userId, user.id)));
 }

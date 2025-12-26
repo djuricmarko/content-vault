@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from 'zod';
 import { categories } from "@/lib/drizzle/schema";
-import { createClient } from "@/lib/supabase/server";
+import { getAuthenticatedUser } from "@/lib/auth";
 import { db } from "@/lib/drizzle/drizzle";
 
 interface FormState {
@@ -19,9 +19,7 @@ export async function createCategory(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const supabase = await createClient();
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  const { user, error: authError } = await getAuthenticatedUser();
 
   if (authError || !user) {
     return { success: false, error: 'Unauthorized' };

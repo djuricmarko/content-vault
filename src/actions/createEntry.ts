@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from "zod";
-import { createClient } from '@/lib/supabase/server';
+import { getAuthenticatedUser } from '@/lib/auth';
 import { entries } from "@/lib/drizzle/schema";
 import { db } from "@/lib/drizzle/drizzle";
 import { revalidatePath } from "next/cache";
@@ -21,8 +21,7 @@ export async function createEntry(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const supabase = await createClient();
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  const { user, error: authError } = await getAuthenticatedUser();
 
   if (authError || !user) {
     return { success: false, error: 'Unauthorized' };
