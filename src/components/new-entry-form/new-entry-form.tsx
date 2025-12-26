@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { Field } from '@base-ui/react/field';
 import { CategoryDropdown } from "@/components/category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
-import { createEntry } from "./actions";
+import { createEntry } from "@/actions/createEntry";
 import { Button } from "@/components/button";
 import styles from './new-entry-form.module.css';
 

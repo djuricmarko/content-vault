@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { getUserCategories } from "@/components/new-entry-form/actions";
+import { getUserCategories } from "@/actions/getUserCategories";
 import { SidebarWrapper } from "./sidebar-wrapper";
 import { SidebarHeading } from "./sidebar-heading";
 import { SidebarItems } from "./sidebar-items";

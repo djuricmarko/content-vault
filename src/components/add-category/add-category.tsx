@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState, useEffect, useRef } from "react";
-import { createCategory } from "./createCategory";
+import { createCategory } from "@/actions/createCategory";
 import { Dialog } from "@/components/dialog";
 import { Button } from "@/components/button";
 import styles from './add-category.module.css';

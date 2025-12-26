@@ -1,5 +1,5 @@
 import { Header } from "@/components/header";
-import { getEntry } from "./getEntry";
+import { getEntry } from "@/actions/getEntry";
 import EntryEditor from "@/components/entry-editor/entry-editor";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {

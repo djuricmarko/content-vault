@@ -8,7 +8,7 @@ import { entries } from "@/lib/drizzle/schema";
 export async function getEntry(id: string) {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
-  const entry= db.select().from(entries).where(eq(entries.id, id));
+  const entry = db.select().from(entries).where(eq(entries.id, id));
 
   if (!data.user?.id || error) {
     return [];

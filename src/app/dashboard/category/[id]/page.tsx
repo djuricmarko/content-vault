@@ -1,11 +1,12 @@
 import { Header } from "@/components/header";
 import { EntriesGrid } from "@/components/entries-grid";
-import { getCategoryName, getEntries } from "./getEntries";
+import { getEntriesByCategory } from "@/actions/getEntriesByCategory";
+import { getCategoryName } from "@/actions/getCategoryName";
 import styles from "../../page.module.css";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const items = await getEntries(id);
+  const items = await getEntriesByCategory(id);
   const category = await getCategoryName(id);
 
   return (

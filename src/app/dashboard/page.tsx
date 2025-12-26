@@ -1,6 +1,6 @@
 import { EntriesGrid } from "@/components/entries-grid";
 import { Header } from "@/components/header";
-import { getAllEntries } from "@/app/dashboard/getAllEntries";
+import { getAllEntries } from "@/actions/getAllEntries";
 
 export default async function Home() {
   const allEntries = await getAllEntries();

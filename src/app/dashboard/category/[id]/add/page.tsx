@@ -1,6 +1,6 @@
 import { Header } from "@/components/header";
 import { NewEntryForm } from "@/components/new-entry-form";
-import { getUserCategories } from "@/components/new-entry-form/actions";
+import { getUserCategories } from "@/actions/getUserCategories";
 
 export default async function AddNewEntry({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

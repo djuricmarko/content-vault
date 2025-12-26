@@ -1,9 +1,8 @@
 'use server';
 
 import { z } from "zod";
-import { eq } from "drizzle-orm";
 import { createClient } from '@/lib/supabase/server';
-import { categories, entries } from "@/lib/drizzle/schema";
+import { entries } from "@/lib/drizzle/schema";
 import { db } from "@/lib/drizzle/drizzle";
 import { revalidatePath } from "next/cache";
 
@@ -33,7 +32,6 @@ export async function createEntry(
   const category = formData.get('category');
   const content = formData.get('content');
 
-  console.log(category);
   const validatedFields = entrySchema.safeParse({ title, category, content });
 
   if (!validatedFields.success) {
@@ -57,18 +55,4 @@ export async function createEntry(
     console.error('Database Error:', error);
     return { success: false, error: 'Failed to create entry. Please try again.' };
   }
-}
-
-export async function getUserCategories() {
-  const supabase = await createClient();
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return [];
-  }
-
-  return db
-    .select()
-    .from(categories)
-    .where(eq(categories.userId, String(user.id)));
 }
