@@ -12,8 +12,7 @@ export async function getEntriesByCategory(categoryId: string): Promise<Entry[]>
     return [];
   }
 
-  return db
-    .select()
-    .from(entries)
-    .where(and(eq(entries.categoryId, categoryId), eq(entries.userId, user.id)));
+  return db.query.entries.findMany({
+    where: and(eq(entries.categoryId, categoryId), eq(entries.userId, user.id)),
+  });
 }

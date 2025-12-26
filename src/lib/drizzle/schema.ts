@@ -1,4 +1,5 @@
 import { pgTable, uuid, text, timestamp } from 'drizzle-orm/pg-core';
+import { relations } from 'drizzle-orm';
 
 const categories = pgTable('categories', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -29,6 +30,25 @@ const collaborators = pgTable('collaborators', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
 
+const categoriesRelations = relations(categories, ({ many }) => ({
+  entries: many(entries),
+}));
+
+const entriesRelations = relations(entries, ({ one, many }) => ({
+  category: one(categories, {
+    fields: [entries.categoryId],
+    references: [categories.id],
+  }),
+  collaborators: many(collaborators),
+}));
+
+const collaboratorsRelations = relations(collaborators, ({ one }) => ({
+  entry: one(entries, {
+    fields: [collaborators.entryId],
+    references: [entries.id],
+  }),
+}));
+
 type Category = typeof categories.$inferSelect;
 type NewCategory = typeof categories.$inferInsert;
 
@@ -38,5 +58,5 @@ type NewEntry = typeof entries.$inferInsert;
 type Collaborator = typeof collaborators.$inferSelect;
 type NewCollaborator = typeof collaborators.$inferInsert;
 
-export { categories, entries, collaborators };
+export { categories, entries, collaborators, categoriesRelations, entriesRelations, collaboratorsRelations };
 export type { Category, NewCategory, Entry, NewEntry, Collaborator, NewCollaborator };

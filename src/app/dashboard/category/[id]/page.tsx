@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   return (
     <>
-      <Header title={category[0]?.name || ''} />
+      <Header title={category?.name ?? ''} />
       <div className={styles.content}>
         <EntriesGrid items={items} id={id} />
       </div>

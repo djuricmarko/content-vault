@@ -9,6 +9,7 @@ import { db } from "@/lib/drizzle/drizzle";
 interface FormState {
   success: boolean,
   error?: string;
+  id?: string;
 }
 
 const categorySchema = z.object({
@@ -36,13 +37,13 @@ export async function createCategory(
   }
 
   try {
-    await db.insert(categories).values({
+    const newCategory = await db.insert(categories).values({
       name: validatedFields.data.name,
       userId: user.id,
-    });
+    }).returning({ id: categories.id });
 
     revalidatePath('/dashboard');
-    return { success: true };
+    return { success: true, id: newCategory[0].id };
   } catch (error) {
     console.error('Database Error:', error);
     return { success: false, error: 'Failed to create category. Please try again.' };

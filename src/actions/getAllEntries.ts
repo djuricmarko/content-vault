@@ -12,8 +12,7 @@ export async function getAllEntries(): Promise<Entry[]> {
     return [];
   }
 
-  return db
-    .select()
-    .from(entries)
-    .where(eq(entries.userId, user.id));
+  return db.query.entries.findMany({
+    where: eq(entries.userId, user.id),
+  });
 }

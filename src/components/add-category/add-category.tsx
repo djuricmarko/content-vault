@@ -1,6 +1,7 @@
 'use client';
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { createCategory } from "@/actions/createCategory";
 import { Dialog } from "@/components/dialog";
 import { Button } from "@/components/button";
@@ -8,13 +9,17 @@ import styles from './add-category.module.css';
 
 export function AddCategory() {
   const [state, formAction, isPending] = useActionState(createCategory, { success: false, error: '' });
+  const [open, setOpen] = useState(false);
+  const router = useRouter()
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (formRef.current && !state.error) {
-      formRef.current.reset();
+    if (state.success) {
+      queueMicrotask(() => setOpen(false));
+      formRef.current?.reset();
+      router.push(`/dashboard/category/${state.id}`)
     }
-  }, [state]);
+  }, [router, state]);
 
   return (
     <Dialog
@@ -22,6 +27,8 @@ export function AddCategory() {
       icon="plus"
       title="Create new category"
       description="Enter the name of the new category"
+      open={open}
+      setOpen={setOpen}
     >
       <form action={formAction} className={styles.form}>
         <div className={styles.categoryInput}>

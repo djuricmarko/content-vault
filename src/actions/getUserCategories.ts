@@ -12,8 +12,7 @@ export async function getUserCategories(): Promise<Category[]> {
     return [];
   }
 
-  return db
-    .select()
-    .from(categories)
-    .where(eq(categories.userId, user.id));
+  return db.query.categories.findMany({
+    where: eq(categories.userId, user.id),
+  });
 }

@@ -8,8 +8,8 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   return (
     <>
-      <Header title={entry[0]?.title || ''} />
-      <EntryEditor content={entry[0]?.content ?? ''} />
+      <Header title={entry?.title ?? ''} />
+      <EntryEditor content={entry?.content ?? ''} />
     </>
   );
 }
