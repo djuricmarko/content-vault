@@ -1,11 +1,11 @@
 .title {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--space-2xl);
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--space-md);
 
   h2 {
-    font-size: var(--font-size-base);
+    font-size: var(--text-base);
     font-weight: 400;
   }
 }
@@ -15,7 +15,7 @@
   border: none;
   outline: none;
   background: none;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,11 +23,11 @@
 
 .dropdownContent {
   max-width: 234px;
-  padding: var(--spacing-sm);
-  border: 1px solid var(--color-border-secondary);
-  border-radius: var(--border-radius-lg);
-  background-color: var(--color-background);
-  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2); /* Keeping hardcoded for now */
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-dropdown);
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -36,18 +36,18 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  height: var(--spacing-xl);
-  padding: 0 var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
+  gap: var(--space-sm);
+  height: var(--space-xl);
+  padding: 0 var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   user-select: none;
   outline: none;
   cursor: pointer;
 
   &[data-highlighted] {
-    background-color: var(--color-hover-background);
-    color: var(--color-text-primary);
+    background-color: var(--color-bg-hover);
+    color: var(--color-text);
   }
 }

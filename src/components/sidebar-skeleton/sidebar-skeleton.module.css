@@ -8,17 +8,17 @@
 }
 
 .headingIcon {
-  width: var(--spacing-2xl);
-  height: var(--spacing-2xl);
-  border-radius: var(--border-radius-sm);
+  width: var(--space-2xl);
+  height: var(--space-2xl);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .headingText {
-  width: var(--spacing-7xl);
-  height: var(--spacing-xl);
-  border-radius: var(--border-radius-sm);
+  width: 7rem;
+  height: var(--space-xl);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -26,22 +26,22 @@
 .headingContainer {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--space-xs);
   width: fit-content;
 }
 
 .allItemsIcon {
-  width: var(--spacing-md);
-  height: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  width: var(--space-md);
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .allItemsLabel {
-  width: var(--spacing-5xl);
-  height: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  width: 5rem;
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -49,24 +49,24 @@
 .allItemsRow {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  height: var(--spacing-xl);
-  padding-left: var(--spacing-sm);
-  border-radius: var(--border-radius-md);
+  gap: var(--space-xs);
+  height: var(--space-xl);
+  padding-left: var(--space-sm);
+  border-radius: var(--radius-md);
 }
 
 .categoryLabel {
-  width: var(--spacing-5xl);
-  height: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  width: 5rem;
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .categoryIcon {
-  width: var(--spacing-md);
-  height: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  width: var(--space-md);
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   flex-shrink: 0;
@@ -74,8 +74,8 @@
 
 .categoryName {
   flex: 1;
-  height: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -83,16 +83,16 @@
 .categoryItem {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  height: var(--spacing-xl);
-  padding-left: var(--spacing-sm);
-  border-radius: var(--border-radius-md);
+  gap: var(--space-sm);
+  height: var(--space-xl);
+  padding-left: var(--space-sm);
+  border-radius: var(--radius-md);
 }
 
 .footerAvatar {
-  width: var(--spacing-3xl);
-  height: var(--spacing-3xl);
-  border-radius: var(--border-radius-md);
+  width: var(--space-3xl);
+  height: var(--space-3xl);
+  border-radius: var(--radius-md);
   background-color: var(--color-text-muted);
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

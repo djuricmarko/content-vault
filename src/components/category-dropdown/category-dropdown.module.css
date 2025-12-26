@@ -3,34 +3,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-sm);
-  height: var(--spacing-2xl);
-  padding-left: var(--spacing-sm);
-  padding-right: var(--spacing-sm);
+  gap: var(--space-sm);
+  height: var(--space-2xl);
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
   margin: 0;
   outline: 0;
-  border: 1px solid var(--color-border-primary);
-  border-radius: var(--border-radius-sm);
-  background-color: var(--color-background);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
   -webkit-user-select: none;
   user-select: none;
   min-width: 20rem;
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--color-hover-background);
+      background-color: var(--color-bg-hover);
     }
   }
 
   &[data-popup-open] {
-    background-color: var(--color-hover-background);
+    background-color: var(--color-bg-hover);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--color-primary);
     outline-offset: -1px;
   }
 }
@@ -47,13 +47,13 @@
 }
 
 .Popup {
-  border-radius: var(--border-radius-sm);
-  background-color: var(--color-background);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
   background-clip: padding-box;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   transition: transform 150ms,
   opacity 150ms;
-  outline: 1px solid var(--color-border-primary);
+  outline: 1px solid var(--color-border);
 
   &[data-starting-style],
   &[data-ending-style] {
@@ -68,21 +68,20 @@
   }
 
   @media (prefers-color-scheme: light) {
-    outline: 1px solid var(--color-border-primary);
-    box-shadow: 0 10px 15px -3px var(--color-gray-200),
-    0 4px 6px -4px var(--color-gray-200);
+    outline: 1px solid var(--color-border);
+    box-shadow: var(--shadow-dropdown);
   }
 
   @media (prefers-color-scheme: dark) {
-    outline: 1px solid var(--color-border-primary);
+    outline: 1px solid var(--color-border);
   }
 }
 
 .List {
   position: relative;
-  padding-block: var(--spacing-xs);
+  padding-block: var(--space-xs);
   overflow-y: auto;
-  scroll-padding-block: var(--spacing-lg);
+  scroll-padding-block: var(--space-lg);
 }
 
 .Arrow {
@@ -115,33 +114,33 @@
 
 .Item {
   outline: 0;
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
-  padding-block: var(--spacing-sm);
-  padding-left: var(--spacing-sm);
-  padding-right: var(--spacing-md);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  padding-block: var(--space-sm);
+  padding-left: var(--space-sm);
+  padding-right: var(--space-md);
   display: grid;
-  gap: var(--spacing-sm);
+  gap: var(--space-sm);
   align-items: center;
-  grid-template-columns: var(--font-size-xs) 1fr;
+  grid-template-columns: var(--text-xs) 1fr;
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
 
   @media (pointer: coarse) {
-    padding-block: var(--spacing-sm);
-    font-size: var(--font-size-base);
+    padding-block: var(--space-sm);
+    font-size: var(--text-base);
   }
 
   &[data-side='none'] {
-    font-size: var(--font-size-base);
-    padding-right: var(--spacing-3xl);
+    font-size: var(--text-base);
+    padding-right: var(--space-3xl);
   }
 
   &[data-highlighted] {
     z-index: 0;
     position: relative;
-    color: var(--color-gray-50);
+    color: var(--color-bg);
   }
 
   &[data-highlighted]::before {
@@ -149,9 +148,9 @@
     z-index: -1;
     position: absolute;
     inset-block: 0;
-    inset-inline: var(--spacing-xs);
-    border-radius: var(--border-radius-sm);
-    background-color: var(--color-gray-900);
+    inset-inline: var(--space-xs);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-text);
   }
 }
 
@@ -171,13 +170,13 @@
 
 .ScrollArrow {
   width: 100%;
-  background: var(--color-skeleton-background);
+  background: var(--color-bg-skeleton);
   z-index: 1;
   text-align: center;
   cursor: default;
-  border-radius: var(--border-radius-sm);
-  height: var(--spacing-md);
-  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+  height: var(--space-md);
+  font-size: var(--text-xs);
   display: flex;
   align-items: center;
   justify-content: center;

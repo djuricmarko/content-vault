@@ -1,19 +1,19 @@
 .googleBtn {
   background-color: transparent;
-  border: 1px solid var(--color-border-primary);
-  color: var(--color-text-primary);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--space-sm);
   cursor: pointer;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-medium);
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: var(--color-hover-background);
+    background-color: var(--color-bg-hover);
   }
 }
 
@@ -21,57 +21,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--spacing-3xl);
+  width: var(--space-3xl);
   height: 100%;
 }
 
 .btnText {
   flex-grow: 1;
   text-align: center;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
-  padding-right: var(--spacing-3xl);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  padding-right: var(--space-3xl);
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--space-md);
 
   .label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
     color: var(--color-text-muted);
   }
 
   .primaryButton {
-    background-color: var(--color-brand-primary);
-    color: var(--color-text-primary);
+    background-color: var(--color-primary);
+    color: var(--color-text);
     border: none;
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm);
-    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    font-weight: var(--font-medium);
     cursor: pointer;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--color-brand-hover);
+      background-color: var(--color-primary-hover);
     }
   }
 
   .input {
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border-primary);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--color-text-primary);
-    font-size: var(--font-size-sm);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text);
+    font-size: var(--text-sm);
     transition: border-color 0.2s;
 
     &:focus {
       outline: none;
-      border-color: var(--color-brand-primary);
+      border-color: var(--color-primary);
     }
   }
 
@@ -79,11 +79,11 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    line-height: var(--line-height-relaxed);
+    gap: var(--space-md);
+    line-height: var(--leading-normal);
 
     > p:last-child {
-      font-size: var(--font-size-xs);
+      font-size: var(--text-xs);
       color: var(--color-text-muted);
     }
   }

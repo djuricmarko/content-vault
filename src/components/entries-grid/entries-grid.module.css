@@ -2,34 +2,34 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--spacing-md);
+  gap: var(--space-md);
   counter-reset: grid-items;
   width: 100%;
 }
 
 .new {
   height: 300px;
-  border-radius: var(--border-radius-md);
-  border: var(--color-border-secondary) 2px dotted;
+  border-radius: var(--radius-md);
+  border: var(--color-border-subtle) 2px dotted;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--space-sm);
 }
 
 .entry {
   height: 300px;
-  border: var(--color-border-primary) 1px solid;
-  border-radius: var(--border-radius-sm);
-  padding: var(--spacing-md);
-  gap: var(--spacing-md);
+  border: var(--color-border) 1px solid;
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  gap: var(--space-md);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   & .title {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-bold);
   }
 
   & .content {

@@ -2,62 +2,53 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--space-lg);
 }
 
 .skeleton {
   background: linear-gradient(
     90deg,
-    var(--color-skeleton-background) 25%,
-    var(--color-skeleton-background-light) 50%,
-    var(--color-skeleton-background) 75%
+    var(--color-bg-skeleton) 25%,
+    var(--color-bg-skeleton-shine) 50%,
+    var(--color-bg-skeleton) 75%
   );
   background-size: 200% 100%;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--radius-sm);
   animation: shimmer 1.5s infinite linear;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 .pageTitle {
-  height: var(--spacing-xl);
-  width: var(--spacing-9xl);
+  height: var(--space-xl);
+  width: 9.375rem;
 }
 
 .controlsRow {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--space-sm);
   width: 100%;
 }
 
 .input {
-  height: var(--spacing-2xl);
-  width: var(--spacing-15xl);
+  height: var(--space-2xl);
+  width: 15.625rem;
 }
 
 .dropdown {
-  height: var(--spacing-2xl);
-  width: var(--spacing-11xl);
+  height: var(--space-2xl);
+  width: 11.25rem;
 }
 
 .saveBtn {
-  height: var(--spacing-2xl);
-  width: var(--spacing-5xl);
-  border-radius: var(--border-radius-md);
+  height: var(--space-2xl);
+  width: 5rem;
+  border-radius: var(--radius-md);
   margin-left: auto;
 }
 
 .editorContainer {
   flex: 1;
-  border: 1px solid var(--color-border-primary);
-  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   height: 60dvh;
   display: flex;
   flex-direction: column;
@@ -65,9 +56,9 @@
 }
 
 .toolbar {
-  height: var(--spacing-3xl);
+  height: var(--space-3xl);
   width: 100%;
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border);
   border-radius: 0;
   opacity: 0.6;
 }
