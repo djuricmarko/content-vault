@@ -2,14 +2,14 @@ import { Header } from "@/components/header";
 import { NewEntryForm } from "@/components/new-entry-form";
 import { getUserCategories } from "@/actions/getUserCategories";
 
-export default async function AddNewEntry({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function AddNewEntry({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const categories = await getUserCategories();
 
   return (
     <>
       <Header title="New Entry" />
-      <NewEntryForm initialCategories={categories} selectedCategory={slug} />
+      <NewEntryForm initialCategories={categories} selectedCategory={id} />
     </>
   );
 }
