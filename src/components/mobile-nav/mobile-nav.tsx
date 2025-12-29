@@ -49,7 +49,6 @@ export function MobileNav({ items, userData, avatar }: Props) {
         <MenuIcon size={24} />
       </button>
       <span className={styles.pageTitle}>{getPageTitle()}</span>
-
       {categoryId && (
         <>
           <Menu.Root>

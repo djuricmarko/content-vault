@@ -8,6 +8,7 @@
 @media (max-width: 768px) {
   .mobileNav {
     display: flex;
+    padding: var(--space-md) 0;
   }
 }
 
