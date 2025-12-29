@@ -47,6 +47,7 @@
   --color-accent-purple: oklch(70% 0.15 290);
   --color-accent-pink: oklch(70% 0.15 340);
   --color-destructive: oklch(60% 0.15 20);
+  --color-destructive-hover: oklch(55% 0.15 20);
 
   /* ========== EFFECTS ========== */
   --radius-sm: 0.25rem; /* 4px */
