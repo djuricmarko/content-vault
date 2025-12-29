@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 .heading {
   min-height: var(--space-3xl);
 }
