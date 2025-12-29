@@ -20,9 +20,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
     if (stored && ['light', 'dark', 'system'].includes(stored)) {
-      setThemeState(stored);
+      queueMicrotask(() => setThemeState(stored));
     }
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
   }, []);
 
   useEffect(() => {
