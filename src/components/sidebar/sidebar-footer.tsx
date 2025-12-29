@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import type { User } from "@supabase/auth-js";
 import { Settings } from "lucide-react";
 import { Menu } from '@base-ui/react/menu';
 import { SignOutButton } from "@/components/sign-out-button";
+import { SettingsDialog } from "@/components/settings-dialog";
 import { useSidebar } from "./sidebar-context";
 import styles from "./sidebar.module.css";
 
@@ -15,6 +17,7 @@ interface Props {
 
 export function SidebarFooter({ userData, avatar }: Props) {
   const { isCollapsed } = useSidebar();
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
     <div className={styles.footer}>
@@ -43,7 +46,7 @@ export function SidebarFooter({ userData, avatar }: Props) {
                 </div>
               </div>
               <Menu.Separator className={styles.separator} />
-              <Menu.Item className={styles.dropdownItem}>
+              <Menu.Item className={styles.dropdownItem} onClick={() => setSettingsOpen(true)}>
                 <Settings size={16} />
                 Settings
               </Menu.Item>
@@ -54,6 +57,7 @@ export function SidebarFooter({ userData, avatar }: Props) {
           </Menu.Positioner>
         </Menu.Portal>
       </Menu.Root>
+      <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
     </div>
   );
 }

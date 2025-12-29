@@ -58,7 +58,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --color-bg: oklch(0.289 0 0);
     --color-bg-elevated: oklch(0.201 0 0);
     --color-bg-panel: oklch(2% 0 0);
@@ -75,6 +75,42 @@
 
     --color-text-on-primary: oklch(100% 0 0);
   }
+}
+
+[data-theme="light"] {
+  --color-bg: oklch(100% 0 0);
+  --color-bg-elevated: oklch(0.957 0 0);
+  --color-bg-panel: oklch(98% 0 0);
+  --color-bg-hover: oklch(0.927 0 0);
+  --color-bg-overlay: oklch(0% 0 0 / 0.09);
+  --color-bg-skeleton: oklch(92% 0 0);
+  --color-bg-skeleton-shine: oklch(88% 0 0);
+
+  --color-text: oklch(10% 0 0);
+  --color-text-muted: oklch(50% 0 0);
+
+  --color-border: oklch(0.885 0 89.876);
+  --color-border-subtle: oklch(0% 0 0 / 0.1);
+
+  --color-text-on-primary: oklch(100% 0 0);
+}
+
+[data-theme="dark"] {
+  --color-bg: oklch(0.289 0 0);
+  --color-bg-elevated: oklch(0.201 0 0);
+  --color-bg-panel: oklch(2% 0 0);
+  --color-bg-hover: oklch(18% 0 0);
+  --color-bg-overlay: oklch(10% 0 0 / 0.09);
+  --color-bg-skeleton: oklch(0.235 0 89.876);
+  --color-bg-skeleton-shine: oklch(0.244 0 89.876);
+
+  --color-text: oklch(100% 0 0);
+  --color-text-muted: oklch(0.603 0 89.876);
+
+  --color-border: oklch(0.409 0 0);
+  --color-border-subtle: oklch(100% 0 0 / 0.1);
+
+  --color-text-on-primary: oklch(100% 0 0);
 }
 
 /* ========== SHARED ANIMATIONS ========== */
