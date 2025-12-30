@@ -18,7 +18,10 @@ import {
   Redo,
   TextAlignStart,
   TextAlignCenter,
-  TextAlignEnd
+  TextAlignEnd,
+  Eraser,
+  RemoveFormatting,
+  Minus
 } from "lucide-react";
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
 import styles from "./entry-editor.module.css";
@@ -59,6 +62,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
 
   return (
     <BaseToolbar.Root className={styles.toolbar} aria-label="Formatting options">
+      {/* Headings Group */}
       <BaseToolbar.Group className={styles.buttonGroup}>
         <BaseToolbar.Button
           value="h1"
@@ -66,7 +70,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           className={editorState.isHeading1 ? styles.isActive : ''}
         >
-          <Heading1 size={18} />
+          <Heading1 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h2"
@@ -74,7 +78,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           className={editorState.isHeading2 ? styles.isActive : ''}
         >
-          <Heading2 size={18} />
+          <Heading2 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h3"
@@ -82,31 +86,31 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={editorState.isHeading3 ? styles.isActive : ''}
         >
-          <Heading3 size={18} />
+          <Heading3 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h4"
           aria-label="Heading 4"
           onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-          className={editorState.isHeading4 ? styles.isActive : ''}
+          className={`${editorState.isHeading4 ? styles.isActive : ''} ${styles.hideOnMobile}`}
         >
-          <Heading4 size={18} />
+          <Heading4 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h5"
           aria-label="Heading 5"
           onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-          className={editorState.isHeading5 ? styles.isActive : ''}
+          className={`${editorState.isHeading5 ? styles.isActive : ''} ${styles.hideOnMobile}`}
         >
-          <Heading5 size={18} />
+          <Heading5 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h6"
           aria-label="Heading 6"
           onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-          className={editorState.isHeading6 ? styles.isActive : ''}
+          className={`${editorState.isHeading6 ? styles.isActive : ''} ${styles.hideOnMobile}`}
         >
-          <Heading6 size={18} />
+          <Heading6 size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="paragraph"
@@ -114,11 +118,14 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={editorState.isParagraph ? styles.isActive : ''}
         >
-          <Pilcrow size={18} />
+          <Pilcrow size={16} />
         </BaseToolbar.Button>
+      </BaseToolbar.Group>
 
-        <BaseToolbar.Separator className={styles.divider} />
+      <BaseToolbar.Separator className={styles.divider} />
 
+      {/* Text Formatting Group */}
+      <BaseToolbar.Group className={styles.buttonGroup}>
         <BaseToolbar.Button
           value="bold"
           aria-label="Bold"
@@ -126,7 +133,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           disabled={!editorState.canBold}
           className={editorState.isBold ? styles.isActive : ''}
         >
-          <Bold size={18} />
+          <Bold size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="italic"
@@ -135,7 +142,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           disabled={!editorState.canItalic}
           className={editorState.isItalic ? styles.isActive : ''}
         >
-          <Italic size={18} />
+          <Italic size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="strike"
@@ -144,7 +151,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           disabled={!editorState.canStrike}
           className={editorState.isStrike ? styles.isActive : ''}
         >
-          <Strikethrough size={18} />
+          <Strikethrough size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="code"
@@ -153,18 +160,21 @@ export function Toolbar({ editor }: { editor: Editor }) {
           disabled={!editorState.canCode}
           className={editorState.isCode ? styles.isActive : ''}
         >
-          <Code size={18} />
+          <Code size={16} />
         </BaseToolbar.Button>
+      </BaseToolbar.Group>
 
-        <BaseToolbar.Separator className={styles.divider} />
+      <BaseToolbar.Separator className={styles.divider} />
 
+      {/* Lists & Blocks Group */}
+      <BaseToolbar.Group className={styles.buttonGroup}>
         <BaseToolbar.Button
           value="bulletList"
           aria-label="Bullet list"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editorState.isBulletList ? styles.isActive : ''}
         >
-          <List size={18} />
+          <List size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="orderedList"
@@ -172,7 +182,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editorState.isOrderedList ? styles.isActive : ''}
         >
-          <ListOrdered size={18} />
+          <ListOrdered size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="blockquote"
@@ -180,69 +190,83 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editorState.isBlockquote ? styles.isActive : ''}
         >
-          <MessageSquareQuote size={18} />
+          <MessageSquareQuote size={16} />
         </BaseToolbar.Button>
+        <BaseToolbar.Button
+          value="horizontalRule"
+          aria-label="Horizontal rule"
+          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+        >
+          <Minus size={16} />
+        </BaseToolbar.Button>
+      </BaseToolbar.Group>
 
-        <BaseToolbar.Separator className={styles.divider} />
+      <BaseToolbar.Separator className={`${styles.divider} ${styles.hideOnMobile}`} />
 
+      {/* Alignment Group - hidden on mobile */}
+      <BaseToolbar.Group className={`${styles.buttonGroup} ${styles.hideOnMobile}`}>
         <BaseToolbar.Button
           aria-label="Align left"
           onClick={() => editor.chain().focus().setTextAlign('left').run()}
           className={editorState.isLeft ? styles.isActive : ''}
         >
-          <TextAlignStart size={18} />
+          <TextAlignStart size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           aria-label="Align center"
           onClick={() => editor.chain().focus().setTextAlign('center').run()}
           className={editorState.isCenter ? styles.isActive : ''}
         >
-          <TextAlignCenter size={18} />
+          <TextAlignCenter size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           aria-label="Align right"
           onClick={() => editor.chain().focus().setTextAlign('right').run()}
           className={editorState.isRight ? styles.isActive : ''}
         >
-          <TextAlignEnd size={18} />
+          <TextAlignEnd size={16} />
         </BaseToolbar.Button>
+      </BaseToolbar.Group>
 
-        <BaseToolbar.Separator className={styles.divider} />
+      <BaseToolbar.Separator className={`${styles.divider} ${styles.hideOnMobile}`} />
 
+      {/* Clear & Utilities Group - hidden on mobile */}
+      <BaseToolbar.Group className={`${styles.buttonGroup} ${styles.hideOnMobile}`}>
         <BaseToolbar.Button
           value="clearMarks"
+          aria-label="Clear formatting"
           onClick={() => editor.chain().focus().unsetAllMarks().run()}
         >
-          Clear marks
+          <RemoveFormatting size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="clearNodes"
+          aria-label="Clear blocks"
           onClick={() => editor.chain().focus().clearNodes().run()}
         >
-          Clear nodes
+          <Eraser size={16} />
         </BaseToolbar.Button>
-        <BaseToolbar.Button
-          value="horizontalRule"
-          onClick={() => editor.chain().focus().setHorizontalRule().run()}
-        >
-          Horizontal rule
-        </BaseToolbar.Button>
+      </BaseToolbar.Group>
 
-        <BaseToolbar.Separator className={styles.divider} />
+      <BaseToolbar.Separator className={styles.divider} />
 
+      {/* Undo/Redo Group */}
+      <BaseToolbar.Group className={styles.buttonGroup}>
         <BaseToolbar.Button
           value="undo"
           aria-label="Undo"
-          onClick={() => editor.chain().focus().undo().run()} disabled={!editorState.canUndo}
+          onClick={() => editor.chain().focus().undo().run()}
+          disabled={!editorState.canUndo}
         >
-          <Undo size={18} />
+          <Undo size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="redo"
           aria-label="Redo"
-          onClick={() => editor.chain().focus().redo().run()} disabled={!editorState.canRedo}
+          onClick={() => editor.chain().focus().redo().run()}
+          disabled={!editorState.canRedo}
         >
-          <Redo size={18} />
+          <Redo size={16} />
         </BaseToolbar.Button>
       </BaseToolbar.Group>
     </BaseToolbar.Root>
