@@ -1,8 +1,13 @@
 .title {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-lg);
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex-shrink: 0;
+
+  @media (min-width: 640px) {
+    margin-bottom: var(--space-2xl);
+  }
 
   h2 {
     font-size: var(--text-base);
