@@ -51,7 +51,7 @@
     height: 60dvh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto hidden;
 
     .toolbar {
       height: var(--space-3xl);
