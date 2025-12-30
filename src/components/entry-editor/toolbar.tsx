@@ -62,6 +62,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
       <BaseToolbar.Group className={styles.buttonGroup}>
         <BaseToolbar.Button
           value="h1"
+          aria-label="Heading 1"
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           className={editorState.isHeading1 ? styles.isActive : ''}
         >
@@ -69,6 +70,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h2"
+          aria-label="Heading 2"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           className={editorState.isHeading2 ? styles.isActive : ''}
         >
@@ -76,6 +78,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h3"
+          aria-label="Heading 3"
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={editorState.isHeading3 ? styles.isActive : ''}
         >
@@ -83,6 +86,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h4"
+          aria-label="Heading 4"
           onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
           className={editorState.isHeading4 ? styles.isActive : ''}
         >
@@ -90,6 +94,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h5"
+          aria-label="Heading 5"
           onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
           className={editorState.isHeading5 ? styles.isActive : ''}
         >
@@ -97,6 +102,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="h6"
+          aria-label="Heading 6"
           onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
           className={editorState.isHeading6 ? styles.isActive : ''}
         >
@@ -104,6 +110,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="paragraph"
+          aria-label="Paragraph"
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={editorState.isParagraph ? styles.isActive : ''}
         >
@@ -114,6 +121,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
 
         <BaseToolbar.Button
           value="bold"
+          aria-label="Bold"
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editorState.canBold}
           className={editorState.isBold ? styles.isActive : ''}
@@ -122,6 +130,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="italic"
+          aria-label="Italic"
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editorState.canItalic}
           className={editorState.isItalic ? styles.isActive : ''}
@@ -130,6 +139,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="strike"
+          aria-label="Strikethrough"
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editorState.canStrike}
           className={editorState.isStrike ? styles.isActive : ''}
@@ -138,6 +148,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="code"
+          aria-label="Inline code"
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editorState.canCode}
           className={editorState.isCode ? styles.isActive : ''}
@@ -149,6 +160,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
 
         <BaseToolbar.Button
           value="bulletList"
+          aria-label="Bullet list"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editorState.isBulletList ? styles.isActive : ''}
         >
@@ -156,6 +168,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="orderedList"
+          aria-label="Numbered list"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editorState.isOrderedList ? styles.isActive : ''}
         >
@@ -163,6 +176,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="blockquote"
+          aria-label="Blockquote"
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editorState.isBlockquote ? styles.isActive : ''}
         >
@@ -172,18 +186,21 @@ export function Toolbar({ editor }: { editor: Editor }) {
         <BaseToolbar.Separator className={styles.divider} />
 
         <BaseToolbar.Button
+          aria-label="Align left"
           onClick={() => editor.chain().focus().setTextAlign('left').run()}
           className={editorState.isLeft ? styles.isActive : ''}
         >
           <TextAlignStart size={18} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
+          aria-label="Align center"
           onClick={() => editor.chain().focus().setTextAlign('center').run()}
           className={editorState.isCenter ? styles.isActive : ''}
         >
           <TextAlignCenter size={18} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
+          aria-label="Align right"
           onClick={() => editor.chain().focus().setTextAlign('right').run()}
           className={editorState.isRight ? styles.isActive : ''}
         >
@@ -215,12 +232,14 @@ export function Toolbar({ editor }: { editor: Editor }) {
 
         <BaseToolbar.Button
           value="undo"
+          aria-label="Undo"
           onClick={() => editor.chain().focus().undo().run()} disabled={!editorState.canUndo}
         >
           <Undo size={18} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="redo"
+          aria-label="Redo"
           onClick={() => editor.chain().focus().redo().run()} disabled={!editorState.canRedo}
         >
           <Redo size={18} />

@@ -8,7 +8,7 @@ import styles from './entries-grid.module.css';
 export function EntriesGrid({ items, id }: { items: Entry[], id?: string }) {
   return (
     <div className={styles.container}>
-      <Link href={id ? `/dashboard/category/${id}/add` : "/dashboard/add"}>
+      <Link href={id ? `/dashboard/category/${id}/add` : "/dashboard/add"} aria-label="Create new entry">
         <div className={styles.new}>
           <Plus size={25} />
           <p>Create new entry</p>

@@ -10,6 +10,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .title h2 {
+    display: none;
+  }
+
+  .title {
+    display: none;
+  }
+}
+
 .options {
   cursor: pointer;
   border: none;
@@ -49,86 +59,5 @@
   &[data-highlighted] {
     background-color: var(--color-bg-hover);
     color: var(--color-text);
-  }
-}
-
-.overlay {
-  background-color: var(--color-bg-overlay);
-  backdrop-filter: blur(20px);
-  position: fixed;
-  inset: 0;
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dialogContent {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 450px;
-  padding: var(--space-2xl);
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.dialogTitle {
-  margin: 0;
-  font-weight: var(--font-medium);
-  font-size: var(--text-base);
-}
-
-.dialogDescription {
-  margin: var(--space-sm) 0 var(--space-xl);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: var(--leading-normal);
-}
-
-.dialogActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-sm);
-}
-
-.deleteButton {
-  background-color: var(--color-destructive);
-  border-color: var(--color-destructive);
-
-  &:hover:not([data-disabled]) {
-    background-color: var(--color-destructive-hover);
-    border-color: var(--color-destructive-hover);
-  }
-}
-
-.error {
-  color: var(--color-destructive);
-  font-size: var(--text-sm);
-  margin-bottom: var(--space-md);
-}
-
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes contentShow {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -48%) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
   }
 }

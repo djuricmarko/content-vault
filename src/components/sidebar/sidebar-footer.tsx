@@ -22,7 +22,7 @@ export function SidebarFooter({ userData, avatar }: Props) {
   return (
     <div className={styles.footer}>
       <Menu.Root>
-        <Menu.Trigger className={`${styles.triggerButton} ${isCollapsed ? styles.triggerButtonCollapsed : ''}`}>
+        <Menu.Trigger className={`${styles.triggerButton} ${isCollapsed ? styles.triggerButtonCollapsed : ''}`} aria-label="User menu">
           {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
           {!isCollapsed && (
             <div className={styles.triggerInfo}>
