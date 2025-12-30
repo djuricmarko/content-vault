@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import type { User } from "@supabase/auth-js";
-import { MenuIcon, PiggyBank, LayoutDashboard, Folder, Settings, Ellipsis, Trash } from "lucide-react";
+import { MenuIcon, LayoutDashboard, Folder, Settings, Ellipsis, Trash } from "lucide-react";
 import { Menu } from '@base-ui/react/menu';
 import { Category } from "@/lib/drizzle/schema";
 import { Sheet } from "@/components/sheet";
@@ -89,7 +89,6 @@ export function MobileNav({ items, userData, avatar }: Props) {
           <div className={styles.top}>
             <div className={styles.heading}>
               <Link href="/dashboard" onClick={closeSheet}>
-                <PiggyBank size={25} />
                 <span>Content Vault</span>
               </Link>
             </div>

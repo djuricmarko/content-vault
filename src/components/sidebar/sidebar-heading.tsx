@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { PiggyBank, PanelRightClose, PanelRightOpen } from "lucide-react";
+import { PanelRightClose, PanelRightOpen } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 import styles from "./sidebar.module.css";
 
@@ -12,7 +12,6 @@ export function SidebarHeading() {
     <div className={styles.heading}>
       <div className={styles.headingContent}>
         <Link href="/dashboard">
-          <PiggyBank size={25} />
           {!isCollapsed && <span>Content Vault</span>}
         </Link>
         <button
