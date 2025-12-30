@@ -4,42 +4,40 @@
   display: flex;
   overflow: hidden;
   background-color: var(--color-bg-elevated);
-}
 
-.main {
-  width: 100%;
-  height: 100%;
-  padding: var(--space-sm);
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 640px) {
-    padding: var(--space-md);
-  }
-
-  .wrapper {
-    background-color: var(--color-bg);
-    overflow: hidden;
-    flex: 1;
+  .main {
+    width: 100%;
+    height: 100%;
+    padding: var(--space-sm);
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-sm);
 
     @media (min-width: 640px) {
       padding: var(--space-md);
     }
-  }
-}
 
-.mobileHeader {
-  display: none;
-  margin-bottom: var(--space-sm);
-}
+    .wrapper {
+      background-color: var(--color-bg);
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm);
 
-@media (max-width: 768px) {
-  .mobileHeader {
-    display: block;
+      @media (min-width: 640px) {
+        padding: var(--space-md);
+      }
+    }
+
+    .mobileHeader {
+      display: none;
+      margin-bottom: var(--space-sm);
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
   }
 }
