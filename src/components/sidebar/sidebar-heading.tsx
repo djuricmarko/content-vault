@@ -11,9 +11,11 @@ export function SidebarHeading() {
   return (
     <div className={styles.heading}>
       <div className={styles.headingContent}>
-        <Link href="/dashboard">
-          {!isCollapsed && <span>Content Vault</span>}
-        </Link>
+        {!isCollapsed && (
+          <Link href="/dashboard">
+            <span>Content Vault</span>
+          </Link>
+        )}
         <button
           className={styles.collapseButton}
           onClick={toggleCollapsed}
