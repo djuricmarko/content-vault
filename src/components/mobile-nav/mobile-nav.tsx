@@ -31,8 +31,7 @@ export function MobileNav({ items, userData, avatar }: Props) {
   function getPageTitle() {
     if (pathname === '/dashboard') {
       return 'All entries';
-    }
-    if (categoryId) {
+    } else if (categoryId) {
       const category = items.find((item) => item.id === categoryId);
       return category?.name ?? '';
     }
@@ -49,14 +48,14 @@ export function MobileNav({ items, userData, avatar }: Props) {
         <MenuIcon size={24} />
       </button>
       <span className={styles.pageTitle}>{getPageTitle()}</span>
-      {categoryId && (
+      {categoryId && !pathname.split('/').includes('add') && (
         <>
           <Menu.Root>
             <Menu.Trigger className={styles.options}>
               <Ellipsis size={20} />
             </Menu.Trigger>
             <Menu.Portal>
-              <Menu.Positioner sideOffset={10}>
+              <Menu.Positioner>
                 <Menu.Popup className={styles.optionsDropdown}>
                   <Menu.Item
                     className={styles.optionsDropdownItem}
