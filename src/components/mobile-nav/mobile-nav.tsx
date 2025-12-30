@@ -42,16 +42,24 @@ export function MobileNav({ items, userData, avatar }: Props) {
     setSheetOpen(false);
   }
 
+  function openSheet() {
+    setSheetOpen(true);
+  }
+
   return (
     <div className={styles.mobileNav}>
-      <button className={styles.trigger} onClick={() => setSheetOpen(true)}>
+      <button
+        className={styles.trigger}
+        onClick={openSheet}
+        aria-label="Open navigation menu"
+      >
         <MenuIcon size={24} />
       </button>
       <span className={styles.pageTitle}>{getPageTitle()}</span>
       {categoryId && !pathname.split('/').includes('add') && (
         <>
           <Menu.Root>
-            <Menu.Trigger className={styles.options}>
+            <Menu.Trigger className={styles.options} aria-label="Category options">
               <Ellipsis size={20} />
             </Menu.Trigger>
             <Menu.Portal>
@@ -112,7 +120,7 @@ export function MobileNav({ items, userData, avatar }: Props) {
 
           <div className={styles.footer}>
             <Menu.Root>
-              <Menu.Trigger className={styles.userButton}>
+              <Menu.Trigger className={styles.userButton} aria-label="User menu">
                 {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
                 <div className={styles.userInfo}>
                   <p>{userData?.user_metadata?.full_name}</p>

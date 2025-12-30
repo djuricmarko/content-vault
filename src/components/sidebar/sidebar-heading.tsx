@@ -15,7 +15,11 @@ export function SidebarHeading() {
           <PiggyBank size={25} />
           {!isCollapsed && <span>Content Vault</span>}
         </Link>
-        <button className={styles.collapseButton} onClick={toggleCollapsed}>
+        <button
+          className={styles.collapseButton}
+          onClick={toggleCollapsed}
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
           {isCollapsed ? <PanelRightClose size={22} /> : <PanelRightOpen size={22} />}
         </button>
       </div>

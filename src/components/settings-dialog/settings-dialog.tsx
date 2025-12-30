@@ -76,7 +76,7 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
             </Button>
           </div>
 
-          <Dialog.Close className={styles.close}>
+          <Dialog.Close className={styles.close} aria-label="Close settings">
             <XIcon size={20} />
           </Dialog.Close>
         </Dialog.Popup>

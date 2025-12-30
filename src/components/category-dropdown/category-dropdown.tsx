@@ -21,7 +21,7 @@ export function CategoryDropdown({ initialCategories, defaultValue }: Props) {
       defaultValue={defaultValue || initialCategories[0].id}
       name="category"
     >
-      <Select.Trigger className={styles.Select}>
+      <Select.Trigger className={styles.Select} aria-label="Select category">
         <Select.Value />
         <Select.Icon className={styles.SelectIcon}>
           <ChevronDown />

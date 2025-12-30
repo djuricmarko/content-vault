@@ -17,7 +17,7 @@ export function Sheet({ open, onOpenChange, children }: Props) {
       <Dialog.Portal>
         <Dialog.Backdrop className={styles.overlay} />
         <Dialog.Popup className={styles.content}>
-          <Dialog.Close className={styles.close}>
+          <Dialog.Close className={styles.close} aria-label="Close menu">
             <XIcon size={20} />
           </Dialog.Close>
           {children}

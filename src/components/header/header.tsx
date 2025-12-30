@@ -20,7 +20,7 @@ export function Header({ title, categoryId }: Props) {
       {categoryId && (
         <>
           <Menu.Root>
-            <Menu.Trigger className={styles.options}>
+            <Menu.Trigger className={styles.options} aria-label="Category options">
               <Ellipsis />
             </Menu.Trigger>
             <Menu.Portal>

@@ -84,7 +84,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding-top: var(--space-xl);
+  padding-top: var(--space-sm);
 }
 
 .top {

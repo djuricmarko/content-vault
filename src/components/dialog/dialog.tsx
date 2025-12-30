@@ -41,7 +41,7 @@ export function Dialog({
             {description}
           </BaseDialog.Description>
           {children}
-          <BaseDialog.Close className={styles.close}>
+          <BaseDialog.Close className={styles.close} aria-label="Close dialog">
             <XIcon size={25} />
           </BaseDialog.Close>
         </BaseDialog.Popup>
