@@ -59,20 +59,16 @@
   }
 }
 
-.collapsed .headingContent .collapseButton {
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
 .collapsed {
   li, .headingContent, .allItems {
     justify-content: center;
   }
+
   &:hover {
     .collapseButton {
       display: flex;
     }
+
     .headingContent > a {
       display: none;
     }
