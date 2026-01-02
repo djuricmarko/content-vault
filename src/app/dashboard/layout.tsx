@@ -1,7 +1,6 @@
 import { ReactNode, Suspense } from "react";
 import { Sidebar } from "@/components/sidebar";
 import { SidebarSkeleton } from "@/components/sidebar-skeleton";
-import { GridSkeleton } from "@/components/grid-skeleton";
 import { MobileNavServer } from "@/components/mobile-nav";
 import styles from "./page.module.css";
 
@@ -18,9 +17,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           </Suspense>
         </div>
         <div className={styles.wrapper}>
-          <Suspense fallback={<GridSkeleton />}>
-            {children}
-          </Suspense>
+          {children}
         </div>
       </main>
     </div>
