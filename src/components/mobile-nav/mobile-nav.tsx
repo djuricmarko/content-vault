@@ -95,7 +95,7 @@ export function MobileNav({ items, userData, avatar }: Props) {
 
             <div className={styles.items}>
               <Link href="/dashboard" onClick={closeSheet}>
-                <div className={`${styles.navItem} ${pathname === '/dashboard' ? styles.activeItem : ''}`}>
+                <div className={`${styles.allItems} ${pathname === '/dashboard' ? styles.activeItem : ''}`}>
                   <LayoutDashboard size={16} />
                   <span>All entries</span>
                 </div>
