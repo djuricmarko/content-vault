@@ -62,25 +62,6 @@
     }
   }
 
-  .input {
-    background-color: var(--color-bg);
-    border: 1px solid var(--border-secondary);
-    border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-md);
-    color: var(--color-text);
-    font-size: var(--text-sm);
-    transition: border-color 0.2s;
-
-    &:focus {
-      outline: none;
-      border-color: var(--color-text-accented);
-    }
-
-    &::placeholder {
-      color: var(--color-text-muted);
-    }
-  }
-
   .success {
     text-align: center;
     display: flex;

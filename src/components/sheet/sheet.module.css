@@ -25,20 +25,6 @@
   }
 }
 
-.close {
-  all: unset;
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--space-2xl);
-  height: var(--space-2xl);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-}
-
 @keyframes overlayShow {
   from {
     opacity: 0;

@@ -2,11 +2,11 @@
 
 import { useActionState, useState } from "react";
 import dynamic from "next/dynamic";
-import { Field } from '@base-ui/react/field';
 import { CategoryDropdown } from "@/components/category-dropdown";
 import { Category } from "@/lib/drizzle/schema";
 import { createEntry } from "@/actions/createEntry";
 import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import styles from './new-entry-form.module.css';
 
 const EntryEditor = dynamic(() => import('../entry-editor/entry-editor'), {
@@ -32,9 +32,7 @@ export function NewEntryForm({ initialCategories, selectedCategory }: Props) {
       <form action={formAction}>
         <div className={styles.top}>
           <div className={styles.left}>
-            <Field.Root className={styles.field} name="title">
-              <Field.Control placeholder="Enter the entry title" className={styles.input} />
-            </Field.Root>
+            <Input name="title" placeholder="Enter the entry title" />
             <CategoryDropdown initialCategories={initialCategories} defaultValue={selectedCategory} />
           </div>
           <Button

@@ -41,46 +41,6 @@
   }
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: var(--space-xs);
-  width: 100%;
-
-  @media (min-width: 640px) {
-    max-width: 20rem;
-  }
-}
-
-.label {
-  font-size: var(--text-sm);
-  line-height: var(--leading-tight);
-  font-weight: var(--font-medium);
-  color: var(--color-text);
-}
-
-.input {
-  padding-left: var(--space-sm);
-  margin: 0;
-  border: 1px solid var(--border-secondary);
-  width: 100%;
-  height: var(--space-2xl);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-base);
-  background-color: transparent;
-  color: var(--color-text);
-
-  &:focus {
-    outline: 2px solid var(--color-text-accented);
-    outline-offset: -1px;
-  }
-
-  &::placeholder {
-    color: var(--color-text-muted);
-  }
-}
-
 .error {
   font-size: var(--text-sm);
   line-height: var(--leading-tight);

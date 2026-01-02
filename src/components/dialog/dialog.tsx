@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { Dialog as BaseDialog } from '@base-ui/react/dialog';
 import { DynamicIcon, type IconName } from "lucide-react/dynamic";
-import { XIcon } from "lucide-react";
+import { CloseButton } from "@/components/close-button";
 import styles from './dialog.module.css';
 
 interface Props {
@@ -41,9 +41,7 @@ export function Dialog({
             {description}
           </BaseDialog.Description>
           {children}
-          <BaseDialog.Close className={styles.close} aria-label="Close dialog">
-            <XIcon size={25} />
-          </BaseDialog.Close>
+          <CloseButton label="Close dialog" />
         </BaseDialog.Popup>
       </BaseDialog.Portal>
     </BaseDialog.Root>

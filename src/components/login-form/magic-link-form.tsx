@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/client";
+import { Input } from "@/components/input";
 import styles from "./login-form.module.css";
 
 const emailSchema = z.email("Invalid email address.");
@@ -60,12 +61,11 @@ export function MagicLinkForm() {
   return (
     <form action={formAction} className={styles.inputGroup}>
       <label htmlFor="email" className={styles.label}>Email</label>
-      <input
+      <Input
         id="email"
         name="email"
         type="email"
         placeholder="name@example.com"
-        className={styles.input}
       />
       <button
         type="submit"

@@ -57,17 +57,6 @@
   }
 }
 
-.close {
-  all: unset;
-  border-radius: var(--radius-full);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-}
-
 @keyframes overlayShow {
   from {
     opacity: 0;

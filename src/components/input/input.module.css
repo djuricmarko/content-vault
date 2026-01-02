@@ -1,0 +1,20 @@
+.input {
+  padding: 0 var(--space-sm);
+  margin: 0;
+  border: 1px solid var(--border-secondary);
+  width: 100%;
+  height: var(--space-2xl);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  background-color: transparent;
+  color: var(--color-text);
+
+  &:focus {
+    outline: 2px solid var(--color-text-accented);
+    outline-offset: -1px;
+  }
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+}
