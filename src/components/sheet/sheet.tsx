@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { Dialog } from '@base-ui/react/dialog';
-import { XIcon } from "lucide-react";
+import { CloseButton } from "@/components/close-button";
 import styles from './sheet.module.css';
 
 interface Props {
@@ -17,9 +17,7 @@ export function Sheet({ open, onOpenChange, children }: Props) {
       <Dialog.Portal>
         <Dialog.Backdrop className={styles.overlay} />
         <Dialog.Popup className={styles.content}>
-          <Dialog.Close className={styles.close} aria-label="Close menu">
-            <XIcon size={20} />
-          </Dialog.Close>
+          <CloseButton label="Close menu" />
           {children}
         </Dialog.Popup>
       </Dialog.Portal>

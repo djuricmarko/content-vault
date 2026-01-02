@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { createCategory } from "@/actions/createCategory";
 import { Dialog } from "@/components/dialog";
 import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import styles from './add-category.module.css';
 
 export function AddCategory() {
@@ -31,8 +32,8 @@ export function AddCategory() {
       setOpen={setOpen}
     >
       <form action={formAction} className={styles.form}>
-        <div className={styles.categoryInput}>
-          <input
+        <div className={styles.inputWrapper}>
+          <Input
             type="text"
             name="name"
             placeholder="Enter category name"

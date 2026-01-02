@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Dialog } from '@base-ui/react/dialog';
-import { XIcon, Sun, Moon, Monitor } from 'lucide-react';
+import { Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from '@/components/theme-provider';
 import { Button } from '@/components/button';
+import { CloseButton } from '@/components/close-button';
 import styles from './settings-dialog.module.css';
 
 type Theme = 'light' | 'dark' | 'system';
@@ -76,9 +77,7 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
             </Button>
           </div>
 
-          <Dialog.Close className={styles.close} aria-label="Close settings">
-            <XIcon size={20} />
-          </Dialog.Close>
+          <CloseButton label="Close settings" />
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>
