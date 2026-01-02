@@ -21,7 +21,8 @@ import {
   TextAlignEnd,
   Eraser,
   RemoveFormatting,
-  Minus
+  Minus,
+  ListTodo
 } from "lucide-react";
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
 import styles from "./entry-editor.module.css";
@@ -49,6 +50,7 @@ export function Toolbar({ editor }: { editor: Editor }) {
         isHeading6: ctx.editor.isActive('heading', { level: 6 }) ?? false,
         isBulletList: ctx.editor.isActive('bulletList') ?? false,
         isOrderedList: ctx.editor.isActive('orderedList') ?? false,
+        isTaskList: ctx.editor.isActive('taskList') ?? false,
         isCodeBlock: ctx.editor.isActive('codeBlock') ?? false,
         isBlockquote: ctx.editor.isActive('blockquote') ?? false,
         isLeft: ctx.editor.isActive({ textAlign: 'left' }) ?? false,
@@ -183,6 +185,14 @@ export function Toolbar({ editor }: { editor: Editor }) {
           className={editorState.isOrderedList ? styles.isActive : ''}
         >
           <ListOrdered size={16} />
+        </BaseToolbar.Button>
+        <BaseToolbar.Button
+          value="taskList"
+          aria-label="Todo list"
+          onClick={() => editor.chain().focus().toggleTaskList().run()}
+          className={editorState.isTaskList ? styles.isActive : ''}
+        >
+          <ListTodo size={16} />
         </BaseToolbar.Button>
         <BaseToolbar.Button
           value="blockquote"

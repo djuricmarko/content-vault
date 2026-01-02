@@ -15,6 +15,7 @@
     gap: var(--space-xs);
     padding: var(--space-xs);
     border-bottom: 1px solid var(--border-secondary);
+    background-color: var(--color-bg-panel);
     flex-shrink: 0;
 
     @media (min-width: 640px) {
@@ -41,7 +42,7 @@
         padding: var(--space-xs);
         background-color: transparent;
         border: none;
-        outline: 1px solid var(--color-bg-panel);
+        outline: 1px solid var(--border-secondary);
         border-radius: var(--radius-sm);
         cursor: pointer;
         font-size: var(--text-xs);
@@ -130,6 +131,39 @@
     ul, ol {
       padding: 0 var(--space-md);
       margin: var(--space-md) var(--space-md) var(--space-md) var(--space-xs);
+    }
+
+    ul[data-type="taskList"] {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-xs);
+
+        > label {
+          display: flex;
+          align-items: center;
+          user-select: none;
+          cursor: pointer;
+
+          > input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 2px 0 0 0;
+            cursor: pointer;
+            accent-color: var(--button-primary);
+          }
+        }
+
+        > div {
+          flex: 1;
+          padding-top: 2px;
+        }
+      }
     }
 
     h1, h2, h3 {
