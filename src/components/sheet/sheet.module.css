@@ -1,6 +1,6 @@
 .overlay {
-  background-color: var(--color-bg-overlay);
-  backdrop-filter: blur(20px);
+  background: transparent;
+  backdrop-filter: blur(10px);
   position: fixed;
   inset: 0;
   animation: overlayShow 200ms ease-out;
@@ -13,7 +13,8 @@
   bottom: 0;
   width: var(--sidebar-width);
   max-width: 80vw;
-  background-color: var(--color-bg-elevated);
+  background-color: var(--color-bg-panel);
+  border-right: 1px solid var(--border-secondary);
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
@@ -36,10 +37,6 @@
   height: var(--space-2xl);
   border-radius: var(--radius-md);
   cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-bg-hover);
-  }
 }
 
 @keyframes overlayShow {

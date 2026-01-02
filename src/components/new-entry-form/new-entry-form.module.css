@@ -37,16 +37,6 @@
           width: auto;
         }
       }
-
-      .button {
-        cursor: pointer;
-        width: fit-content;
-        padding: var(--space-sm) var(--space-md);
-        outline: none;
-        border: 1px solid var(--color-border-subtle);
-        background-color: var(--color-primary);
-        border-radius: var(--radius-md);
-      }
     }
   }
 }
@@ -73,7 +63,7 @@
 .input {
   padding-left: var(--space-sm);
   margin: 0;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--border-secondary);
   width: 100%;
   height: var(--space-2xl);
   border-radius: var(--radius-sm);
@@ -82,8 +72,12 @@
   color: var(--color-text);
 
   &:focus {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-text-accented);
     outline-offset: -1px;
+  }
+
+  &::placeholder {
+    color: var(--color-text-muted);
   }
 }
 

@@ -37,7 +37,7 @@
 .dropdownContent {
   max-width: 234px;
   padding: var(--space-sm);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--border-secondary);
   border-radius: var(--radius-lg);
   background-color: var(--color-bg);
   box-shadow: var(--shadow-dropdown);
@@ -59,7 +59,7 @@
     cursor: pointer;
 
     &[data-highlighted] {
-      background-color: var(--color-bg-hover);
+      background-color: var(--bg-hover);
       color: var(--color-text);
     }
   }

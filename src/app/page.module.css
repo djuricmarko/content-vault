@@ -2,7 +2,7 @@
   display: flex;
   min-height: 100dvh;
   width: 100%;
-  background-color: var(--color-bg-elevated);
+  background-color: var(--color-bg);
   color: var(--color-text);
 
   .leftPanel {
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     padding: var(--space-xl);
-    border-right: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-bg);
 
     .formContainer {
       width: 100%;
@@ -35,14 +35,14 @@
       .divider {
         display: flex;
         align-items: center;
-        color: var(--color-border);
+        color: var(--border-secondary);
         font-size: var(--text-xs);
 
         &::before,
         &::after {
           content: "";
           flex: 1;
-          border-bottom: 1px solid var(--color-border);
+          border-bottom: 1px solid var(--border-secondary);
         }
 
         &::before {
@@ -87,7 +87,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, var(--color-primary-glow) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, var(--bg-hover) 0%, rgba(0, 0, 0, 0) 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -103,7 +103,7 @@
         margin-bottom: var(--space-xl);
 
         .gradientText {
-          background: linear-gradient(to right, var(--color-accent-purple), var(--color-accent-pink));
+          background: linear-gradient(to right, var(--color-text-accented), var(--color-text-muted));
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
@@ -127,7 +127,7 @@
           line-height: var(--leading-normal);
 
           .checkIcon {
-            color: var(--color-accent-purple);
+            color: var(--color-text-muted);
             flex-shrink: 0;
             margin-top: var(--space-xs);
           }
