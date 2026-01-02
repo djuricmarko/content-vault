@@ -31,7 +31,7 @@ export function SidebarItems({ items }: { items: Category[] }) {
           <Link href={`/dashboard/category/${item.id}`} key={item.id}>
             <li className={id === item.id ? styles.activeItem : ''}>
               <Folder size={16} />
-              {!isCollapsed && item.name}
+              {!isCollapsed && <span>{item.name}</span>}
             </li>
           </Link>
         ))}

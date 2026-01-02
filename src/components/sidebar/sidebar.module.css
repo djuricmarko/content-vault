@@ -109,7 +109,17 @@
         padding-right: var(--space-sm);
         border-radius: var(--radius-md);
         cursor: pointer;
-        white-space: nowrap;
+        min-width: 0;
+
+        > svg {
+          min-width: 16px;
+        }
+
+        > span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
 
         &:hover {
           background-color: var(--bg-hover);

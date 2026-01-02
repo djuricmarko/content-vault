@@ -107,6 +107,27 @@
       flex-direction: column;
       gap: var(--space-md);
 
+      .allItems {
+        display: flex;
+        gap: var(--space-sm);
+        align-items: center;
+        height: var(--space-xl);
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--bg-hover);
+          color: var(--color-text);
+        }
+
+        &.activeItem {
+          background-color: var(--color-bg);
+          border: 1px solid var(--border-secondary);
+        }
+      }
+
       .subHeading {
         color: var(--color-text-muted);
         font-size: var(--text-sm);
@@ -127,7 +148,16 @@
           padding-right: var(--space-sm);
           border-radius: var(--radius-md);
           cursor: pointer;
-          white-space: nowrap;
+
+          > svg {
+            min-width: 16px;
+          }
+
+          > span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
 
           &:hover {
             background-color: var(--bg-hover);
