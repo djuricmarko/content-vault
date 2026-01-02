@@ -1,16 +1,7 @@
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
   50% {
     opacity: 0.5;
   }
-}
-
-.skeletonBase {
-  border-radius: var(--radius-sm);
-  background-color: var(--color-text-muted);
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .headingContainer {
@@ -18,6 +9,14 @@
   align-items: center;
   gap: var(--space-xs);
   width: fit-content;
+
+  .headingIcon,
+  .headingText {
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-hover);
+    background-size: 200% 100%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 
   .headingIcon {
     width: var(--space-2xl);
@@ -38,6 +37,14 @@
   padding-left: var(--space-sm);
   border-radius: var(--radius-md);
 
+  .allItemsIcon,
+  .allItemsLabel {
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-hover);
+    background-size: 200% 100%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
   .allItemsIcon {
     width: var(--space-md);
     height: var(--space-md);
@@ -49,6 +56,15 @@
   }
 }
 
+.categoryLabel {
+  width: 5rem;
+  height: var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-hover);
+  background-size: 200% 100%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .categoryItem {
   display: flex;
   align-items: center;
@@ -56,6 +72,14 @@
   height: var(--space-xl);
   padding-left: var(--space-sm);
   border-radius: var(--radius-md);
+
+  .categoryIcon,
+  .categoryName {
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-hover);
+    background-size: 200% 100%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 
   .categoryIcon {
     width: var(--space-md);
@@ -67,15 +91,13 @@
     flex: 1;
     height: var(--space-md);
   }
-
-  .categoryLabel {
-    width: 5rem;
-    height: var(--space-md);
-  }
 }
 
 .footerAvatar {
-  width: var(--space-3xl);
+  width: 100%;
   height: var(--space-3xl);
   border-radius: var(--radius-md);
+  background-color: var(--bg-hover);
+  background-size: 200% 100%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

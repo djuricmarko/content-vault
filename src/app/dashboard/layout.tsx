@@ -11,18 +11,18 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <Suspense fallback={<SidebarSkeleton />}>
         <Sidebar />
       </Suspense>
-      <Suspense fallback={<GridSkeleton />}>
-        <main className={styles.main}>
-          <div className={styles.mobileHeader}>
-            <Suspense fallback={null}>
-              <MobileNavServer />
-            </Suspense>
-          </div>
-          <div className={styles.wrapper}>
+      <main className={styles.main}>
+        <div className={styles.mobileHeader}>
+          <Suspense fallback={null}>
+            <MobileNavServer />
+          </Suspense>
+        </div>
+        <div className={styles.wrapper}>
+          <Suspense fallback={<GridSkeleton />}>
             {children}
-          </div>
-        </main>
-      </Suspense>
+          </Suspense>
+        </div>
+      </main>
     </div>
   );
 }
