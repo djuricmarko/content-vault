@@ -4,6 +4,8 @@ import { useEditor, EditorContent, type Editor } from '@tiptap/react';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import TextAlign from '@tiptap/extension-text-align';
 import StarterKit from '@tiptap/starter-kit';
+import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
 import { Toolbar } from "./toolbar";
 import styles from './entry-editor.module.css';
 
@@ -20,6 +22,10 @@ export default function EntryEditor({ content, onChange, toolbar = false }: Prop
       StarterKit,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
+      }),
+      TaskList,
+      TaskItem.configure({
+        nested: true,
       }),
     ],
     autofocus: true,
