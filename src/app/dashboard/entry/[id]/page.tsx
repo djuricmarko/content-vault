@@ -1,15 +1,14 @@
-import { Header } from "@/components/header";
+import { notFound } from "next/navigation";
 import { getEntry } from "@/actions/getEntry";
-import EntryEditor from "@/components/entry-editor/entry-editor";
+import { EntryView } from "@/components/entry-view";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const entry = await getEntry(id);
 
-  return (
-    <>
-      <Header title={entry?.title ?? ''} />
-      <EntryEditor content={entry?.content ?? ''} />
-    </>
-  );
+  if (!entry) {
+    notFound();
+  }
+
+  return <EntryView entry={entry} />;
 }
