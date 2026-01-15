@@ -36,29 +36,3 @@
   line-height: var(--leading-normal);
   margin: 0 0 var(--space-xl);
 }
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  color: white;
-  background-color: var(--button-primary);
-  border: none;
-  border-top: 1px solid var(--button-primary-border);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-}
-
-.button:hover {
-  background-color: var(--button-primary-hover);
-  border-top-color: var(--button-primary-hover);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--text-accented);
-  outline-offset: 2px;
-}

@@ -1,7 +1,12 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/button";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -10,9 +15,9 @@ export default function NotFound() {
         <p className={styles.description}>
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link href="/dashboard" className={styles.button}>
+        <Button onClick={() => router.push("/dashboard")}>
           Back to dashboard
-        </Link>
+        </Button>
       </div>
     </div>
   );
