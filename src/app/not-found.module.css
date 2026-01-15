@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
-  background-color: var(--bg);
   padding: var(--space-md);
 }
 
@@ -17,22 +16,22 @@
 
 .errorCode {
   font-size: clamp(6rem, 20vw, 10rem);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1;
-  color: var(--text-accented);
+  color: var(--color-text-accented);
   margin: 0;
 }
 
 .title {
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--text);
+  color: var(--color-text);
   margin: var(--space-md) 0 var(--space-sm);
 }
 
 .description {
   font-size: var(--text-base);
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   line-height: var(--leading-normal);
   margin: 0 0 var(--space-xl);
 }

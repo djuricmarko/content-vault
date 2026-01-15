@@ -1,23 +1,21 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/button";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
-  const router = useRouter();
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.errorCode}>404</h1>
         <h2 className={styles.title}>Page not found</h2>
         <p className={styles.description}>
-          The page you're looking for doesn't exist or has been moved.
+          The page you&#39;re looking for doesn&#39;t exist or has been moved.
         </p>
-        <Button onClick={() => router.push("/dashboard")}>
-          Back to dashboard
-        </Button>
+        <Link href="/dashboard">
+          <Button>
+            Back to dashboard
+          </Button>
+        </Link>
       </div>
     </div>
   );
