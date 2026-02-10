@@ -22,13 +22,22 @@ import {
   Eraser,
   RemoveFormatting,
   Minus,
-  ListTodo
+  ListTodo,
+  ImagePlus,
+  Loader2
 } from "lucide-react";
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
 import { ToolbarButton } from './toolbar-button';
+import { useImageUpload } from "./use-image-upload";
 import styles from "./entry-editor.module.css";
 
 export function Toolbar({ editor }: { editor: Editor }) {
+  const { isUploading, inputRef, triggerUpload, handleFileChange } = useImageUpload({
+    onSuccess: (url) => {
+      editor.chain().focus().setImage({ src: url }).run();
+    },
+  });
+
   const editorState = useEditorState({
     editor,
     selector: ctx => {
@@ -65,6 +74,14 @@ export function Toolbar({ editor }: { editor: Editor }) {
 
   return (
     <BaseToolbar.Root className={styles.toolbar} aria-label="Formatting options">
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/png,image/jpeg,image/gif,image/webp"
+        onChange={handleFileChange}
+        className={styles.hiddenInput}
+        aria-hidden="true"
+      />
       {/* Headings Group */}
       <BaseToolbar.Group className={styles.buttonGroup}>
         <ToolbarButton
@@ -225,6 +242,15 @@ export function Toolbar({ editor }: { editor: Editor }) {
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
         >
           <Minus size={16} />
+        </ToolbarButton>
+        <ToolbarButton
+          value="image"
+          aria-label="Add image"
+          tooltip="Add image"
+          onClick={triggerUpload}
+          disabled={isUploading}
+        >
+          {isUploading ? <Loader2 size={16} className={styles.spinning} /> : <ImagePlus size={16} />}
         </ToolbarButton>
       </BaseToolbar.Group>
 

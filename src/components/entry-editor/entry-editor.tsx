@@ -6,6 +6,7 @@ import TextAlign from '@tiptap/extension-text-align';
 import StarterKit from '@tiptap/starter-kit';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
+import Image from "@tiptap/extension-image";
 import { Toolbar } from "./toolbar";
 import styles from './entry-editor.module.css';
 
@@ -26,6 +27,11 @@ export default function EntryEditor({ content, onChange, toolbar = false }: Prop
       TaskList,
       TaskItem.configure({
         nested: true,
+      }),
+      Image.configure({
+        inline: false,
+        allowBase64: false,
+        HTMLAttributes: { class: styles.image },
       }),
     ],
     autofocus: true,
