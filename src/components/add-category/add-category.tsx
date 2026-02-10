@@ -8,7 +8,11 @@ import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import styles from './add-category.module.css';
 
-export function AddCategory() {
+interface Props {
+  triggerClassName?: string;
+}
+
+export function AddCategory({ triggerClassName }: Props) {
   const [state, formAction, isPending] = useActionState(createCategory, { success: false, error: '' });
   const [open, setOpen] = useState(false);
   const router = useRouter()
@@ -30,6 +34,7 @@ export function AddCategory() {
       description="Enter the name of the new category"
       open={open}
       setOpen={setOpen}
+      triggerClassName={triggerClassName}
     >
       <form action={formAction} className={styles.form}>
         <div className={styles.inputWrapper}>

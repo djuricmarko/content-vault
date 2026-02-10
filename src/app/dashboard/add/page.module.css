@@ -1,0 +1,43 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--space-md);
+  text-align: center;
+  padding: var(--space-xl);
+
+  .message {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    max-width: 400px;
+    line-height: var(--leading-normal);
+  }
+
+  .primaryTrigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+    background-color: var(--button-primary);
+    border-top: 1px solid var(--button-primary-border);
+    outline: 1px solid var(--color-bg);
+    color: white;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--button-hover-primary);
+        border-color: var(--button-hover-primary);
+      }
+    }
+  }
+}

@@ -12,7 +12,8 @@ interface Props {
   title: string,
   description: string,
   open?: boolean,
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>,
+  triggerClassName?: string,
   children: ReactNode
 }
 
@@ -23,11 +24,12 @@ export function Dialog({
   description,
   open,
   setOpen,
+  triggerClassName,
   children
 }: Props) {
   return (
     <BaseDialog.Root open={open} onOpenChange={setOpen}>
-      <BaseDialog.Trigger className={styles.trigger}>
+      <BaseDialog.Trigger className={triggerClassName || styles.trigger}>
         <DynamicIcon name={icon} size={16} />
         {trigger}
       </BaseDialog.Trigger>
