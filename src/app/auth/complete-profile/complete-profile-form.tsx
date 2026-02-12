@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { Input } from "@/components/input";
 import { updateProfile } from "@/actions/updateProfile";
+import { Button } from "@/components/button";
 import styles from "./complete-profile.module.css";
 
 interface FormState {
@@ -44,9 +45,9 @@ export function CompleteProfileForm() {
           <Input id="surname" name="surname" type="text" required />
         </div>
       </div>
-      <button type="submit" className={styles.button} disabled={isPending}>
+      <Button type="submit" disabled={isPending}>
         {isPending ? "Saving..." : "Continue"}
-      </button>
+      </Button>
       {state.error && <p className={styles.error}>{state.error}</p>}
     </form>
   );
