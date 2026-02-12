@@ -9,6 +9,15 @@ const categories = pgTable('categories', {
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 });
 
+const profiles = pgTable('profiles', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull().unique(),
+  name: text('name').notNull(),
+  surname: text('surname').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
+});
+
 const entries = pgTable('entries', {
   id: uuid('id').primaryKey().defaultRandom(),
   userId: uuid('user_id').notNull(),
@@ -34,6 +43,8 @@ const categoriesRelations = relations(categories, ({ many }) => ({
   entries: many(entries),
 }));
 
+const profilesRelations = relations(profiles, () => ({}));
+
 const entriesRelations = relations(entries, ({ one, many }) => ({
   category: one(categories, {
     fields: [entries.categoryId],
@@ -52,11 +63,14 @@ const collaboratorsRelations = relations(collaborators, ({ one }) => ({
 type Category = typeof categories.$inferSelect;
 type NewCategory = typeof categories.$inferInsert;
 
+type Profile = typeof profiles.$inferSelect;
+type NewProfile = typeof profiles.$inferInsert;
+
 type Entry = typeof entries.$inferSelect;
 type NewEntry = typeof entries.$inferInsert;
 
 type Collaborator = typeof collaborators.$inferSelect;
 type NewCollaborator = typeof collaborators.$inferInsert;
 
-export { categories, entries, collaborators, categoriesRelations, entriesRelations, collaboratorsRelations };
-export type { Category, NewCategory, Entry, NewEntry, Collaborator, NewCollaborator };
+export { categories, profiles, entries, collaborators, categoriesRelations, profilesRelations, entriesRelations, collaboratorsRelations };
+export type { Category, NewCategory, Profile, NewProfile, Entry, NewEntry, Collaborator, NewCollaborator };

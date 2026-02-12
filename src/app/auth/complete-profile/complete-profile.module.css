@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  .panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-xl);
+
+    .formContainer {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+
+      .title {
+        font-size: var(--text-lg);
+        font-weight: var(--font-bold);
+        margin-bottom: var(--space-xs);
+        text-align: start;
+      }
+
+      .subtitle {
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-md);
+        line-height: var(--leading-normal);
+      }
+
+      .inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+
+        .label {
+          font-size: var(--text-sm);
+          font-weight: var(--font-medium);
+          color: var(--color-text-muted);
+        }
+
+        .row {
+          display: flex;
+          gap: var(--space-md);
+
+          .field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+          }
+        }
+      }
+
+      .button {
+        margin-top: var(--space-md);
+        background-color: var(--button-primary);
+        color: var(--color-text);
+        border: 1px solid var(--button-primary-border);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover:not(:disabled) {
+          background-color: var(--button-hover-primary);
+          border-color: var(--button-hover-primary);
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+
+      .success {
+        padding: var(--space-md);
+        background-color: var(--color-bg-panel);
+        border: 1px solid var(--button-primary-border);
+        border-radius: var(--radius-md);
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+        text-align: center;
+      }
+
+      .error {
+        color: var(--color-destructive);
+        font-size: var(--text-sm);
+      }
+    }
+  }
+}
