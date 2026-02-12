@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/actions/updateProfile";
+import { db } from "@/lib/drizzle/drizzle";
+import { profiles } from "@/lib/drizzle/schema";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
@@ -21,7 +23,30 @@ export async function GET(request: Request) {
         const profile = await getProfile(user.id);
 
         if (!profile) {
-          next = "/auth/complete-profile";
+          const provider = user.app_metadata.provider;
+          const metadata = user.user_metadata;
+
+          if (provider === "google") {
+            const fullName = metadata.full_name as string | undefined;
+            const firstName = metadata.first_name as string | undefined;
+            const lastName = metadata.last_name as string | undefined;
+
+            const name = firstName || (fullName?.split(" ")[0]) || "";
+            const surname = lastName || (fullName?.split(" ").slice(1).join(" ")) || "";
+
+            if (name && surname) {
+              await db.insert(profiles).values({
+                userId: user.id,
+                name,
+                surname,
+              });
+              next = "/dashboard";
+            } else {
+              next = "/auth/complete-profile";
+            }
+          } else {
+            next = "/auth/complete-profile";
+          }
         }
 
         const forwardedHost = request.headers.get("x-forwarded-host");

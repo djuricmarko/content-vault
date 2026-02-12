@@ -8,16 +8,20 @@ import { Menu } from '@base-ui/react/menu';
 import { SignOutButton } from "@/components/sign-out-button";
 import { SettingsDialog } from "@/components/settings-dialog";
 import { useSidebar } from "./sidebar-context";
+import type { Profile } from "@/lib/drizzle/schema";
 import styles from "./sidebar.module.css";
 
 interface Props {
   userData: User | null;
   avatar: string | null;
+  profile: Profile | null;
 }
 
-export function SidebarFooter({ userData, avatar }: Props) {
+export function SidebarFooter({ userData, avatar, profile }: Props) {
   const { isCollapsed } = useSidebar();
   const [settingsOpen, setSettingsOpen] = useState(false);
+
+  const displayName = profile ? `${profile.name} ${profile.surname}` : userData?.user_metadata?.full_name;
 
   return (
     <div className={styles.footer}>
@@ -26,7 +30,7 @@ export function SidebarFooter({ userData, avatar }: Props) {
           {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
           {!isCollapsed && (
             <div className={styles.triggerInfo}>
-              <p>{userData?.user_metadata?.full_name}</p>
+              <p>{displayName}</p>
               <p>{userData?.email}</p>
             </div>
           )}
@@ -40,7 +44,7 @@ export function SidebarFooter({ userData, avatar }: Props) {
                 )}
                 <div className={styles.headerInfo}>
                 <span className={styles.userName}>
-                  {userData?.user_metadata?.full_name}
+                  {displayName}
                 </span>
                   <span className={styles.userEmail}>{userData?.email}</span>
                 </div>
