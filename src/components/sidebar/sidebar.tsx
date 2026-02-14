@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { getUserCategories } from "@/actions/getUserCategories";
+import { getProfile } from "@/actions/updateProfile";
 import { SidebarWrapper } from "./sidebar-wrapper";
 import { SidebarHeading } from "./sidebar-heading";
 import { SidebarItems } from "./sidebar-items";
@@ -12,6 +13,8 @@ export async function Sidebar() {
 
   const categoryList = await getUserCategories();
 
+  const profile = data?.user ? await getProfile(data.user.id) : null;
+
   return (
     <SidebarWrapper>
       <SidebarHeading />
@@ -19,6 +22,7 @@ export async function Sidebar() {
       <SidebarFooter
         userData={data?.user}
         avatar={sessionData.session?.user.user_metadata.avatar_url}
+        profile={profile}
       />
     </SidebarWrapper>
   );
