@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import type { User } from "@supabase/auth-js";
-import { MenuIcon, LayoutDashboard, Folder, Settings, Ellipsis, Trash } from "lucide-react";
+import { MenuIcon, LayoutDashboard, Settings, Ellipsis, Trash } from "lucide-react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import { Menu } from '@base-ui/react/menu';
 import { Category } from "@/lib/drizzle/schema";
 import { Sheet } from "@/components/sheet";
@@ -107,7 +108,7 @@ export function MobileNav({ items, userData, avatar }: Props) {
                 {items.map((item) => (
                   <Link href={`/dashboard/category/${item.id}`} key={item.id} onClick={closeSheet}>
                     <li className={`${styles.navItem} ${categoryId === item.id ? styles.activeItem : ''}`}>
-                      <Folder size={16} />
+                      <DynamicIcon name={(item.icon ?? "folder") as IconName} size={16} />
                       <span>{item.name}</span>
                     </li>
                   </Link>

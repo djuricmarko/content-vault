@@ -2,7 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Folder, LayoutDashboard } from "lucide-react";
+import { LayoutDashboard } from "lucide-react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import { Category } from "@/lib/drizzle/schema";
 import { AddCategory } from "@/components/add-category";
 import { useSidebar } from "./sidebar-context";
@@ -30,7 +31,7 @@ export function SidebarItems({ items }: { items: Category[] }) {
         {items.map((item) => (
           <Link href={`/dashboard/category/${item.id}`} key={item.id}>
             <li className={id === item.id ? styles.activeItem : ''}>
-              <Folder size={16} />
+              <DynamicIcon name={(item.icon ?? "folder") as IconName} size={16} />
               {!isCollapsed && <span>{item.name}</span>}
             </li>
           </Link>

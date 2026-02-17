@@ -6,6 +6,7 @@ import { createCategory } from "@/actions/createCategory";
 import { Dialog } from "@/components/dialog";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
+import { IconPicker } from "@/components/icon-picker";
 import styles from './add-category.module.css';
 
 interface Props {
@@ -38,11 +39,14 @@ export function AddCategory({ triggerClassName }: Props) {
     >
       <form action={formAction} className={styles.form}>
         <div className={styles.inputWrapper}>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Enter category name"
-          />
+          <div className={styles.inputRow}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Enter category name"
+            />
+            <IconPicker name="icon" />
+          </div>
           {state?.error && <p className={styles.error}>{state.error}</p>}
         </div>
         <Button

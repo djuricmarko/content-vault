@@ -17,3 +17,9 @@
     color: var(--color-destructive);
   }
 }
+
+.inputRow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-sm);
+}
