@@ -39,12 +39,14 @@ export function AddCategory({ triggerClassName }: Props) {
     >
       <form action={formAction} className={styles.form}>
         <div className={styles.inputWrapper}>
-          <IconPicker name="icon" />
-          <Input
-            type="text"
-            name="name"
-            placeholder="Enter category name"
-          />
+          <div className={styles.inputRow}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Enter category name"
+            />
+            <IconPicker name="icon" />
+          </div>
           {state?.error && <p className={styles.error}>{state.error}</p>}
         </div>
         <Button

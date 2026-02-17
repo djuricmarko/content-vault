@@ -1,60 +1,35 @@
 "use client";
 
-import { useState } from "react";
-import {
-  Folder,
-  Book,
-  Star,
-  Heart,
-  Code,
-  Music,
-  Camera,
-  Globe,
-  Briefcase,
-  GraduationCap,
-  Lightbulb,
-  Palette,
-  ShoppingBag,
-  Gamepad2,
-  Plane,
-  Home,
-  Utensils,
-  Dumbbell,
-  Leaf,
-  Film,
-  Pen,
-  Coffee,
-  Bookmark,
-  Archive,
-  type LucideIcon,
-} from "lucide-react";
+import { Select } from "@base-ui/react/select";
+import { Check } from "lucide-react";
+import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import styles from "./icon-picker.module.css";
 
-const ICONS: { name: string; icon: LucideIcon }[] = [
-  { name: "folder", icon: Folder },
-  { name: "book", icon: Book },
-  { name: "bookmark", icon: Bookmark },
-  { name: "star", icon: Star },
-  { name: "heart", icon: Heart },
-  { name: "code", icon: Code },
-  { name: "music", icon: Music },
-  { name: "camera", icon: Camera },
-  { name: "globe", icon: Globe },
-  { name: "briefcase", icon: Briefcase },
-  { name: "graduation-cap", icon: GraduationCap },
-  { name: "lightbulb", icon: Lightbulb },
-  { name: "palette", icon: Palette },
-  { name: "shopping-bag", icon: ShoppingBag },
-  { name: "gamepad-2", icon: Gamepad2 },
-  { name: "plane", icon: Plane },
-  { name: "home", icon: Home },
-  { name: "utensils", icon: Utensils },
-  { name: "dumbbell", icon: Dumbbell },
-  { name: "leaf", icon: Leaf },
-  { name: "film", icon: Film },
-  { name: "pen", icon: Pen },
-  { name: "coffee", icon: Coffee },
-  { name: "archive", icon: Archive },
+const ICONS: { name: IconName; label: string }[] = [
+  { name: "folder", label: "Folder" },
+  { name: "book", label: "Book" },
+  { name: "bookmark", label: "Bookmark" },
+  { name: "star", label: "Star" },
+  { name: "heart", label: "Heart" },
+  { name: "code", label: "Code" },
+  { name: "music", label: "Music" },
+  { name: "camera", label: "Camera" },
+  { name: "globe", label: "Globe" },
+  { name: "briefcase", label: "Briefcase" },
+  { name: "graduation-cap", label: "Graduation Cap" },
+  { name: "lightbulb", label: "Lightbulb" },
+  { name: "palette", label: "Palette" },
+  { name: "shopping-bag", label: "Shopping Bag" },
+  { name: "gamepad-2", label: "Gamepad" },
+  { name: "plane", label: "Plane" },
+  { name: "home", label: "Home" },
+  { name: "utensils", label: "Utensils" },
+  { name: "dumbbell", label: "Dumbbell" },
+  { name: "leaf", label: "Leaf" },
+  { name: "film", label: "Film" },
+  { name: "pen", label: "Pen" },
+  { name: "coffee", label: "Coffee" },
+  { name: "archive", label: "Archive" },
 ];
 
 interface Props {
@@ -63,25 +38,34 @@ interface Props {
 }
 
 export function IconPicker({ name, defaultValue = "folder" }: Props) {
-  const [selected, setSelected] = useState(defaultValue);
-
   return (
-    <div className={styles.picker}>
-      <input type="hidden" name={name} value={selected} />
-      <p className={styles.label}>Choose an icon</p>
-      <div className={styles.grid}>
-        {ICONS.map(({ name: iconName, icon: Icon }) => (
-          <button
-            key={iconName}
-            type="button"
-            className={`${styles.iconButton} ${selected === iconName ? styles.active : ""}`}
-            onClick={() => setSelected(iconName)}
-            aria-label={iconName}
-          >
-            <Icon size={16} />
-          </button>
-        ))}
-      </div>
-    </div>
+    <Select.Root defaultValue={defaultValue} name={name}>
+      <Select.Trigger className={styles.trigger} aria-label="Choose an icon">
+        <Select.Value className={styles.triggerValue}>
+          {(value) => <DynamicIcon name={value as IconName} size={16} />}
+        </Select.Value>
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Positioner sideOffset={5} collisionPadding={10} alignItemWithTrigger={false}>
+          <Select.Popup className={styles.popup}>
+            <Select.ScrollUpArrow className={styles.scrollArrow} />
+            <Select.List className={styles.list}>
+              {ICONS.map(({ name: iconName, label }) => (
+                <Select.Item key={iconName} value={iconName} className={styles.item}>
+                  <Select.ItemIndicator className={styles.itemIndicator}>
+                    <Check className={styles.itemIndicatorIcon} />
+                  </Select.ItemIndicator>
+                  <Select.ItemText className={styles.itemText}>
+                    <DynamicIcon name={iconName} size={14} />
+                    <span>{label}</span>
+                  </Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.List>
+            <Select.ScrollDownArrow className={styles.scrollArrow} />
+          </Select.Popup>
+        </Select.Positioner>
+      </Select.Portal>
+    </Select.Root>
   );
 }
