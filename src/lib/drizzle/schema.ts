@@ -5,6 +5,7 @@ const categories = pgTable('categories', {
   id: uuid('id').primaryKey().defaultRandom(),
   userId: uuid('user_id').notNull(),
   name: text('name').notNull(),
+  icon: text('icon').notNull().default('folder'),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 });

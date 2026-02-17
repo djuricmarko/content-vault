@@ -13,7 +13,8 @@ interface FormState {
 }
 
 const categorySchema = z.object({
-  name: z.string().min(1, { error: 'Category name is required' }).max(30)
+  name: z.string().min(1, { error: 'Category name is required' }).max(30),
+  icon: z.string().min(1).max(30).default("folder"),
 });
 
 export async function createCategory(
@@ -27,7 +28,8 @@ export async function createCategory(
   }
 
   const name = formData.get('name');
-  const validatedFields = categorySchema.safeParse({ name });
+  const icon = formData.get('icon');
+  const validatedFields = categorySchema.safeParse({ name, icon });
 
   if (!validatedFields.success) {
     return {
@@ -39,6 +41,7 @@ export async function createCategory(
   try {
     const newCategory = await db.insert(categories).values({
       name: validatedFields.data.name,
+      icon: validatedFields.data.icon,
       userId: user.id,
     }).returning({ id: categories.id });
 
