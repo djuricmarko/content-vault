@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { z } from 'zod';
 import { categories } from "@/lib/drizzle/schema";
 import { getAuthenticatedUser } from "@/lib/auth";
@@ -9,7 +10,6 @@ import { db } from "@/lib/drizzle/drizzle";
 interface FormState {
   success: boolean,
   error?: string;
-  id?: string;
 }
 
 const categorySchema = z.object({
@@ -38,6 +38,8 @@ export async function createCategory(
     };
   }
 
+  let newCategoryId: string;
+
   try {
     const newCategory = await db.insert(categories).values({
       name: validatedFields.data.name,
@@ -45,10 +47,12 @@ export async function createCategory(
       userId: user.id,
     }).returning({ id: categories.id });
 
+    newCategoryId = newCategory[0].id;
     revalidatePath('/dashboard');
-    return { success: true, id: newCategory[0].id };
   } catch (error) {
     console.error('Database Error:', error);
     return { success: false, error: 'Failed to create category. Please try again.' };
   }
+
+  redirect(`/dashboard/category/${newCategoryId}`);
 }

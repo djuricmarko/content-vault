@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useState, useEffect } from "react";
+import { useActionState, useState } from "react";
 import dynamic from "next/dynamic";
 import { Entry } from "@/lib/drizzle/schema";
 import { updateEntry } from "@/actions/updateEntry";
@@ -17,17 +17,25 @@ interface Props {
   entry: Entry;
 }
 
+interface FormState {
+  success: boolean;
+  error?: string;
+}
+
 export function EntryView({ entry }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(entry.title);
   const [content, setContent] = useState(entry.content ?? '');
-  const [state, formAction, isPending] = useActionState(updateEntry, { success: false, error: '' });
 
-  useEffect(() => {
-    if (state.success) {
+  async function handleSubmit(prevState: FormState, formData: FormData): Promise<FormState> {
+    const result = await updateEntry(prevState, formData);
+    if (result.success) {
       setIsEditing(false);
     }
-  }, [state.success]);
+    return result;
+  }
+
+  const [state, formAction, isPending] = useActionState(handleSubmit, { success: false, error: '' });
 
   function handleCancel() {
     setTitle(entry.title);

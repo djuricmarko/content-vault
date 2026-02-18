@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { User } from '@supabase/supabase-js';
 
-export type AuthResult =
+type AuthResult =
   | { user: User; error: null }
   | { user: null; error: string };
 
