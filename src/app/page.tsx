@@ -4,6 +4,11 @@ import { createClient } from "@/lib/supabase/server";
 import { GoogleLogin, MagicLinkForm } from "@/components/login-form";
 import styles from './page.module.css';
 
+export const metadata = {
+  title: "Content Vault — Secure & Organized Content Storage",
+  description: "Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy.",
+};
+
 export default async function Home() {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();

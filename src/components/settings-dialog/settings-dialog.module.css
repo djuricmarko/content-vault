@@ -39,12 +39,15 @@
 
   .section {
     margin-bottom: var(--space-xl);
+    border: none;
+    padding: 0;
 
     .sectionLabel {
       display: block;
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
       margin-bottom: var(--space-sm);
+      padding: 0;
     }
 
     .themeOptions {

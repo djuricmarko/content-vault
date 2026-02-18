@@ -4,6 +4,11 @@ import { getProfile } from "@/actions/updateProfile";
 import { CompleteProfileForm } from "./complete-profile-form";
 import styles from "./complete-profile.module.css";
 
+export const metadata = {
+  title: "Complete Your Profile — Content Vault",
+  description: "Enter your details to get started with Content Vault.",
+};
+
 export default async function CompleteProfilePage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

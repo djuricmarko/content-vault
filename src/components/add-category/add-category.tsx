@@ -1,7 +1,6 @@
 'use client';
 
-import { useActionState, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useActionState, useState, useRef } from "react";
 import { createCategory } from "@/actions/createCategory";
 import { Dialog } from "@/components/dialog";
 import { Button } from "@/components/button";
@@ -16,16 +15,7 @@ interface Props {
 export function AddCategory({ triggerClassName }: Props) {
   const [state, formAction, isPending] = useActionState(createCategory, { success: false, error: '' });
   const [open, setOpen] = useState(false);
-  const router = useRouter()
   const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state.success) {
-      queueMicrotask(() => setOpen(false));
-      formRef.current?.reset();
-      router.push(`/dashboard/category/${state.id}`)
-    }
-  }, [router, state]);
 
   return (
     <Dialog
@@ -37,7 +27,7 @@ export function AddCategory({ triggerClassName }: Props) {
       setOpen={setOpen}
       triggerClassName={triggerClassName}
     >
-      <form action={formAction} className={styles.form}>
+      <form ref={formRef} action={formAction} className={styles.form}>
         <div className={styles.inputWrapper}>
           <div className={styles.inputRow}>
             <Input

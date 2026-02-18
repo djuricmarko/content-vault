@@ -1,16 +1,14 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import DOMPurify from 'isomorphic-dompurify';
 
-export function RenderHtml({ className, html }: { className?: string, html: string }) {
-  const [isClient, setIsClient] = useState(false);
-  const cleanHtml = DOMPurify.sanitize(html);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsClient(true);
-  }, []);
+export function RenderHtml({ className, html }: { className?: string; html: string }) {
+  const isClient = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  // Sanitized via DOMPurify to prevent XSS before injecting HTML
+  const cleanHtml = DOMPurify.sanitize(html);
 
   return <div className={className} dangerouslySetInnerHTML={{ __html: isClient ? cleanHtml : '' }} />;
 }

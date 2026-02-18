@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Dialog } from '@base-ui/react/dialog';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from '@/components/theme-provider';
@@ -25,11 +25,12 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
   const { theme, setTheme } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState<Theme>(theme);
 
-  useEffect(() => {
-    if (open) {
-      queueMicrotask(() => setSelectedTheme(theme));
+  function handleOpenChange(nextOpen: boolean) {
+    if (nextOpen) {
+      setSelectedTheme(theme);
     }
-  }, [open, theme]);
+    onOpenChange(nextOpen);
+  }
 
   const handleCancel = () => {
     setSelectedTheme(theme);
@@ -42,7 +43,7 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
   };
 
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Root open={open} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
         <Dialog.Backdrop className={styles.overlay} />
         <Dialog.Popup className={styles.content}>
@@ -51,13 +52,15 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
             Customize your experience
           </Dialog.Description>
 
-          <div className={styles.section}>
-            <label className={styles.sectionLabel}>Appearance</label>
-            <div className={styles.themeOptions}>
+          <fieldset className={styles.section}>
+            <legend className={styles.sectionLabel}>Appearance</legend>
+            <div className={styles.themeOptions} role="radiogroup">
               {themeOptions.map(({ value, label, icon: Icon }) => (
                 <button
                   key={value}
                   type="button"
+                  role="radio"
+                  aria-checked={selectedTheme === value}
                   className={`${styles.themeOption} ${selectedTheme === value ? styles.themeOptionSelected : ''}`}
                   onClick={() => setSelectedTheme(value)}
                 >
@@ -66,7 +69,7 @@ export function SettingsDialog({ open, onOpenChange }: Props) {
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
 
           <div className={styles.actions}>
             <Button variant="secondary" onClick={handleCancel}>

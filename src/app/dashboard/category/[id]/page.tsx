@@ -6,8 +6,10 @@ import styles from "../../page.module.css";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const items = await getEntriesByCategory(id);
-  const category = await getCategoryName(id);
+  const [items, category] = await Promise.all([
+    getEntriesByCategory(id),
+    getCategoryName(id),
+  ]);
 
   return (
     <>

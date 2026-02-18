@@ -29,9 +29,9 @@ export function GoogleLogin() {
       if (error) {
         setErrorMessage(error.message);
       }
+      setIsLoading(false);
     } catch (error: unknown) {
       setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred.');
-    } finally {
       setIsLoading(false);
     }
   }
