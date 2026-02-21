@@ -1,12 +1,38 @@
+import type { Metadata } from 'next';
 import { redirect } from "next/navigation";
 import { Check, Vault } from 'lucide-react';
 import { createClient } from "@/lib/supabase/server";
 import { GoogleLogin, MagicLinkForm } from "@/components/login-form";
 import styles from './page.module.css';
 
-export const metadata = {
-  title: "Content Vault — Secure & Organized Content Storage",
-  description: "Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy.",
+const APP_URL = 'https://contentvault.app';
+
+export const metadata: Metadata = {
+  title: 'Secure & Organized Content Storage',
+  description: 'Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy. Free tier available — no credit card required.',
+  alternates: {
+    canonical: APP_URL,
+  },
+  openGraph: {
+    type: 'website',
+    url: APP_URL,
+    title: 'Content Vault — Secure & Organized Content Storage',
+    description: 'Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy. Free tier available — no credit card required.',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Content Vault — Secure & Organized Content Storage',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Content Vault — Secure & Organized Content Storage',
+    description: 'Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy. Free tier available — no credit card required.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default async function Home() {
