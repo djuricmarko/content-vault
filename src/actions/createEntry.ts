@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { z } from "zod";
 import { getAuthenticatedUser } from '@/lib/auth';
 import { entries } from "@/lib/drizzle/schema";
@@ -49,9 +50,10 @@ export async function createEntry(
     });
 
     revalidatePath('/dashboard');
-    return { success: true };
   } catch (error) {
     console.error('Database Error:', error);
     return { success: false, error: 'Failed to create entry. Please try again.' };
   }
+
+  redirect(`/dashboard/category/${validatedFields.data.category}`);
 }
