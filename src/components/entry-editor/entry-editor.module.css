@@ -114,7 +114,12 @@
     }
   }
 
+  > div:last-child {
+    height: 100%;
+  }
+
   .content {
+    height: 100%;
     padding: var(--space-md);
     flex: 1;
     overflow-y: auto;
