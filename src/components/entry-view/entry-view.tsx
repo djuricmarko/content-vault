@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import dynamic from "next/dynamic";
 import { Entry } from "@/lib/drizzle/schema";
 import { updateEntry } from "@/actions/updateEntry";
+import { useToast } from "@/components/toast";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import styles from './entry-view.module.css';
@@ -26,11 +27,17 @@ export function EntryView({ entry }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(entry.title);
   const [content, setContent] = useState(entry.content ?? '');
+  const toastManager = useToast();
 
   async function handleSubmit(prevState: FormState, formData: FormData): Promise<FormState> {
     const result = await updateEntry(prevState, formData);
     if (result.success) {
       setIsEditing(false);
+      toastManager.add({
+        type: "success",
+        title: "Entry updated",
+        description: "Your changes have been saved.",
+      });
     }
     return result;
   }

@@ -32,6 +32,7 @@
   --button-hover-secondary: oklch(0.272 0.024 253);
   --color-destructive: oklch(60% 0.15 20);
   --color-destructive-hover: oklch(55% 0.15 20);
+  --color-success: oklch(65% 0.17 145);
 
   /* ========== EFFECTS ========== */
   --radius-sm: 0.25rem; /* 4px */
