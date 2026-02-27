@@ -60,7 +60,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 | `npm run dev` | Start development server |
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
+| `npm run lint` | Run Oxlint |
+| `npm run lint:fix` | Run Oxlint with auto-fix |
 | `npm run db:generate` | Generate migration from schema changes |
 | `npm run db:migrate` | Apply pending migrations |
 | `npm run db:push` | Push schema directly to database |
