@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import { Header } from "@/components/header";
 import { NewEntryForm } from "@/components/new-entry-form";
 import { AddCategory } from "@/components/add-category";
 import { getUserCategories } from "@/actions/getUserCategories";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: 'New Entry',
+};
 
 export default async function AddNewEntry() {
   const categories = await getUserCategories();

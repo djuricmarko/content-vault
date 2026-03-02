@@ -1,12 +1,14 @@
+import type { Metadata } from 'next';
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/actions/updateProfile";
 import { CompleteProfileForm } from "./complete-profile-form";
 import styles from "./complete-profile.module.css";
 
-export const metadata = {
-  title: "Complete Your Profile — Content Vault",
-  description: "Enter your details to get started with Content Vault.",
+export const metadata: Metadata = {
+  title: 'Complete Your Profile',
+  description: 'Enter your details to get started with Content Vault.',
+  robots: { index: false, follow: false },
 };
 
 export default async function CompleteProfilePage() {
