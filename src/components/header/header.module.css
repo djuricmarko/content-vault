@@ -1,26 +1,6 @@
-.title {
-  margin-bottom: var(--space-lg);
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  flex-shrink: 0;
-
-  @media (min-width: 640px) {
-    margin-bottom: var(--space-2xl);
-  }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  h2 {
-    font-size: var(--text-base);
-    font-weight: 400;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
+.header {
+  min-height: var(--space-3xl);
+  border-bottom: 1px solid var(--border-primary);
 
   .options {
     cursor: pointer;

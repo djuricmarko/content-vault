@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { NewEntryForm } from "@/components/new-entry-form";
 import { AddCategory } from "@/components/add-category";
 import { getUserCategories } from "@/actions/getUserCategories";
@@ -10,7 +9,6 @@ export default async function AddNewEntry() {
   if (categories.length === 0) {
     return (
       <>
-        <Header title="New Entry" />
         <div className={styles.emptyState}>
           <p className={styles.message}>
             You need to create a category first before adding entries.
@@ -21,10 +19,5 @@ export default async function AddNewEntry() {
     );
   }
 
-  return (
-    <>
-      <Header title="New Entry" />
-      <NewEntryForm initialCategories={categories} />
-    </>
-  );
+  return <NewEntryForm initialCategories={categories} />;
 }

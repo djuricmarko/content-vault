@@ -7,16 +7,14 @@ import { DeleteCategoryDialog } from "@/components/delete-category-dialog";
 import styles from "./header.module.css";
 
 interface Props {
-  title: string;
   categoryId?: string;
 }
 
-export function Header({ title, categoryId }: Props) {
+export function Header({ categoryId }: Props) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   return (
-    <div className={styles.title}>
-      <h2>{title}</h2>
+    <div className={styles.header}>
       {categoryId && (
         <>
           <Menu.Root>
