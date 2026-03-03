@@ -35,14 +35,14 @@
       .divider {
         display: flex;
         align-items: center;
-        color: var(--border-secondary);
+        color: var(--border-primary);
         font-size: var(--text-xs);
 
         &::before,
         &::after {
           content: "";
           flex: 1;
-          border-bottom: 1px solid var(--border-secondary);
+          border-bottom: 1px solid var(--border-primary);
         }
 
         &::before {

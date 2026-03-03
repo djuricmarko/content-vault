@@ -8,7 +8,7 @@
 
 .content {
   background-color: var(--color-bg);
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: var(--radius-md);
   position: fixed;
   top: 50%;

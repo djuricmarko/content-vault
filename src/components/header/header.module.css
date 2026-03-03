@@ -37,7 +37,7 @@
 .dropdownContent {
   max-width: 234px;
   padding: var(--space-sm);
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   background-color: var(--color-bg);
   box-shadow: var(--shadow-dropdown);

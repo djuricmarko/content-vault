@@ -1,5 +1,5 @@
 .editorContainer {
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -14,7 +14,7 @@
     align-items: center;
     gap: var(--space-xs);
     padding: var(--space-xs);
-    border-bottom: 1px solid var(--border-secondary);
+    border-bottom: 1px solid var(--border-primary);
     background-color: var(--color-bg-panel);
     flex-shrink: 0;
 
@@ -42,7 +42,7 @@
         padding: var(--space-xs);
         background-color: transparent;
         border: none;
-        outline: 1px solid var(--border-secondary);
+        outline: 1px solid var(--border-primary);
         border-radius: var(--radius-sm);
         cursor: pointer;
         font-size: var(--text-xs);
@@ -108,7 +108,7 @@
         display: block;
         width: 1px;
         height: 20px;
-        background-color: var(--border-secondary);
+        background-color: var(--border-primary);
         margin: 0 var(--space-sm);
       }
     }

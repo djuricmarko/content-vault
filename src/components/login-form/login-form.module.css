@@ -1,6 +1,6 @@
 .googleBtn {
   background-color: transparent;
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
   color: var(--color-text);
   border-radius: var(--radius-md);
   padding: var(--space-sm);

@@ -7,7 +7,6 @@ import { Settings } from "lucide-react";
 import { Menu } from '@base-ui/react/menu';
 import { SignOutButton } from "@/components/sign-out-button";
 import { SettingsDialog } from "@/components/settings-dialog";
-import { useSidebar } from "./sidebar-context";
 import type { Profile } from "@/lib/drizzle/schema";
 import styles from "./sidebar.module.css";
 
@@ -18,7 +17,6 @@ interface Props {
 }
 
 export function SidebarFooter({ userData, avatar, profile }: Props) {
-  const { isCollapsed } = useSidebar();
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const displayName = profile ? `${profile.name} ${profile.surname}` : userData?.user_metadata?.full_name;
@@ -26,21 +24,25 @@ export function SidebarFooter({ userData, avatar, profile }: Props) {
   return (
     <div className={styles.footer}>
       <Menu.Root>
-        <Menu.Trigger className={`${styles.triggerButton} ${isCollapsed ? styles.triggerButtonCollapsed : ''}`} aria-label="User menu">
-          {avatar && <Image src={avatar} width={32} height={32} alt="User avatar" />}
-          {!isCollapsed && (
-            <div className={styles.triggerInfo}>
-              <p>{displayName}</p>
-              <p>{userData?.email}</p>
-            </div>
-          )}
+        <div className={styles.user}>
+          {avatar && <Image src={avatar} width={30} height={30} alt="User avatar" />}
+          <div className={styles.triggerInfo}>
+            <p>{displayName}</p>
+            <p>{userData?.email}</p>
+          </div>
+        </div>
+        <Menu.Trigger
+          className={styles.triggerButton}
+          aria-label="User menu"
+        >
+          <Settings size={18} />
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner sideOffset={10}>
             <Menu.Popup className={styles.dropdownContent}>
               <div className={styles.dropdownHeader}>
                 {avatar && (
-                  <Image src={avatar} width={32} height={32} alt="User avatar" />
+                  <Image src={avatar} width={30} height={30} alt="User avatar" />
                 )}
                 <div className={styles.headerInfo}>
                 <span className={styles.userName}>

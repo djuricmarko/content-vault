@@ -9,7 +9,7 @@
   padding-right: var(--space-sm);
   margin: 0;
   outline: 0;
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: var(--radius-sm);
   background-color: var(--color-bg);
   font-size: var(--text-base);
@@ -33,7 +33,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--border-secondary);
+    outline: 2px solid var(--border-primary);
     outline-offset: -1px;
   }
 }
@@ -57,7 +57,7 @@
   color: var(--color-text);
   transition: transform 150ms,
   opacity 150ms;
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--border-primary);
 
   &[data-starting-style],
   &[data-ending-style] {

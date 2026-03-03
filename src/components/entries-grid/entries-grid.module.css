@@ -10,7 +10,7 @@
   .new {
     height: 300px;
     border-radius: var(--radius-md);
-    border: var(--border-secondary) 2px dotted;
+    border: var(--border-primary) 2px dotted;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +20,7 @@
 
   .entry {
     height: 300px;
-    border: var(--border-secondary) 1px solid;
+    border: var(--border-primary) 1px solid;
     border-radius: var(--radius-sm);
     padding: var(--space-md);
     gap: var(--space-md);

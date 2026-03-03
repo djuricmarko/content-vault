@@ -18,25 +18,26 @@ export function SidebarItems({ items }: { items: Category[] }) {
     <div className={styles.items}>
       <Link href="/dashboard">
         <div className={`${styles.allItems} ${pathname === '/dashboard' ? styles.activeItem : ''}`}>
-          <LayoutDashboard size={16} />
+          <LayoutDashboard size={18} />
           {!isCollapsed && <span>All entries</span>}
         </div>
       </Link>
       {!isCollapsed && (
         <div className={styles.subHeading}>
           <p>Categories</p>
+          <AddCategory triggerClassName={styles.addCategory} />
         </div>
       )}
       <ul>
         {items.map((item) => (
           <Link href={`/dashboard/category/${item.id}`} key={item.id}>
             <li className={id === item.id ? styles.activeItem : ''}>
-              <DynamicIcon name={(item.icon ?? "folder") as IconName} size={16} />
+              <DynamicIcon name={(item.icon ?? "folder") as IconName} size={18} />
               {!isCollapsed && <span>{item.name}</span>}
             </li>
           </Link>
         ))}
-        {!isCollapsed && <AddCategory />}
+        {isCollapsed && <AddCategory />}
       </ul>
     </div>
   );
