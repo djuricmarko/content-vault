@@ -1,9 +1,3 @@
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-
 .headingContainer {
   display: flex;
   align-items: center;

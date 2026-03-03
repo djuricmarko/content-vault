@@ -40,7 +40,18 @@
   --radius-lg: 0.75rem; /* 12px */
   --radius-full: 9999px;
   --shadow-dropdown: 0 10px 38px -10px rgba(0, 0, 0, 0.35),
-  0 10px 20px -15px rgba(0, 0, 0, 0.2);
+    0 10px 20px -15px rgba(0, 0, 0, 0.2);
+
+  /* ========== THEME: Light (default) ========== */
+  --color-bg: oklch(100% 0 0);
+  --color-bg-panel: oklch(0.957 0 0);
+  --bg-hover: oklch(0.927 0 0);
+  --border-primary: oklch(0% 0 0 / 0.1);
+  --color-text: oklch(10% 0 0);
+  --color-text-muted: oklch(50% 0 0);
+  --color-text-accented: oklch(0.677 0.127 252);
+  --skeleton-base: oklch(0.92 0 0);
+  --skeleton-highlight: oklch(0.96 0 0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,32 +66,6 @@
     --skeleton-base: oklch(0.32 0.015 255);
     --skeleton-highlight: oklch(0.38 0.018 255);
   }
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) {
-    --color-bg: oklch(100% 0 0);
-    --color-bg-panel: oklch(0.957 0 0);
-    --bg-hover: oklch(0.927 0 0);
-    --border-primary: oklch(0% 0 0 / 0.1);
-    --color-text: oklch(10% 0 0);
-    --color-text-muted: oklch(50% 0 0);
-    --color-text-accented: oklch(0.677 0.127 252);
-    --skeleton-base: oklch(0.92 0 0);
-    --skeleton-highlight: oklch(0.96 0 0);
-  }
-}
-
-[data-theme="light"] {
-  --color-bg: oklch(100% 0 0);
-  --color-bg-panel: oklch(0.957 0 0);
-  --bg-hover: oklch(0.927 0 0);
-  --border-primary: oklch(0% 0 0 / 0.1);
-  --color-text: oklch(10% 0 0);
-  --color-text-muted: oklch(50% 0 0);
-  --color-text-accented: oklch(0.677 0.127 252);
-  --skeleton-base: oklch(0.92 0 0);
-  --skeleton-highlight: oklch(0.96 0 0);
 }
 
 [data-theme="dark"] {
@@ -110,7 +95,36 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -119,7 +133,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
