@@ -1,13 +1,16 @@
-import styles from './sidebar-skeleton.module.css';
-import sidebarStyles from '../sidebar/sidebar.module.css';
+import { Logo } from "@/components/logo";
+import styles from "./sidebar-skeleton.module.css";
+import sidebarStyles from "../sidebar/sidebar.module.css";
 
 export function SidebarSkeleton() {
   return (
     <aside className={sidebarStyles.sidebar}>
       <div className={sidebarStyles.heading}>
-        <div className={styles.headingContainer}>
-          <div className={styles.headingIcon} />
-          <div className={styles.headingText} />
+        <div className={sidebarStyles.headingContent}>
+          <div className={styles.headingLink}>
+            <Logo />
+            <span>Content Vault</span>
+          </div>
         </div>
       </div>
       <div className={sidebarStyles.items}>
@@ -27,9 +30,7 @@ export function SidebarSkeleton() {
           ))}
         </ul>
       </div>
-      <div className={sidebarStyles.footer}>
-        <div className={styles.footerAvatar} />
-      </div>
+      <div className={sidebarStyles.footer} />
     </aside>
   );
 }
