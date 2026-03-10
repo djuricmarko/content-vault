@@ -60,7 +60,6 @@ export function Toolbar({ editor }: { editor: Editor }) {
         accept="image/png,image/jpeg,image/gif,image/webp"
         onChange={handleFileChange}
         className={styles.hiddenInput}
-        aria-hidden="true"
       />
 
       <HeadingsGroup editor={editor} editorState={editorState} />

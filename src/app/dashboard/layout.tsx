@@ -4,14 +4,19 @@ import { SidebarSkeleton } from "@/components/sidebar-skeleton";
 import { Header } from "@/components/header";
 import styles from "./page.module.css";
 
-export default function DashboardLayout({ children }: { children: ReactNode }) {
+interface Props {
+  children: ReactNode;
+  headerAction: ReactNode;
+}
+
+export default function DashboardLayout({ children, headerAction }: Props) {
   return (
     <div className={styles.layout}>
       <Suspense fallback={<SidebarSkeleton />}>
         <Sidebar />
       </Suspense>
       <main className={styles.main}>
-        <Header />
+        <Header>{headerAction}</Header>
         <div className={styles.content}>
           {children}
         </div>

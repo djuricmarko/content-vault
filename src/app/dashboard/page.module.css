@@ -12,7 +12,6 @@
     flex-direction: column;
 
     .content {
-      padding: var(--space-lg);
       height: calc(100vh - 50px);
     }
   }

@@ -17,12 +17,6 @@
   color: var(--color-text);
   -webkit-user-select: none;
   user-select: none;
-  max-width: 100%;
-  min-width: 50%;
-
-  @media (min-width: 640px) {
-    max-width: 50%;
-  }
 
   &:hover {
     background-color: var(--bg-hover);

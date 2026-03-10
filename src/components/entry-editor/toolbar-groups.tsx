@@ -74,7 +74,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editorState.isHeading1 ? styles.isActive : ''}
       >
-        <Heading1 size={16} />
+        <Heading1 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="h2"
@@ -83,7 +83,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editorState.isHeading2 ? styles.isActive : ''}
       >
-        <Heading2 size={16} />
+        <Heading2 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="h3"
@@ -92,7 +92,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         className={editorState.isHeading3 ? styles.isActive : ''}
       >
-        <Heading3 size={16} />
+        <Heading3 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="h4"
@@ -101,7 +101,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
         className={`${editorState.isHeading4 ? styles.isActive : ''} ${styles.hideOnMobile}`}
       >
-        <Heading4 size={16} />
+        <Heading4 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="h5"
@@ -110,7 +110,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
         className={`${editorState.isHeading5 ? styles.isActive : ''} ${styles.hideOnMobile}`}
       >
-        <Heading5 size={16} />
+        <Heading5 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="h6"
@@ -119,7 +119,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
         className={`${editorState.isHeading6 ? styles.isActive : ''} ${styles.hideOnMobile}`}
       >
-        <Heading6 size={16} />
+        <Heading6 size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="paragraph"
@@ -128,7 +128,7 @@ export function HeadingsGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={editorState.isParagraph ? styles.isActive : ''}
       >
-        <Pilcrow size={16} />
+        <Pilcrow size={18} />
       </ToolbarButton>
     </Toolbar.Group>
   );
@@ -145,7 +145,7 @@ export function TextFormattingGroup({ editor, editorState }: GroupProps) {
         disabled={!editorState.canBold}
         className={editorState.isBold ? styles.isActive : ''}
       >
-        <Bold size={16} />
+        <Bold size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="italic"
@@ -155,7 +155,7 @@ export function TextFormattingGroup({ editor, editorState }: GroupProps) {
         disabled={!editorState.canItalic}
         className={editorState.isItalic ? styles.isActive : ''}
       >
-        <Italic size={16} />
+        <Italic size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="strike"
@@ -165,7 +165,7 @@ export function TextFormattingGroup({ editor, editorState }: GroupProps) {
         disabled={!editorState.canStrike}
         className={editorState.isStrike ? styles.isActive : ''}
       >
-        <Strikethrough size={16} />
+        <Strikethrough size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="code"
@@ -175,7 +175,7 @@ export function TextFormattingGroup({ editor, editorState }: GroupProps) {
         disabled={!editorState.canCode}
         className={editorState.isCode ? styles.isActive : ''}
       >
-        <Code size={16} />
+        <Code size={18} />
       </ToolbarButton>
     </Toolbar.Group>
   );
@@ -196,7 +196,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editorState.isBulletList ? styles.isActive : ''}
       >
-        <List size={16} />
+        <List size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="orderedList"
@@ -205,7 +205,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editorState.isOrderedList ? styles.isActive : ''}
       >
-        <ListOrdered size={16} />
+        <ListOrdered size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="taskList"
@@ -214,7 +214,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         onClick={() => editor.chain().focus().toggleTaskList().run()}
         className={editorState.isTaskList ? styles.isActive : ''}
       >
-        <ListTodo size={16} />
+        <ListTodo size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="blockquote"
@@ -223,7 +223,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={editorState.isBlockquote ? styles.isActive : ''}
       >
-        <MessageSquareQuote size={16} />
+        <MessageSquareQuote size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="horizontalRule"
@@ -231,7 +231,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         tooltip="Horizontal rule"
         onClick={() => editor.chain().focus().setHorizontalRule().run()}
       >
-        <Minus size={16} />
+        <Minus size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="image"
@@ -240,7 +240,7 @@ export function ListsBlocksGroup({ editor, editorState, isUploading, triggerUplo
         onClick={triggerUpload}
         disabled={isUploading}
       >
-        {isUploading ? <Loader2 size={16} className={styles.spinning} /> : <ImagePlus size={16} />}
+        {isUploading ? <Loader2 size={18} className={styles.spinning} /> : <ImagePlus size={18} />}
       </ToolbarButton>
     </Toolbar.Group>
   );
@@ -255,7 +255,7 @@ export function AlignmentGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().setTextAlign('left').run()}
         className={editorState.isLeft ? styles.isActive : ''}
       >
-        <TextAlignStart size={16} />
+        <TextAlignStart size={18} />
       </ToolbarButton>
       <ToolbarButton
         aria-label="Align center"
@@ -263,7 +263,7 @@ export function AlignmentGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().setTextAlign('center').run()}
         className={editorState.isCenter ? styles.isActive : ''}
       >
-        <TextAlignCenter size={16} />
+        <TextAlignCenter size={18} />
       </ToolbarButton>
       <ToolbarButton
         aria-label="Align right"
@@ -271,7 +271,7 @@ export function AlignmentGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().setTextAlign('right').run()}
         className={editorState.isRight ? styles.isActive : ''}
       >
-        <TextAlignEnd size={16} />
+        <TextAlignEnd size={18} />
       </ToolbarButton>
     </Toolbar.Group>
   );
@@ -286,7 +286,7 @@ export function ClearGroup({ editor }: { editor: Editor }) {
         tooltip="Clear formatting"
         onClick={() => editor.chain().focus().unsetAllMarks().run()}
       >
-        <RemoveFormatting size={16} />
+        <RemoveFormatting size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="clearNodes"
@@ -294,7 +294,7 @@ export function ClearGroup({ editor }: { editor: Editor }) {
         tooltip="Clear blocks"
         onClick={() => editor.chain().focus().clearNodes().run()}
       >
-        <Eraser size={16} />
+        <Eraser size={18} />
       </ToolbarButton>
     </Toolbar.Group>
   );
@@ -310,7 +310,7 @@ export function UndoRedoGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editorState.canUndo}
       >
-        <Undo size={16} />
+        <Undo size={18} />
       </ToolbarButton>
       <ToolbarButton
         value="redo"
@@ -319,7 +319,7 @@ export function UndoRedoGroup({ editor, editorState }: GroupProps) {
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editorState.canRedo}
       >
-        <Redo size={16} />
+        <Redo size={18} />
       </ToolbarButton>
     </Toolbar.Group>
   );

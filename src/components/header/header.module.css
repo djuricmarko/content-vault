@@ -4,7 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 var(--space-lg);
+  gap: var(--space-lg);
 
   .new {
     height: 28px;
@@ -14,7 +15,9 @@
     gap: var(--space-sm);
   }
 
-  input {
-    height: 28px;
+  .buttons {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
   }
 }
