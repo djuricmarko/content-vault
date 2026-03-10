@@ -1,21 +1,21 @@
 'use client';
 
-import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Ellipsis, LayoutDashboard, Trash } from "lucide-react";
 import { DynamicIcon, type IconName } from "lucide-react/dynamic";
+import { Menu } from "@base-ui/react/menu";
 import { Category } from "@/lib/drizzle/schema";
 import { AddCategory } from "@/components/add-category";
 import { useSidebar } from "./sidebar-context";
-import styles from "./sidebar.module.css";
-import { Menu } from "@base-ui/react/menu";
 import { DeleteCategoryDialog } from "@/components/delete-category-dialog";
-import { useState } from "react";
+import styles from "./sidebar.module.css";
 
 export function SidebarItems({ items }: { items: Category[] }) {
   const { isCollapsed } = useSidebar();
+  const { id } = useParams<{ id: string }>()
   const pathname = usePathname();
-  const id = pathname.split('/')[3];
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   return (
@@ -45,7 +45,7 @@ export function SidebarItems({ items }: { items: Category[] }) {
                 />
                 {!isCollapsed && <span>{item.name}</span>}
               </div>
-              {!isCollapsed && (
+              {!isCollapsed && id && (
                 <Menu.Root>
                   <Menu.Trigger className={styles.options} aria-label="Category options">
                     <Ellipsis />

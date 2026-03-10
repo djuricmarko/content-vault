@@ -3,7 +3,7 @@
   height: 100dvh;
   display: flex;
   overflow: hidden;
-  background-color: var(--color-bg-panel);
+  background-color: var(--color-bg);
 
   .main {
     width: 100%;

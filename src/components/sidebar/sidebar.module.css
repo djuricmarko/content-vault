@@ -28,12 +28,22 @@
       padding: 0 9px;
     }
 
-    .user {
+    .footer {
+      padding: 0 var(--space-md);
+    }
+
+    .collapseButton {
       display: none;
     }
 
-    .footer {
-      padding: 0 var(--space-md);
+    &:hover {
+      .collapseButton {
+        display: flex;
+      }
+
+      .logo {
+        display: none;
+      }
     }
   }
 
@@ -60,7 +70,6 @@
       }
 
       .collapseButton {
-        display: flex;
         align-items: center;
         cursor: pointer;
         background-color: transparent;

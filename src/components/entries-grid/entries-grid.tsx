@@ -1,19 +1,12 @@
 import Link from "next/link";
-import { Plus } from "lucide-react";
 import { formatDistanceToNow } from "@/utils/time";
 import { Entry } from "@/lib/drizzle/schema";
 import { RenderHtml } from "./render-html";
 import styles from './entries-grid.module.css';
 
-export function EntriesGrid({ items, id }: { items: Entry[], id?: string }) {
+export function EntriesGrid({ items }: { items: Entry[] }) {
   return (
     <div className={styles.container}>
-      <Link href={id ? `/dashboard/category/${id}/add` : "/dashboard/add"} aria-label="Create new entry">
-        <div className={styles.new}>
-          <Plus size={25} />
-          <p>Create new entry</p>
-        </div>
-      </Link>
       {items.map((item) => (
         <Link href={`/dashboard/entry/${item.id}`} key={item.id}>
           <div className={styles.entry}>
