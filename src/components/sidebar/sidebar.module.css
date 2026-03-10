@@ -16,7 +16,7 @@
   &.collapsed {
     width: var(--sidebar-width-collapsed);
 
-    li, .heading > .headingContent, .allItems {
+    .categoryLabel, .heading > .headingContent, .allItems {
       justify-content: center;
     }
 
@@ -130,34 +130,60 @@
       > a > li {
         display: flex;
         align-items: center;
-        gap: var(--space-sm);
+        justify-content: space-between;
         height: var(--space-xl);
         padding-left: var(--space-md);
         padding-right: var(--space-md);
         border-radius: var(--radius-sm);
         cursor: pointer;
-        min-width: 0;
 
-        > svg {
-          min-width: 18px;
+        > .categoryLabel {
+          display: flex;
+          align-items: center;
+          min-width: 0;
+          gap: var(--space-sm);
+
+          > svg {
+            min-width: 18px;
+          }
+
+          > span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
         }
 
-        > span {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
 
         &:hover {
           background-color: var(--bg-hover);
           color: var(--color-text);
+
+          .options {
+            display: flex;
+          }
         }
 
         &.activeItem {
           background-color: var(--color-bg);
           border: 1px solid var(--border-primary);
+
+          .options {
+            display: flex;
+          }
         }
       }
+    }
+
+    .options {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      color: var(--color-text);
+      align-items: center;
+      justify-content: center;
+      display: none;
     }
   }
 
