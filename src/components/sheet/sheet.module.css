@@ -14,7 +14,7 @@
   width: var(--sidebar-width);
   max-width: 80vw;
   background-color: var(--color-bg-panel);
-  border-right: 1px solid var(--border-secondary);
+  border-right: 1px solid var(--border-primary);
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
@@ -22,15 +22,6 @@
 
   &:focus {
     outline: none;
-  }
-}
-
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

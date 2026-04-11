@@ -1,26 +1,14 @@
 .container {
   display: grid;
-  grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: var(--space-lg);
   gap: var(--space-md);
-  counter-reset: grid-items;
   width: 100%;
   overflow-y: auto;
 
-  .new {
-    height: 300px;
-    border-radius: var(--radius-md);
-    border: var(--border-secondary) 2px dotted;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
   .entry {
     height: 300px;
-    border: var(--border-secondary) 1px solid;
+    border: var(--border-primary) 1px solid;
     border-radius: var(--radius-sm);
     padding: var(--space-md);
     gap: var(--space-md);

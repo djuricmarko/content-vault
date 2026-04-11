@@ -7,7 +7,7 @@ import { CloseButton } from "@/components/close-button";
 import styles from './dialog.module.css';
 
 interface Props {
-  trigger: string,
+  trigger?: string,
   icon: IconName,
   title: string,
   description: string,

@@ -1,22 +1,23 @@
 import { ReactNode, Suspense } from "react";
 import { Sidebar } from "@/components/sidebar";
 import { SidebarSkeleton } from "@/components/sidebar-skeleton";
-import { MobileNavServer } from "@/components/mobile-nav";
+import { Header } from "@/components/header";
 import styles from "./page.module.css";
 
-export default function DashboardLayout({ children }: { children: ReactNode }) {
+interface Props {
+  children: ReactNode;
+  headerAction: ReactNode;
+}
+
+export default function DashboardLayout({ children, headerAction }: Props) {
   return (
     <div className={styles.layout}>
       <Suspense fallback={<SidebarSkeleton />}>
         <Sidebar />
       </Suspense>
       <main className={styles.main}>
-        <div className={styles.mobileHeader}>
-          <Suspense fallback={null}>
-            <MobileNavServer />
-          </Suspense>
-        </div>
-        <div className={styles.wrapper}>
+        <Header>{headerAction}</Header>
+        <div className={styles.content}>
           {children}
         </div>
       </main>

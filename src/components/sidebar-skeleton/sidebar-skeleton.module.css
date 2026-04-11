@@ -1,58 +1,38 @@
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.headingContainer {
+.headingLink {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  width: fit-content;
+  gap: var(--space-md);
 
-  .headingIcon,
-  .headingText {
-    border-radius: var(--radius-sm);
-    background-color: var(--bg-hover);
-    background-size: 200% 100%;
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .headingIcon {
-    width: var(--space-2xl);
-    height: var(--space-2xl);
-  }
-
-  .headingText {
-    width: 7rem;
-    height: var(--space-xl);
+  > span {
+    font-size: var(--text-sm);
+    white-space: nowrap;
   }
 }
 
 .allItemsRow {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   height: var(--space-xl);
-  padding-left: var(--space-sm);
-  border-radius: var(--radius-md);
+  margin-top: var(--space-lg);
+  padding-left: var(--space-md);
+  border-radius: var(--radius-sm);
 
   .allItemsIcon,
   .allItemsLabel {
     border-radius: var(--radius-sm);
     background-color: var(--bg-hover);
-    background-size: 200% 100%;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .allItemsIcon {
-    width: var(--space-md);
-    height: var(--space-md);
+    width: 18px;
+    height: 18px;
   }
 
   .allItemsLabel {
     width: 5rem;
-    height: var(--space-md);
+    height: 18px;
   }
 }
 
@@ -61,7 +41,6 @@
   height: var(--space-md);
   border-radius: var(--radius-sm);
   background-color: var(--bg-hover);
-  background-size: 200% 100%;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -69,35 +48,25 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  height: var(--space-xl);
-  padding-left: var(--space-sm);
-  border-radius: var(--radius-md);
+  height: 28px;
+  padding-left: var(--space-md);
+  border-radius: var(--radius-sm);
 
   .categoryIcon,
   .categoryName {
     border-radius: var(--radius-sm);
     background-color: var(--bg-hover);
-    background-size: 200% 100%;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .categoryIcon {
-    width: var(--space-md);
-    height: var(--space-md);
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
   }
 
   .categoryName {
     flex: 1;
-    height: var(--space-md);
+    height: 18px;
   }
-}
-
-.footerAvatar {
-  width: 100%;
-  height: var(--space-3xl);
-  border-radius: var(--radius-md);
-  background-color: var(--bg-hover);
-  background-size: 200% 100%;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

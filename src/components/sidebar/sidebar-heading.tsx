@@ -1,9 +1,10 @@
 'use client';
 
 import Link from "next/link";
-import { PanelRightClose, PanelRightOpen } from "lucide-react";
+import { PanelRight, PanelLeft } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 import styles from "./sidebar.module.css";
+import { Logo } from "@/components/logo";
 
 export function SidebarHeading() {
   const { isCollapsed, toggleCollapsed } = useSidebar();
@@ -11,17 +12,16 @@ export function SidebarHeading() {
   return (
     <div className={styles.heading}>
       <div className={styles.headingContent}>
-        {!isCollapsed && (
-          <Link href="/dashboard">
-            <span>Content Vault</span>
-          </Link>
-        )}
+        <Link href="/dashboard" className={styles.logo}>
+          <Logo />
+          {!isCollapsed && <span>Content Vault</span>}
+        </Link>
         <button
           className={styles.collapseButton}
           onClick={toggleCollapsed}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
-          {isCollapsed ? <PanelRightClose size={22} /> : <PanelRightOpen size={22} />}
+          {isCollapsed ? <PanelRight size={18} /> : <PanelLeft size={18} />}
         </button>
       </div>
     </div>

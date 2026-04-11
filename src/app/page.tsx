@@ -1,10 +1,11 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { Check, Vault } from 'lucide-react';
 import { createClient } from "@/lib/supabase/server";
 import { GoogleLogin, MagicLinkForm } from "@/components/login-form";
 import styles from './page.module.css';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Content Vault — Secure & Organized Content Storage",
   description: "Create your Content Vault account. Unified storage for images and rich text with smart categorization and enhanced privacy.",
 };
